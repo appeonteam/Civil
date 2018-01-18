@@ -3,6 +3,7 @@ Save Format v3.0(19990112)
 @end;
 @begin Targets
  0 "civil.pbt";
+ 1 "hikhinj.pbt";
 @end;
-DefaultTarget "civil.pbt";
-DefaultRemoteTarget "civil.pbt";
+DefaultTarget "hikhinj.pbt";
+DefaultRemoteTarget "hikhinj.pbt";

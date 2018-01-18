@@ -1,0 +1,41 @@
+﻿$PBExportHeader$dw_company_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=608 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=company_code dbname="ut_company.company_code" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=company_name dbname="ut_company.company_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=address1 dbname="ut_company.address1" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=address2 dbname="ut_company.address2" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=city dbname="ut_company.city" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=state dbname="ut_company.state" )
+ column=(type=char(18) update=yes updatewhereclause=yes name=zip_code dbname="ut_company.zip_code" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=work_phone dbname="ut_company.work_phone" )
+ retrieve="  SELECT ut_company.company_code,   
+         ut_company.company_name,   
+         ut_company.address1,   
+         ut_company.address2,   
+         ut_company.city,   
+         ut_company.state,   
+         ut_company.zip_code,   
+         ut_company.work_phone  
+    FROM ut_company   
+" update="ut_company" updatewhere=1 updatekeyinplace=no )
+text(band=detail alignment="1" text="Company Code:"border="0" color="0" x="18" y="26" height="58" width="457"  name=company_code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="490" y="26" height="61" width="322" format="[general]"  name=company_code edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Company Name:"border="0" color="0" x="4" y="112" height="58" width="472"  name=company_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="490" y="112" height="61" width="1492" format="[general]"  name=company_name edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Address1:"border="0" color="0" x="183" y="195" height="58" width="293"  name=address1_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Address2:"border="0" color="0" x="183" y="278" height="58" width="293"  name=address2_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="490" y="195" height="61" width="1968" format="[general]"  name=address1 edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="490" y="278" height="61" width="1968" format="[general]"  name=address2 edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="City:"border="0" color="0" x="347" y="368" height="58" width="128"  name=city_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="490" y="368" height="61" width="1057" format="[general]"  name=city edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Zip Code:"border="0" color="0" x="205" y="454" height="58" width="271"  name=zip_code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="490" y="454" height="61" width="347" format="[general]"  name=zip_code edit.limit=18 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="State:"border="0" color="0" x="1752" y="368" height="58" width="172"  name=state_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="1938" y="368" height="61" width="146" format="[general]"  name=state edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Work Phone:"border="0" color="0" x="1558" y="454" height="58" width="366"  name=work_phone_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="1938" y="454" height="61" width="614" format="[general]"  name=work_phone editmask.mask="(###) ###-####" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

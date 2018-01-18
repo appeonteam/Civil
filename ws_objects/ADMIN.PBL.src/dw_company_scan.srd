@@ -1,0 +1,18 @@
+﻿$PBExportHeader$dw_company_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=company_code dbname="ut_company.company_code" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=company_name dbname="ut_company.company_name" )
+ retrieve="  SELECT ut_company.company_code,   
+         ut_company.company_name  
+    FROM ut_company   
+" update="ut_company" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Company Code"border="0" color="0" x="139" y="3" height="58" width="443"  name=company_code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="139" y="4" height="74" width="413" format="[general]"  name=company_code edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Company Name"border="0" color="0" x="600" y="3" height="58" width="457"  name=company_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="600" y="4" height="74" width="1766" format="[general]"  name=company_name edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

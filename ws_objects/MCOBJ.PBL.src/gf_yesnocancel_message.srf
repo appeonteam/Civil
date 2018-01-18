@@ -1,0 +1,22 @@
+﻿$PBExportHeader$gf_yesnocancel_message.srf
+global type gf_yesnocancel_message from function_object
+end type
+
+forward prototypes
+global function integer gf_yesnocancel_message (string as_header, string as_reason)
+end prototypes
+
+global function integer gf_yesnocancel_message (string as_header, string as_reason);//****************************************************************************
+//* FUNCTION: gf_yesnocancel_Message
+//* AUTHOR: Dan Roland
+//* DATE: 10/17/95
+//* DESCRIPTION: This function asks the user if they wish to continue
+//* ARGUMENTS: as_header - messagebox header
+//* 				as_Reason - messagebox text
+//* RETURNS: 1 = Yes
+//*          2 = No
+//****************************************************************************
+
+Return(MessageBox(as_Header, as_Reason, Question!, YesNoCancel!, 2))
+end function
+

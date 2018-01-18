@@ -1,0 +1,82 @@
+﻿$PBExportHeader$dw_receipt_posting_feetypetotal_rpt.srd
+$PBExportComments$Rec Post Rpt-Total By Fee Type
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Rec Post Rpt-Total By Fee Type" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=461 color="536870912" )
+summary(height=355 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="553648127" )
+table(column=(type=char(1) updatewhereclause=yes name=cb_type dbname="sh_docket_fee_paid.cb_type" )
+ column=(type=datetime updatewhereclause=yes name=date_received dbname="sh_docket_fee_paid.date_received" )
+ column=(type=long updatewhereclause=yes name=cbrec_year dbname="sh_docket_fee_paid.cbrec_year" )
+ column=(type=long updatewhereclause=yes name=cbrec_number dbname="sh_docket_fee_paid.cbrec_number" )
+ column=(type=long updatewhereclause=yes name=docket_year dbname="sh_docket_fee_paid.docket_year" )
+ column=(type=long updatewhereclause=yes name=docket_number dbname="sh_docket_fee_paid.docket_number" )
+ column=(type=long updatewhereclause=yes name=fee_number dbname="sh_docket_fee_paid.fee_number" )
+ column=(type=decimal(2) updatewhereclause=yes name=amount_received dbname="sh_docket_fee_paid.amount_received" )
+ column=(type=char(10) updatewhereclause=yes name=sh_docket_fee_fee_type dbname="sh_docket_fee.fee_type" )
+ column=(type=char(75) updatewhereclause=yes name=ut_codes_description dbname="ut_codes.description" )
+ column=(type=char(1) updatewhereclause=yes name=ut_codes_disbursed_type dbname="ut_codes.disbursed_type" )
+ retrieve="  SELECT sh_docket_fee_paid.cb_type,   
+         sh_docket_fee_paid.date_received,   
+         sh_docket_fee_paid.cbrec_year,   
+         sh_docket_fee_paid.cbrec_number,   
+         sh_docket_fee_paid.docket_year,   
+         sh_docket_fee_paid.docket_number,   
+         sh_docket_fee_paid.fee_number,   
+         sh_docket_fee_paid.amount_received,   
+         sh_docket_fee.fee_type,   
+         ut_codes.description,   
+         ut_codes.disbursed_type  
+    FROM sh_docket_fee_paid,   
+         sh_docket_fee,   
+         ut_codes,   
+         sh_docket_receipt  
+   WHERE ( sh_docket_fee_paid.cb_type = sh_docket_fee.cb_type ) and  
+         ( sh_docket_fee_paid.docket_number = sh_docket_fee.docket_number ) and  
+         ( sh_docket_fee_paid.docket_year = sh_docket_fee.docket_year ) and  
+         ( sh_docket_fee_paid.fee_number = sh_docket_fee.fee_number ) and  
+         ( sh_docket_fee.fee_type = ut_codes.code ) and  
+         ( sh_docket_fee_paid.cb_type = sh_docket_receipt.cb_type ) and  
+         ( sh_docket_fee_paid.cbrec_number = sh_docket_receipt.cbrec_number ) and  
+         ( sh_docket_fee_paid.cbrec_year = sh_docket_receipt.cbrec_year ) and  
+         ( ( ut_codes.code_type = :code_fee ) ) AND  
+         sh_docket_receipt.post_date >= :beg_date AND  
+         sh_docket_receipt.post_date <= :end_date   
+ORDER BY ut_codes.description ASC,   
+         sh_docket_fee_paid.date_received ASC,   
+         sh_docket_fee_paid.cbrec_year ASC,   
+         sh_docket_fee_paid.cbrec_number ASC   
+" arguments=(("beg_date", date),("end_date", date),("code_fee", string)) )
+group(level=1 header.height=0 trailer.height=80 by=("ut_codes_description" ) header.color="536870912" trailer.color="553648127" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="3851" y="90" height="61" width="688" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="~"Post Date:  ~" + string( beg_date ,'mm/dd/yyyy') + ~" - ~" + string( end_date ,'mm/dd/yyyy')"border="0" color="0" x="739" y="224" height="61" width="3105" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amt Received"border="0" color="0" x="3207" y="400" height="58" width="406"  name=sh_docket_case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Fee Type"border="0" color="0" x="976" y="400" height="58" width="289"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Disb Type"border="0" color="0" x="2823" y="400" height="58" width="307"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="3105"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Receipt Posting Report - Totals By Fee Type"border="0" color="0" x="739" y="157" height="61" width="3105"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1276" y="3" height="61" width="1851" format="[general]"  name=ut_codes_description edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="976" y="3" height="61" width="289" format="[general]"  name=sh_docket_fee_fee_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="3207" y="3" height="61" width="406" format="#,##0.00"  name=amount_received edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="3650" y="3" height="61" width="73" format="[general]"  name=ut_codes_disbursed_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If( ut_codes_disbursed_type = 'O', amount_received , 0 )"border="0" color="0" x="3760" y="3" height="61" width="150" format="#,##0.00"  name=o_value  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If( ut_codes_disbursed_type = 'S', amount_received , 0 )"border="0" color="0" x="3924" y="3" height="61" width="150" format="#,##0.00"  name=s_value  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If( ut_codes_disbursed_type = 'T', amount_received , 0 )"border="0" color="0" x="4089" y="3" height="61" width="150" format="#,##0.00"  name=t_value  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If( ut_codes_disbursed_type = 'D', amount_received , 0 )"border="0" color="0" x="4253" y="3" height="61" width="150" format="#,##0.00"  name=d_value  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( t_value for all)"border="0" color="0" x="3207" y="13" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( s_value for all)"border="0" color="0" x="3207" y="80" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="COUNTY (T) TOTAL:"border="0" color="0" x="2447" y="13" height="61" width="684"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="OTHER (O) TOTAL:"border="0" color="0" x="2447" y="214" height="61" width="684"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( o_value for all)"border="0" color="0" x="3207" y="214" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="GRAND TOTAL:"border="0" color="0" x="2447" y="291" height="61" width="684"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(amount_received for all)"border="0" color="0" x="3207" y="291" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( d_value for all)"border="0" color="0" x="3207" y="147" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="STATE DPS (S) TOTAL:"border="0" color="0" x="2447" y="80" height="61" width="684"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="STATE DOT (D) TOTAL:"border="0" color="0" x="2447" y="147" height="61" width="684"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(amount_received for group 1)"border="0" color="0" x="3207" y="9" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="trim( sh_docket_fee_fee_type )"border="0" color="0" x="976" y="9" height="61" width="179" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="trim( ut_codes_description )"border="0" color="0" x="1163" y="9" height="61" width="1642" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=11 alignment="2" tabsequence=32766 border="0" color="0" x="2823" y="9" height="61" width="307" format="[general]" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

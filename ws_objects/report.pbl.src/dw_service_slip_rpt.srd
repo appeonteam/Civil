@@ -1,0 +1,146 @@
+﻿$PBExportHeader$dw_service_slip_rpt.srd
+$PBExportComments$Service Slip
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Service Slip" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=131 color="536870912" )
+summary(height=0 color="553648127" )
+footer(height=2531 color="553648127" )
+detail(height=266 color="553648127"  height.autosize=yes)
+table(column=(type=long updatewhereclause=yes name=sh_docket_name_docket_year dbname="sh_docket_name.docket_year" )
+ column=(type=long updatewhereclause=yes name=sh_docket_name_docket_number dbname="sh_docket_name.docket_number" )
+ column=(type=long updatewhereclause=yes name=sh_docket_name_party_number dbname="sh_docket_name.party_number" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_name_involvement dbname="sh_docket_name.involvement" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_name_business dbname="sh_docket_name.business" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_name_name_addr dbname="sh_docket_name.name_addr" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_name_name_employ dbname="sh_docket_name.name_employ" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_case_number dbname="sh_docket.case_number" )
+ column=(type=char(5000) updatewhereclause=yes name=sh_docket_process_description dbname="sh_docket.process_description" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_last_name dbname="sh_docket_name.last_name" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_first_name dbname="sh_docket_name.first_name" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_middle_name dbname="sh_docket_name.middle_name" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_suffix dbname="sh_docket_name.suffix" )
+ column=(type=char(400) updatewhereclause=yes name=sh_docket_name_name_remark dbname="sh_docket_name.name_remark" )
+ retrieve="  SELECT sh_docket_name.docket_year,   
+         sh_docket_name.docket_number,   
+         sh_docket_name.party_number,   
+         sh_docket_name.involvement,   
+         sh_docket_name.business,   
+         sh_docket_name.name_addr,   
+         sh_docket_name.name_employ,   
+         sh_docket.case_number,   
+         sh_docket.process_description,   
+         sh_docket_name.last_name,   
+         sh_docket_name.first_name,   
+         sh_docket_name.middle_name,   
+         sh_docket_name.suffix,   
+         sh_docket_name.name_remark  
+    FROM sh_docket_name,   
+         sh_docket  
+   WHERE ( sh_docket_name.docket_year = sh_docket.docket_year ) and  
+         ( sh_docket_name.docket_number = sh_docket.docket_number ) and  
+         ( sh_docket_name.docket_year = :dock_year ) AND  
+         ( sh_docket_name.docket_number = :dock_num ) AND  
+         sh_docket_name.served = :print_name    
+" arguments=(("dock_year", number),("dock_num", number),("print_name", string)) )
+compute(band=header alignment="2" expression="~"SERVICE INFORMATION  -  ~" + STRING( sh_docket_name_docket_year ) + ~"-~" + STRING( sh_docket_name_docket_number )"border="0" color="0" x="59" y="38" height="74" width="3438" format="[general]"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="59" y1="3" x2="3496" y2="3" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="If( sh_docket_name_business = 'Y',
+trim( trim( sh_docket_name_last_name ) + ~" ~" + trim( sh_docket_name_first_name ) + ~" ~" + trim( sh_docket_name_middle_name ) + ~" ~" + trim( sh_docket_name_suffix ) ),
+trim( trim( sh_docket_name_first_name ) + ~" ~" + trim( sh_docket_name_middle_name ) + ~" ~" + trim( sh_docket_name_last_name ) + ~" ~" + trim( sh_docket_name_suffix ) ) )"border="0" color="0" x="278" y="13" height="122" width="3204" format="[general]"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="If( trim(sh_docket_name_name_employ) = ~"~" or IsNull( sh_docket_name_name_employ ),
+trim( sh_docket_name_name_addr ),
+trim( sh_docket_name_name_addr ) + ~"          EMP:   ~" + trim( sh_docket_name_name_employ ) )"border="0" color="0" x="278" y="141" height="58" width="3204" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="REM:"border="0" color="0" x="26" y="202" height="58" width="223"  name=sh_docket_name_name_remark_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="278" y="202" height="58" width="3204" format="[general]"  name=sh_docket_name_name_remark height.autosize=yes edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="NAME:"border="0" color="0" x="26" y="13" height="58" width="223"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="ADDR:"border="0" color="0" x="26" y="141" height="58" width="223"  name=sh_docket_name_name_addr_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="59" y1="0" x2="3496" y2="0" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=footer x1="59" y1="377" x2="3496" y2="377" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="2" text="OFFICER'S RETURN INFORMATION"border="0" color="0" x="59" y="387" height="74" width="3438"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=footer alignment="0" text="(1) PERSONAL SERVICE"border="0" color="0" x="59" y="467" height="64" width="944"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="NAME:"border="0" color="0" x="197" y="553" height="64" width="216"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="428" y1="617" x2="1807" y2="617" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="NAME:"border="0" color="0" x="1872" y="553" height="64" width="216"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2103" y1="617" x2="3482" y2="617" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="197" y="656" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="333" y1="720" x2="1807" y2="720" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="1872" y="656" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2008" y1="720" x2="3482" y2="720" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="197" y="758" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="421" y1="822" x2="987" y2="822" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="1053" y="758" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="1258" y1="822" x2="1708" y2="822" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="1872" y="758" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2096" y1="822" x2="2662" y2="822" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="2728" y="758" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2933" y1="822" x2="3383" y2="822" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="NAME:"border="0" color="0" x="197" y="893" height="64" width="216"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="428" y1="957" x2="1807" y2="957" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="NAME:"border="0" color="0" x="1872" y="893" height="64" width="216"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2103" y1="957" x2="3482" y2="957" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="197" y="995" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="333" y1="1059" x2="1807" y2="1059" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="1872" y="995" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2008" y1="1059" x2="3482" y2="1059" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="197" y="1097" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="421" y1="1161" x2="987" y2="1161" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="1053" y="1097" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="1258" y1="1161" x2="1708" y2="1161" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="1872" y="1097" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2096" y1="1161" x2="2662" y2="1161" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="2728" y="1097" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2933" y1="1161" x2="3383" y2="1161" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="(2) SUBSTITUTE SERVICE"border="0" color="0" x="59" y="1197" height="64" width="944"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="SUBS. NAME:"border="0" color="0" x="197" y="1283" height="64" width="417"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="625" y1="1347" x2="1807" y2="1347" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="SUBS. NAME:"border="0" color="0" x="1872" y="1283" height="64" width="417"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2300" y1="1347" x2="3482" y2="1347" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="FOR:"border="0" color="0" x="197" y="1385" height="64" width="176"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="388" y1="1449" x2="1807" y2="1449" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="FOR:"border="0" color="0" x="1872" y="1385" height="64" width="176"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2063" y1="1449" x2="3482" y2="1449" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="197" y="1488" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="333" y1="1552" x2="1807" y2="1552" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="1872" y="1488" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2008" y1="1552" x2="3482" y2="1552" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="197" y="1590" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="421" y1="1654" x2="987" y2="1654" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="1053" y="1590" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="1258" y1="1654" x2="1708" y2="1654" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="1872" y="1590" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2096" y1="1654" x2="2662" y2="1654" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="2728" y="1590" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2933" y1="1654" x2="3383" y2="1654" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="(3) CORPORATION, PARTNERSHIP OR ASSOCIATION"border="0" color="0" x="59" y="1689" height="64" width="1591"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="0" text="TITLE:"border="0" color="0" x="197" y="1776" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="421" y1="1840" x2="1807" y2="1840" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TITLE:"border="0" color="0" x="1872" y="1776" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2096" y1="1840" x2="3482" y2="1840" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="NAME:"border="0" color="0" x="197" y="1878" height="64" width="216"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="428" y1="1942" x2="1807" y2="1942" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="NAME:"border="0" color="0" x="1872" y="1878" height="64" width="216"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2103" y1="1942" x2="3482" y2="1942" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="197" y="1981" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="333" y1="2045" x2="1807" y2="2045" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="AT:"border="0" color="0" x="1872" y="1981" height="64" width="121"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2008" y1="2045" x2="3482" y2="2045" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="197" y="2083" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="421" y1="2147" x2="987" y2="2147" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="1053" y="2083" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="1258" y1="2147" x2="1708" y2="2147" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="DATE:"border="0" color="0" x="1872" y="2083" height="64" width="208"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2096" y1="2147" x2="2662" y2="2147" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="TIME:"border="0" color="0" x="2728" y="2083" height="64" width="190"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="2933" y1="2147" x2="3383" y2="2147" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="ATTEMPTED SERVICE:"border="0" color="0" x="59" y="2221" height="64" width="691"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="764" y1="2285" x2="3482" y2="2285" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="0" text="MILEAGE:"border="0" color="0" x="59" y="2381" height="64" width="315"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=footer x1="388" y1="2445" x2="1009" y2="2445" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=footer x1="1459" y1="2445" x2="3482" y2="2445" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=footer alignment="2" text="SHERIFF"border="0" color="0" x="1459" y="2454" height="64" width="1009"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="DEPUTY"border="0" color="0" x="2472" y="2454" height="64" width="1009"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="CASE #(S):"border="0" color="0" x="44" y="13" height="61" width="300"  name=sh_docket_case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="PAPER(S):"border="0" color="0" x="44" y="80" height="58" width="300"  name=sh_docket_process_description_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=footer id=8 alignment="0" tabsequence=32766 border="0" color="0" x="373" y="13" height="61" width="3109" format="[general]"  name=sh_docket_case_number edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=footer id=9 alignment="0" tabsequence=32766 border="0" color="0" x="373" y="83" height="285" width="3109" format="[general]"  name=sh_docket_process_description height.autosize=yes edit.limit=5000 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

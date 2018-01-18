@@ -1,0 +1,19 @@
+﻿$PBExportHeader$dw_assigned_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=6 color="536870912" )
+footer(height=3 color="536870912" )
+detail(height=323 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=ssan dbname="ut_assigned_permissions.ssan" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=code dbname="ut_assigned_permissions.code" )
+ retrieve="  SELECT ut_assigned_permissions.ssan,   
+         ut_assigned_permissions.code  
+    FROM ut_assigned_permissions  
+   WHERE ( ut_assigned_permissions.ssan = :empnum ) AND  
+         ( ut_assigned_permissions.code = :code )
+" update="ut_assigned_permissions" updatewhere=1 updatekeyinplace=no arguments=(("empnum", string),("code", number)) )
+text(band=detail alignment="1" text="Personnel:"border="0" color="0" x="88" y="35" height="58" width="311"  name=ssan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Permission:"border="0" color="0" x="62" y="166" height="58" width="336"  name=code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="413" y="163" height="61" width="1701" format=""  name=code dddw.name=dddw_permissions dddw.displaycolumn=full_description dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes dddw.showlist=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="413" y="35" height="64" width="1701" format="[general]"  name=ssan dddw.name=dddw_personnel dddw.displaycolumn=full_name dddw.datacolumn=ssan dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes dddw.showlist=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

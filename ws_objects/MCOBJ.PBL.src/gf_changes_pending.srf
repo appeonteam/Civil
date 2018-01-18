@@ -1,0 +1,11 @@
+﻿$PBExportHeader$gf_changes_pending.srf
+global type gf_changes_pending from function_object
+end type
+
+forward prototypes
+global function integer gf_changes_pending (ref datawindow dw_check)
+end prototypes
+
+global function integer gf_changes_pending (ref datawindow dw_check);Return(1)
+end function
+

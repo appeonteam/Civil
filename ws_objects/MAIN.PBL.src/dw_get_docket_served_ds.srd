@@ -1,0 +1,140 @@
+﻿$PBExportHeader$dw_get_docket_served_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_serve.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_serve.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=served_number dbname="sh_docket_serve.served_number" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_serve.last_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_serve.first_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=middle_name dbname="sh_docket_serve.middle_name" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=suffix dbname="sh_docket_serve.suffix" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=officer_name dbname="sh_docket_serve.officer_name" )
+ column=(type=datetime update=yes updatewhereclause=yes name=date_returned dbname="sh_docket_serve.date_returned" )
+ column=(type=datetime update=yes updatewhereclause=yes name=time_limit dbname="sh_docket_serve.time_limit" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=type_served dbname="sh_docket_serve.type_served" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=personal_place_served dbname="sh_docket_serve.personal_place_served" )
+ column=(type=datetime update=yes updatewhereclause=yes name=personal_date_served dbname="sh_docket_serve.personal_date_served" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=personal_time_served dbname="sh_docket_serve.personal_time_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=personal_am_pm dbname="sh_docket_serve.personal_am_pm" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=subs_served_on dbname="sh_docket_serve.subs_served_on" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=subs_place_served dbname="sh_docket_serve.subs_place_served" )
+ column=(type=datetime update=yes updatewhereclause=yes name=subs_date_served dbname="sh_docket_serve.subs_date_served" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=subs_time_served dbname="sh_docket_serve.subs_time_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=subs_am_pm dbname="sh_docket_serve.subs_am_pm" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=corp_served_on dbname="sh_docket_serve.corp_served_on" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=corp_position dbname="sh_docket_serve.corp_position" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=corp_place_served dbname="sh_docket_serve.corp_place_served" )
+ column=(type=datetime update=yes updatewhereclause=yes name=corp_date_served dbname="sh_docket_serve.corp_date_served" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=corp_time_served dbname="sh_docket_serve.corp_time_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=corp_am_pm dbname="sh_docket_serve.corp_am_pm" )
+ column=(type=char(500) update=yes updatewhereclause=yes name=other_served dbname="sh_docket_serve.other_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=diligent_search dbname="sh_docket_serve.diligent_search" )
+ column=(type=char(500) update=yes updatewhereclause=yes name=served_note dbname="sh_docket_serve.served_note" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=personal_military_time dbname="sh_docket_serve.personal_military_time" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=subs_military_time dbname="sh_docket_serve.subs_military_time" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=corp_military_time dbname="sh_docket_serve.corp_military_time" )
+ retrieve="  SELECT sh_docket_serve.docket_number,   
+         sh_docket_serve.docket_year,   
+         sh_docket_serve.served_number,   
+         sh_docket_serve.last_name,   
+         sh_docket_serve.first_name,   
+         sh_docket_serve.middle_name,   
+         sh_docket_serve.suffix,   
+         sh_docket_serve.officer_name,   
+         sh_docket_serve.date_returned,   
+         sh_docket_serve.time_limit,   
+         sh_docket_serve.type_served,   
+         sh_docket_serve.personal_place_served,   
+         sh_docket_serve.personal_date_served,   
+         sh_docket_serve.personal_time_served,   
+         sh_docket_serve.personal_am_pm,   
+         sh_docket_serve.subs_served_on,   
+         sh_docket_serve.subs_place_served,   
+         sh_docket_serve.subs_date_served,   
+         sh_docket_serve.subs_time_served,   
+         sh_docket_serve.subs_am_pm,   
+         sh_docket_serve.corp_served_on,   
+         sh_docket_serve.corp_position,   
+         sh_docket_serve.corp_place_served,   
+         sh_docket_serve.corp_date_served,   
+         sh_docket_serve.corp_time_served,   
+         sh_docket_serve.corp_am_pm,   
+         sh_docket_serve.other_served,   
+         sh_docket_serve.diligent_search,   
+         sh_docket_serve.served_note,   
+         sh_docket_serve.personal_military_time,   
+         sh_docket_serve.subs_military_time,   
+         sh_docket_serve.corp_military_time  
+    FROM sh_docket_serve  
+ORDER BY sh_docket_serve.docket_year ASC,   
+         sh_docket_serve.docket_number ASC   
+" update="sh_docket_serve" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Docket Number"border="0" color="0" x="4" y="3" height="64" width="413"  name=docket_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Docket Year"border="0" color="0" x="421" y="3" height="64" width="351"  name=docket_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Served Number"border="0" color="0" x="775" y="3" height="64" width="413"  name=served_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Name"border="0" color="0" x="1192" y="3" height="64" width="2370"  name=last_name_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="First Name"border="0" color="0" x="3566" y="3" height="64" width="1492"  name=first_name_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Middle Name"border="0" color="0" x="5061" y="3" height="64" width="1492"  name=middle_name_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Suffix"border="0" color="0" x="6557" y="3" height="64" width="179"  name=suffix_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Officer Name"border="0" color="0" x="6740" y="3" height="64" width="2370"  name=officer_name_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Date Returned"border="0" color="0" x="9114" y="3" height="64" width="644"  name=date_returned_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Time Limit"border="0" color="0" x="9761" y="3" height="64" width="644"  name=time_limit_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Type Served"border="0" color="0" x="10408" y="3" height="64" width="336"  name=type_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Personal Place Served"border="0" color="0" x="10748" y="3" height="64" width="2370"  name=personal_place_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Personal Date Served"border="0" color="0" x="13122" y="3" height="64" width="644"  name=personal_date_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Personal Time Served"border="0" color="0" x="13773" y="3" height="64" width="581"  name=personal_time_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Personal Am Pm"border="0" color="0" x="14362" y="3" height="64" width="446"  name=personal_am_pm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Subs Served On"border="0" color="0" x="14811" y="3" height="64" width="2370"  name=subs_served_on_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Subs Place Served"border="0" color="0" x="17185" y="3" height="64" width="2370"  name=subs_place_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Subs Date Served"border="0" color="0" x="19558" y="3" height="64" width="644"  name=subs_date_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Subs Time Served"border="0" color="0" x="20206" y="3" height="64" width="486"  name=subs_time_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Subs Am Pm"border="0" color="0" x="20696" y="3" height="64" width="347"  name=subs_am_pm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Served On"border="0" color="0" x="21047" y="3" height="64" width="2370"  name=corp_served_on_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Position"border="0" color="0" x="23420" y="3" height="64" width="2370"  name=corp_position_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Place Served"border="0" color="0" x="25794" y="3" height="64" width="2370"  name=corp_place_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Date Served"border="0" color="0" x="28167" y="3" height="64" width="647"  name=corp_date_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Time Served"border="0" color="0" x="28818" y="3" height="64" width="483"  name=corp_time_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Am Pm"border="0" color="0" x="29305" y="3" height="64" width="344"  name=corp_am_pm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Other Served"border="0" color="0" x="29652" y="3" height="64" width="3511"  name=other_served_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Diligent Search"border="0" color="0" x="33167" y="3" height="64" width="410"  name=diligent_search_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Served Note"border="0" color="0" x="33580" y="3" height="64" width="3511"  name=served_note_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Personal Military Time"border="0" color="0" x="37094" y="3" height="64" width="589"  name=personal_military_time_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Subs Military Time"border="0" color="0" x="37687" y="3" height="64" width="490"  name=subs_military_time_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Corp Military Time"border="0" color="0" x="38181" y="3" height="64" width="486"  name=corp_military_time_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="4" y="4" height="74" width="351" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="0" color="0" x="421" y="4" height="74" width="351" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="0" x="775" y="4" height="74" width="351" format="[general]"  name=served_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="1192" y="4" height="74" width="2370" format="[general]"  name=last_name edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="3566" y="4" height="74" width="1492" format="[general]"  name=first_name edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="0" x="5061" y="4" height="74" width="1492" format="[general]"  name=middle_name edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="0" x="6557" y="4" height="74" width="179" format="[general]"  name=suffix edit.limit=5 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="0" color="0" x="6740" y="4" height="74" width="2370" format="[general]"  name=officer_name edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="0" color="0" x="9114" y="4" height="74" width="644" format="[shortdate] [time]"  name=date_returned edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="0" color="0" x="9761" y="4" height="74" width="644" format="[shortdate] [time]"  name=time_limit edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="0" color="0" x="10408" y="4" height="74" width="59" format="[general]"  name=type_served edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="0" x="10748" y="4" height="74" width="2370" format="[general]"  name=personal_place_served edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="0" color="0" x="13122" y="4" height="74" width="644" format="[shortdate] [time]"  name=personal_date_served edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=140 border="0" color="0" x="13773" y="4" height="74" width="143" format="[general]"  name=personal_time_served edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=150 border="0" color="0" x="14362" y="4" height="74" width="59" format="[general]"  name=personal_am_pm edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=160 border="0" color="0" x="14811" y="4" height="74" width="2370" format="[general]"  name=subs_served_on edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=170 border="0" color="0" x="17185" y="4" height="74" width="2370" format="[general]"  name=subs_place_served edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=180 border="0" color="0" x="19558" y="4" height="74" width="644" format="[shortdate] [time]"  name=subs_date_served edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=190 border="0" color="0" x="20206" y="4" height="74" width="146" format="[general]"  name=subs_time_served edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=200 border="0" color="0" x="20696" y="4" height="74" width="59" format="[general]"  name=subs_am_pm edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=210 border="0" color="0" x="21047" y="4" height="74" width="2370" format="[general]"  name=corp_served_on edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=220 border="0" color="0" x="23420" y="4" height="74" width="2370" format="[general]"  name=corp_position edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=230 border="0" color="0" x="25794" y="4" height="74" width="2370" format="[general]"  name=corp_place_served edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=240 border="0" color="0" x="28167" y="4" height="74" width="647" format="[shortdate] [time]"  name=corp_date_served edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=250 border="0" color="0" x="28818" y="4" height="74" width="146" format="[general]"  name=corp_time_served edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=260 border="0" color="0" x="29305" y="4" height="74" width="59" format="[general]"  name=corp_am_pm edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=270 border="0" color="0" x="29652" y="4" height="74" width="3511" format="[general]"  name=other_served edit.limit=500 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=280 border="0" color="0" x="33167" y="4" height="74" width="59" format="[general]"  name=diligent_search edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=290 border="0" color="0" x="33580" y="4" height="74" width="3511" format="[general]"  name=served_note edit.limit=500 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=300 border="0" color="0" x="37094" y="4" height="74" width="146" format="[general]"  name=personal_military_time edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=310 border="0" color="0" x="37687" y="4" height="74" width="146" format="[general]"  name=subs_military_time edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=320 border="0" color="0" x="38181" y="4" height="74" width="146" format="[general]"  name=corp_military_time edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

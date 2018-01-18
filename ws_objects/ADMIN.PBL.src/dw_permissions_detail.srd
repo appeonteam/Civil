@@ -1,0 +1,17 @@
+﻿$PBExportHeader$dw_permissions_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=3 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=336 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=code dbname="ut_permissions.code" )
+ column=(type=char(75) update=yes updatewhereclause=yes name=description dbname="ut_permissions.description" )
+ retrieve="  SELECT ut_permissions.code,   
+         ut_permissions.description
+    FROM ut_permissions  
+   WHERE ut_permissions.code = :perm_code    
+" update="ut_permissions" updatewhere=1 updatekeyinplace=no arguments=(("perm_code", number)) )
+text(band=detail alignment="0" text="Press ~"F1~" or ~"Enter~" to Save..."border="0" color="0" x="66" y="211" height="58" width="900"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Description:"border="0" color="0" x="33" y="42" height="58" width="355"  name=description_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="402" y="38" height="61" width="2074" format="[general]"  name=description edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

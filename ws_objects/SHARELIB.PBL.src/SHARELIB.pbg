@@ -1,0 +1,16 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "SHARELIB.PBL" "";
+@end;
+@begin Objects 
+ "gf_get_fy_periodnum.srf" "SHARELIB.PBL";
+ "gf_get_fy_periodyear.srf" "SHARELIB.PBL";
+ "st_fyparms.srs" "SHARELIB.PBL";
+ "st_menuparms.srs" "SHARELIB.PBL";
+ "w_base_criteria_scan.srw" "SHARELIB.PBL";
+ "w_base_detail.srw" "SHARELIB.PBL";
+ "w_base_no_criteria_scan.srw" "SHARELIB.PBL";
+ "w_base_sheet.srw" "SHARELIB.PBL";
+ "w_base_tabs.srw" "SHARELIB.PBL";
+ "w_datawindow_print_dialog.srw" "SHARELIB.PBL";
+@end;

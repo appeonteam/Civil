@@ -1,0 +1,11 @@
+﻿$PBExportHeader$gf_scroll_win_left.srf
+global type gf_scroll_win_left from function_object
+end type
+
+forward prototypes
+global subroutine gf_scroll_win_left (ref window aw_scroll)
+end prototypes
+
+global subroutine gf_scroll_win_left (ref window aw_scroll);Post(Handle(aw_scroll), 276, 0, 0)
+end subroutine
+

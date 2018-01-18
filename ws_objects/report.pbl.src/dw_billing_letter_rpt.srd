@@ -1,0 +1,66 @@
+﻿$PBExportHeader$dw_billing_letter_rpt.srd
+$PBExportComments$Billing Letter
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Billing Letter" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=429 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=2557 color="553648127"  height.autosize=yes)
+table(column=(type=long updatewhereclause=yes name=docket_year dbname="sh_docket.docket_year" )
+ column=(type=long updatewhereclause=yes name=docket_number dbname="sh_docket.docket_number" )
+ column=(type=char(30) updatewhereclause=yes name=county dbname="sh_docket.county" )
+ column=(type=char(150) updatewhereclause=yes name=case_number dbname="sh_docket.case_number" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_billable_business dbname="sh_docket_billable.business" )
+ column=(type=char(80) updatewhereclause=yes name=sh_docket_billable_last_name dbname="sh_docket_billable.last_name" )
+ column=(type=char(50) updatewhereclause=yes name=sh_docket_billable_first_name dbname="sh_docket_billable.first_name" )
+ column=(type=char(50) updatewhereclause=yes name=sh_docket_billable_middle_name dbname="sh_docket_billable.middle_name" )
+ column=(type=char(5) updatewhereclause=yes name=sh_docket_billable_suffix dbname="sh_docket_billable.suffix" )
+ column=(type=char(50) updatewhereclause=yes name=sh_docket_billable_address1 dbname="sh_docket_billable.address1" )
+ column=(type=char(50) updatewhereclause=yes name=sh_docket_billable_address2 dbname="sh_docket_billable.address2" )
+ column=(type=char(25) updatewhereclause=yes name=sh_docket_billable_city dbname="sh_docket_billable.city" )
+ column=(type=char(2) updatewhereclause=yes name=sh_docket_billable_state dbname="sh_docket_billable.state" )
+ column=(type=char(5) updatewhereclause=yes name=sh_docket_billable_zip_code dbname="sh_docket_billable.zip_code" )
+ retrieve="  SELECT sh_docket.docket_year,   
+         sh_docket.docket_number,   
+         sh_docket.county,   
+         sh_docket.case_number,   
+         sh_docket_billable.business,   
+         sh_docket_billable.last_name,   
+         sh_docket_billable.first_name,   
+         sh_docket_billable.middle_name,   
+         sh_docket_billable.suffix,   
+         sh_docket_billable.address1,   
+         sh_docket_billable.address2,   
+         sh_docket_billable.city,   
+         sh_docket_billable.state,   
+         sh_docket_billable.zip_code  
+    FROM sh_docket,   
+         sh_docket_billable  
+   WHERE ( sh_docket.docket_year = sh_docket_billable.docket_year ) and  
+         ( sh_docket.docket_number = sh_docket_billable.docket_number ) and  
+         ( sh_docket.docket_year = :idockyear ) AND  
+         ( sh_docket.docket_number = :idocknum )    
+" arguments=(("idockyear", number),("idocknum", number),("plaintiffs", string),("defendants", string),("thirdplaintiffs", string),("thirddefendants", string)) )
+text(band=header alignment="2" text="Mason City, IA  50401"border="0" color="0" x="0" y="282" height="64" width="3408"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="vs"border="0" color="0" x="88" y="1341" height="64" width="490"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="dw_return_service_3rdparty_rpt" x="0" y="1741" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number"),("'L'"),("'E'"),("thirdplaintiffs"),("thirddefendants")) trail_footer = yes  slideup=directlyabove )
+report(band=detail dataobject="dw_billing_letter_process_rpt" x="0" y="1830" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number")) trail_footer = yes  slideup=directlyabove )
+compute(band=detail alignment="0" expression="If( sh_docket_billable_business = ~"Y~", 
+trim( sh_docket_billable_last_name ) + ~" ~" + trim( sh_docket_billable_first_name ) + ~" ~" + trim( sh_docket_billable_middle_name ) + ~" ~" + trim( sh_docket_billable_suffix ),
+trim( sh_docket_billable_first_name ) + ~" ~" + trim( sh_docket_billable_middle_name ) + ~" ~" + trim( sh_docket_billable_last_name ) + ~" ~" + trim( sh_docket_billable_suffix ) )"border="0" color="0" x="413" y="349" height="64" width="2681" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="413" y="416" height="64" width="2681" format="[general]"  name=sh_docket_billable_address1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="413" y="483" height="64" width="2681" format="[general]"  name=sh_docket_billable_address2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( sh_docket_billable_city ) + ~", ~" + trim( sh_docket_billable_state ) + ~"  ~" + trim( sh_docket_billable_zip_code )"border="0" color="0" x="413" y="550" height="64" width="2681" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="0" y1="886" x2="26" y2="886" pen.style="0" pen.width="4" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( defendants )"border="0" color="0" x="88" y="1411" height="307" width="2282" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+line(band=detail x1="2501" y1="1097" x2="3408" y2="1097" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2501" y="1107" height="64" width="907" format="[general]"  name=case_number height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( plaintiffs )"border="0" color="0" x="88" y="1027" height="307" width="2282" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="dw_billing_letter_served_rpt" x="0" y="1929" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number")) trail_footer = yes  slideup=directlyabove )
+report(band=detail dataobject="dw_billing_letter_fees_rpt" x="0" y="2029" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number"),("'FEE'")) trail_footer = yes  slideup=directlyabove )
+text(band=detail alignment="2" text="CASE NUMBER(S)"border="0" color="0" x="2501" y="1027" height="64" width="907"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="~"Docket:  ~" + string( docket_year ) + ~"-~" + string( docket_number )"border="0" color="0" x="2501" y="934" height="64" width="907" format="[general]"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="CERRO GORDO COUNTY SHERIFF'S DEPARTMENT"border="0" color="0" x="0" y="118" height="86" width="3408"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="(641) 421-3149"border="0" color="0" x="0" y="352" height="64" width="3408"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="17262 Lark Ave."border="0" color="0" x="0" y="211" height="64" width="3408"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

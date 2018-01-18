@@ -1,0 +1,25 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "MAIN.PBL" "";
+@end;
+@begin Objects 
+ "dw_compare_open_dockets.srd" "MAIN.PBL";
+ "dw_create_hold_ledger_items_ds.srd" "MAIN.PBL";
+ "dw_create_hold_ledgers_ds.srd" "MAIN.PBL";
+ "dw_create_ledger_items_ds.srd" "MAIN.PBL";
+ "dw_create_ledgers_ds.srd" "MAIN.PBL";
+ "dw_get_dock_receipts_ds.srd" "MAIN.PBL";
+ "dw_get_docket_served_ds.srd" "MAIN.PBL";
+ "dw_get_receipt_fee_paid_ds.srd" "MAIN.PBL";
+ "dw_get_receipt_fees_ds.srd" "MAIN.PBL";
+ "dw_get_ut_codes_ds.srd" "MAIN.PBL";
+ "dw_security.srd" "MAIN.PBL";
+ "gf_calc_tax_sale_penalties.srf" "MAIN.PBL";
+ "m_main.srm" "MAIN.PBL";
+ "w_banner.srw" "MAIN.PBL";
+ "w_fixes4.srw" "MAIN.PBL";
+ "w_login.srw" "MAIN.PBL";
+ "w_main.srw" "MAIN.PBL";
+ "w_new_about.srw" "MAIN.PBL";
+ "w_timer_bar.srw" "MAIN.PBL";
+@end;

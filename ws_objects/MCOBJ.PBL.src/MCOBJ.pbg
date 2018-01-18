@@ -1,0 +1,38 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "MCOBJ.PBL" "";
+@end;
+@begin Objects 
+ "dw_test_ole.srd" "MCOBJ.PBL";
+ "f_check_dayname.srf" "MCOBJ.PBL";
+ "f_closest_date.srf" "MCOBJ.PBL";
+ "f_select_current_row.srf" "MCOBJ.PBL";
+ "gf_changes_pending.srf" "MCOBJ.PBL";
+ "gf_check_app_running.srf" "MCOBJ.PBL";
+ "gf_check_continue.srf" "MCOBJ.PBL";
+ "gf_check_pending.srf" "MCOBJ.PBL";
+ "gf_delay.srf" "MCOBJ.PBL";
+ "gf_find_row.srf" "MCOBJ.PBL";
+ "gf_how_many.srf" "MCOBJ.PBL";
+ "gf_keycode2string.srf" "MCOBJ.PBL";
+ "gf_scroll_win_down.srf" "MCOBJ.PBL";
+ "gf_scroll_win_down_page.srf" "MCOBJ.PBL";
+ "gf_scroll_win_left.srf" "MCOBJ.PBL";
+ "gf_scroll_win_left_page.srf" "MCOBJ.PBL";
+ "gf_scroll_win_right.srf" "MCOBJ.PBL";
+ "gf_scroll_win_right_page.srf" "MCOBJ.PBL";
+ "gf_scroll_win_up.srf" "MCOBJ.PBL";
+ "gf_scroll_win_up_page.srf" "MCOBJ.PBL";
+ "gf_scroll_window_to_bottom.srf" "MCOBJ.PBL";
+ "gf_scroll_window_to_dw.srf" "MCOBJ.PBL";
+ "gf_scroll_window_to_top.srf" "MCOBJ.PBL";
+ "gf_sortcolumn.srf" "MCOBJ.PBL";
+ "gf_yesno_message.srf" "MCOBJ.PBL";
+ "gf_yesnocancel_message.srf" "MCOBJ.PBL";
+ "ue_microhelp.sru" "MCOBJ.PBL";
+ "uo_claim_dw.sru" "MCOBJ.PBL";
+ "w_about_with_parm.srw" "MCOBJ.PBL";
+ "w_construct.srw" "MCOBJ.PBL";
+ "w_timed_message.srw" "MCOBJ.PBL";
+ "w_toolbar.srw" "MCOBJ.PBL";
+@end;

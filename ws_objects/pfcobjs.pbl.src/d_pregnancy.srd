@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_pregnancy.srd
+release 5;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=392 color="536870912" )
+table(column=(type=date updatewhereclause=no name=conception_date dbname="Conception_Date" )
+ column=(type=number updatewhereclause=no name=pregnancy_days dbname="Pregnancy_Days" )
+ column=(type=date updatewhereclause=no name=due_date dbname="Due_Date" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="453" y="16" height="80" width="457" format="[general]"  name=conception_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="453" y="152" height="80" width="457" format="[general]"  name=pregnancy_days edit.limit=0 edit.case=any edit.autoselect=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="453" y="288" height="80" width="457" format="[general]"  name=due_date edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="Conception Date:"border="0" color="0" x="9" y="16" height="80" width="407"  name=conception_date_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Pregnancy Days:"border="0" color="0" x="9" y="152" height="80" width="407"  name=pregnancy_days_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Due Date:"border="0" color="0" x="9" y="288" height="80" width="407"  name=due_date_t  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

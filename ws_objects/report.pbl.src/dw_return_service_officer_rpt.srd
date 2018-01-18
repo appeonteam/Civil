@@ -1,0 +1,25 @@
+﻿$PBExportHeader$dw_return_service_officer_rpt.srd
+$PBExportComments$Nest
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=218 color="553648127" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=218 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=docket_number dbname="sh_docket_serve.docket_number" )
+ column=(type=long updatewhereclause=yes name=docket_year dbname="sh_docket_serve.docket_year" )
+ column=(type=char(80) updatewhereclause=yes name=officer_name dbname="sh_docket_serve.officer_name" )
+ retrieve="  SELECT DISTINCT sh_docket_serve.docket_number,   
+         sh_docket_serve.docket_year,   
+         sh_docket_serve.officer_name  
+    FROM sh_docket_serve  
+   WHERE ( sh_docket_serve.docket_year = :idockyear ) AND  
+         ( sh_docket_serve.docket_number = :idocknum )    
+" arguments=(("idockyear", number),("idocknum", number)) )
+text(band=header alignment="0" text="Kevin Pals"border="0" color="0" x="55" y="77" height="61" width="475"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="By:"border="0" color="0" x="0" y="73" height="64" width="106"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Sheriff of Cerro Gordo County"border="0" color="0" x="55" y="150" height="64" width="1225"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=header x1="0" y1="144" x2="1280" y2="144" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="110" y1="144" x2="1280" y2="144" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="110" y="150" height="64" width="1170" format="[general]"  name=officer_name edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

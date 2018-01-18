@@ -1,0 +1,65 @@
+﻿$PBExportHeader$dw_docket_disburse_fee_paid_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=fee_number dbname="sh_docket_fee_paid.fee_number" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_received dbname="sh_docket_fee_paid.amount_received" )
+ column=(type=datetime update=yes updatewhereclause=yes name=date_received dbname="sh_docket_fee_paid.date_received" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_fee_paid.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_fee_paid.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_fee_paid.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_number dbname="sh_docket_fee_paid.cbrec_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_year dbname="sh_docket_fee_paid.cbrec_year" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=new_balance_disbursed dbname="sh_docket_fee_paid.new_balance_disbursed" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=new_amount_disbursed dbname="sh_docket_fee_paid.new_amount_disbursed" )
+ column=(type=long update=yes updatewhereclause=yes name=cbdis_number dbname="sh_docket_fee_paid.cbdis_number" )
+ column=(type=long update=yes updatewhereclause=yes name=cbdis_year dbname="sh_docket_fee_paid.cbdis_year" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_disbursement_disburse_type dbname="sh_docket_disbursement.disburse_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=fee_type dbname="sh_docket_fee_paid.fee_type" )
+ column=(type=datetime update=yes updatewhereclause=yes name=write_date dbname="sh_docket_fee_paid.write_date" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=receipt_status dbname="sh_docket_fee_paid.receipt_status" )
+ column=(type=long update=yes updatewhereclause=yes name=check_number dbname="sh_docket_fee_paid.check_number" )
+ column=(type=datetime update=yes updatewhereclause=yes name=clear_date dbname="sh_docket_fee_paid.clear_date" )
+ retrieve="  SELECT sh_docket_fee_paid.fee_number,   
+         sh_docket_fee_paid.amount_received,   
+         sh_docket_fee_paid.date_received,   
+         sh_docket_fee_paid.cb_type,   
+         sh_docket_fee_paid.docket_number,   
+         sh_docket_fee_paid.docket_year,   
+         sh_docket_fee_paid.cbrec_number,   
+         sh_docket_fee_paid.cbrec_year,   
+         sh_docket_fee_paid.new_balance_disbursed,   
+         sh_docket_fee_paid.new_amount_disbursed,   
+         sh_docket_fee_paid.cbdis_number,   
+         sh_docket_fee_paid.cbdis_year,   
+         sh_docket_disbursement.disburse_type,   
+         sh_docket_fee_paid.fee_type,   
+         sh_docket_fee_paid.write_date,   
+         sh_docket_fee_paid.receipt_status,   
+         sh_docket_fee_paid.check_number,   
+         sh_docket_fee_paid.clear_date  
+    FROM sh_docket_fee_paid,   
+         sh_docket_disbursement  
+   WHERE ( sh_docket_fee_paid.cbdis_year = sh_docket_disbursement.cbdis_year ) and  
+         ( sh_docket_fee_paid.cbdis_number = sh_docket_disbursement.cbdis_number ) and  
+         ( sh_docket_fee_paid.cb_type = sh_docket_disbursement.cb_type ) and  
+         ( ( sh_docket_fee_paid.cb_type = :achcbtype ) AND  
+         ( sh_docket_fee_paid.cbdis_year = :icbdisyear ) AND  
+         ( sh_docket_fee_paid.cbdis_number = :lcbdisnum ) ) AND  
+         sh_docket_fee_paid.receipt_status = :achstatus    
+" update="sh_docket_fee_paid" updatewhere=1 updatekeyinplace=no arguments=(("achcbtype", string),("icbdisyear", number),("lcbdisnum", number),("achstatus", string)) )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1441" y="3" height="74" width="362" format="mm/dd/yyyy"  name=date_received editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1829" y="3" height="74" width="329" format="[general]"  name=amount_received editmask.mask="###,###.00" editmask.focusrectangle=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2191" y="6" height="64" width="329" format="[general]"  name=new_balance_disbursed edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2545" y="6" height="64" width="329" format="[general]"  name=new_amount_disbursed edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="0" expression="string( cbrec_year ) + ~"-~"+ string( cbrec_number )"border="0" color="0" x="135" y="3" height="77" width="336" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="501" y="3" height="74" width="99" format="[general]"  name=fee_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="2875" y="0" height="54" width="26" format="[general]"  name=sh_docket_disbursement_disburse_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="1083" y="0" height="54" width="260" format="[general]"  name=fee_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2904" y="0" height="54" width="753" format="[shortdate] [time]"  name=write_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="3690" y="0" height="54" width="187" format="[general]"  name=receipt_status edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=17 alignment="0" tabsequence=0 border="0" color="0" x="3877" y="0" height="54" width="1119"  name=check_number  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=18 alignment="0" tabsequence=0 border="0" color="0" x="4996" y="0" height="54" width="757"  name=clear_date  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

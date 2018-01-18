@@ -1,0 +1,36 @@
+﻿$PBExportHeader$dw_appeon.srd
+release 11;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no showbackcoloronxp=no )
+header(height=60 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="553648127" height.autosize=yes )
+table(column=(type=long update=yes updatewhereclause=yes name=docket_year dbname="sh_docket.docket_year" dbalias=".docket_year" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_number dbname="sh_docket.docket_number" dbalias=".docket_number" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=case_number dbname="sh_docket.case_number" dbalias=".case_number" )
+ retrieve="  SELECT DISTINCT sh_docket.docket_year,   
+         sh_docket.docket_number,   
+         sh_docket.case_number
+    FROM sh_docket,   
+         sh_docket_name  
+   WHERE ( sh_docket.docket_year  = sh_docket_name.docket_year) and  
+         ( sh_docket.docket_number  = sh_docket_name.docket_number)    
+" )
+text(band=header alignment="0" text="Year" border="0" color="0" x="27" y="0" height="60" width="133" html.valueishtml="0"  name=docket_year_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Num" border="0" color="0" x="178" y="0" height="60" width="160" html.valueishtml="0"  name=docket_number_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Case Number" border="0" color="0" x="375" y="0" height="60" width="434" html.valueishtml="0"  name=case_number_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Parties Involved" border="0" color="0" x="827" y="0" height="60" width="466" html.valueishtml="0"  name=parties_involved_t visible="1"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="8" height="76" width="133" format="[general]" html.valueishtml="0"  name=docket_year visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="178" y="8" height="76" width="160" format="[general]" html.valueishtml="0"  name=docket_number visible="1" height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="375" y="8" height="76" width="434" format="[general]" html.valueishtml="0"  name=case_number visible="1" height.autosize=yes edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

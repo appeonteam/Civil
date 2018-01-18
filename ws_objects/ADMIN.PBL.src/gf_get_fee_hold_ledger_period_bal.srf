@@ -1,0 +1,20 @@
+﻿$PBExportHeader$gf_get_fee_hold_ledger_period_bal.srf
+global type gf_get_fee_hold_ledger_period_bal from function_object
+end type
+
+forward prototypes
+global function decimal gf_get_fee_hold_ledger_period_bal (integer iyear, string achcbtype, string achfeetype, integer iperiod)
+end prototypes
+
+global function decimal gf_get_fee_hold_ledger_period_bal (integer iyear, string achcbtype, string achfeetype, integer iperiod);decimal {2} s_dBalance
+
+SELECT period_bal INTO :s_dBalance 
+	FROM ut_hold_ledger_item
+	WHERE ut_hold_ledger_item.dock_year = :iYear	
+	AND ut_hold_ledger_item.cb_type = :achCBType	
+	AND ut_hold_ledger_item.fee_type = :achFeeType
+	AND ut_hold_ledger_item.period = :iPeriod;
+	
+Return(s_dBalance)	
+end function
+

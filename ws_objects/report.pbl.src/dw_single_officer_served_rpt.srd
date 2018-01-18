@@ -1,0 +1,94 @@
+﻿$PBExportHeader$dw_single_officer_served_rpt.srd
+$PBExportComments$Single Officer Served Report
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Single Officer Served Report" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=512 color="536870912" )
+summary(height=221 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="553648127"  height.autosize=yes)
+table(column=(type=long updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_serve.docket_number" )
+ column=(type=long updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_serve.docket_year" )
+ column=(type=char(80) updatewhereclause=yes name=officer_name dbname="sh_docket_serve.officer_name" )
+ column=(type=datetime updatewhereclause=yes name=personal_date_served dbname="sh_docket_serve.personal_date_served" )
+ column=(type=datetime updatewhereclause=yes name=subs_date_served dbname="sh_docket_serve.subs_date_served" )
+ column=(type=datetime updatewhereclause=yes name=corp_date_served dbname="sh_docket_serve.corp_date_served" )
+ column=(type=char(80) updatewhereclause=yes name=last_name dbname="sh_docket_serve.last_name" )
+ column=(type=char(50) updatewhereclause=yes name=first_name dbname="sh_docket_serve.first_name" )
+ column=(type=char(50) updatewhereclause=yes name=middle_name dbname="sh_docket_serve.middle_name" )
+ column=(type=char(5) updatewhereclause=yes name=suffix dbname="sh_docket_serve.suffix" )
+ column=(type=char(1) updatewhereclause=yes name=type_served dbname="sh_docket_serve.type_served" )
+ column=(type=char(80) updatewhereclause=yes name=personal_place_served dbname="sh_docket_serve.personal_place_served" )
+ column=(type=char(80) updatewhereclause=yes name=subs_served_on dbname="sh_docket_serve.subs_served_on" )
+ column=(type=char(80) updatewhereclause=yes name=subs_place_served dbname="sh_docket_serve.subs_place_served" )
+ column=(type=char(80) updatewhereclause=yes name=corp_served_on dbname="sh_docket_serve.corp_served_on" )
+ column=(type=char(80) updatewhereclause=yes name=corp_position dbname="sh_docket_serve.corp_position" )
+ column=(type=char(80) updatewhereclause=yes name=corp_place_served dbname="sh_docket_serve.corp_place_served" )
+ column=(type=char(500) updatewhereclause=yes name=other_served dbname="sh_docket_serve.other_served" )
+ column=(type=long updatewhereclause=yes key=yes name=served_number dbname="sh_docket_serve.served_number" )
+ retrieve="  SELECT sh_docket_serve.docket_number,   
+         sh_docket_serve.docket_year,   
+         sh_docket_serve.officer_name,   
+         sh_docket_serve.personal_date_served,   
+         sh_docket_serve.subs_date_served,   
+         sh_docket_serve.corp_date_served,   
+         sh_docket_serve.last_name,   
+         sh_docket_serve.first_name,   
+         sh_docket_serve.middle_name,   
+         sh_docket_serve.suffix,   
+         sh_docket_serve.type_served,   
+         sh_docket_serve.personal_place_served,   
+         sh_docket_serve.subs_served_on,   
+         sh_docket_serve.subs_place_served,   
+         sh_docket_serve.corp_served_on,   
+         sh_docket_serve.corp_position,   
+         sh_docket_serve.corp_place_served,   
+         sh_docket_serve.other_served,   
+         sh_docket_serve.served_number  
+    FROM sh_docket_serve  
+   WHERE ( ( sh_docket_serve.personal_date_served >= :beg_date AND  
+         sh_docket_serve.personal_date_served <= :end_date ) OR  
+         ( sh_docket_serve.subs_date_served >= :beg_date AND  
+         sh_docket_serve.subs_date_served <= :end_date ) OR  
+         ( sh_docket_serve.corp_date_served >= :beg_date AND  
+         sh_docket_serve.corp_date_served <= :end_date ) ) AND  
+         sh_docket_serve.officer_name = :off_name   
+ORDER BY sh_docket_serve.officer_name ASC,   
+         sh_docket_serve.docket_year ASC,   
+         sh_docket_serve.docket_number ASC,   
+         sh_docket_serve.served_number ASC   
+" update="sh_docket_serve" updatewhere=0 updatekeyinplace=no arguments=(("beg_date", date),("end_date", date),("off_name", string)) )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="~"From:  ~" + string( beg_date ,'mm/dd/yyyy') + ~"     To:  ~" + string( end_date ,'mm/dd/yyyy')"border="0" color="0" x="739" y="224" height="61" width="2019" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="2019"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Single Officer Served Report"border="0" color="0" x="739" y="157" height="61" width="2019"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="~"Officer:  ~" + trim( officer_name )"border="0" color="0" x="739" y="291" height="61" width="2019" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Docket"border="0" color="0" x="59" y="390" height="58" width="219"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Docket"border="0" color="0" x="304" y="390" height="58" width="219"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Service Description"border="0" color="0" x="827" y="451" height="58" width="702"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Type of"border="0" color="0" x="560" y="390" height="58" width="230"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Service"border="0" color="0" x="560" y="451" height="58" width="230"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="     Year"border="0" color="0" x="59" y="451" height="58" width="219"  name=sh_docket_docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="     Num"border="0" color="0" x="304" y="451" height="58" width="219"  name=sh_docket_docket_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="2765" y="90" height="61" width="688" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="59" y="3" height="64" width="219" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="304" y="3" height="64" width="219" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="0" color="0" x="560" y="3" height="64" width="230" format="[general]"  name=type_served edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( type_served = '1', trim( first_name ) + ~" ~" + trim( middle_name ) + ~" ~" + trim( last_name ) + ~" ~" + trim( suffix ) + ~"  At  ~" + string( personal_place_served ) + ~"  On  ~" + string( personal_date_served ,'mm/dd/yyyy'),
+If( type_served = '2', trim( first_name ) + ~" ~" + trim( middle_name ) + ~" ~" + trim( last_name ) + ~" ~" + trim( suffix ) + ~",  By serving:  ~" + trim( subs_served_on ) + ~"  At  ~" + string( subs_place_served ) + ~"  On  ~" + string( subs_date_served ,'mm/dd/yyyy'),
+If( type_served = '3', trim( last_name ) + ~" ~" + trim( first_name ) + ~" ~" + trim( middle_name ) + ~" ~" + trim( suffix ) + ~",  By delivering a copy to ~" + trim( corp_served_on ) + ~",  ~" + trim( corp_position ) + ~"  At  ~" + string( corp_place_served ) + ~"  On  ~" + string( corp_date_served ,'mm/dd/yyyy'),
+If( type_served = '4', ~"Other:  ~" + trim( other_served ),
+If( type_served = 'D', ~"Attempted service on ~" + trim( first_name ) + ~" ~" + trim( middle_name ) + ~" ~" + trim( last_name ) + ~" ~" + trim( suffix ) + ~" and after diligent investigation found that ~" + trim( other_served ),
+~" ~") ) ) ) )"border="0" color="0" x="827" y="3" height="64" width="2589" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+compute(band=detail alignment="0" expression="string( docket_year ) + string( docket_number )"border="0" color="0" x="3430" y="3" height="64" width="15" format="[general]"  name=paper_num visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=summary alignment="1" text="Total Dockets"border="0" color="0" x="117" y="83" height="58" width="428"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="Total Services"border="0" color="0" x="618" y="83" height="58" width="443"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="(1) Personal"border="0" color="0" x="1298" y="83" height="58" width="435"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="(2) Substitute"border="0" color="0" x="1748" y="83" height="58" width="435"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(paper_num for all DISTINCT)"border="0" color="0" x="161" y="150" height="67" width="384" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="ind_pers + ind_subs + ind_corp"border="0" color="0" x="677" y="150" height="67" width="384" format="#,##0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(personal_date_served for all)"border="0" color="0" x="1298" y="150" height="67" width="435" format="[general]"  name=ind_pers  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(subs_date_served for all)"border="0" color="0" x="1748" y="150" height="67" width="435" format="[general]"  name=ind_subs  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(corp_date_served for all)"border="0" color="0" x="2242" y="150" height="67" width="435" format="[general]"  name=ind_corp  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="(3) Corporation"border="0" color="0" x="2242" y="83" height="58" width="435"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=summary alignment="2" text="Service Types Breakdown"border="0" color="0" x="1415" y="19" height="58" width="1262"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

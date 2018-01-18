@@ -1,0 +1,18 @@
+﻿$PBExportHeader$gf_get_ledger_period_bal.srf
+global type gf_get_ledger_period_bal from function_object
+end type
+
+forward prototypes
+global function decimal gf_get_ledger_period_bal (integer iyear, integer iperiod)
+end prototypes
+
+global function decimal gf_get_ledger_period_bal (integer iyear, integer iperiod);decimal {2} s_dBalance
+
+SELECT period_bal INTO :s_dBalance 
+	FROM ut_ledger_item
+	WHERE ut_ledger_item.dock_year = :iYear	
+	AND ut_ledger_item.period = :iPeriod;
+	
+Return(s_dBalance)	
+end function
+

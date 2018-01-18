@@ -1,0 +1,38 @@
+﻿$PBExportHeader$dw_create_hold_ledger_items_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=dock_year dbname="ut_hold_ledger_item.dock_year" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="ut_hold_ledger_item.cb_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=fee_type dbname="ut_hold_ledger_item.fee_type" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=period dbname="ut_hold_ledger_item.period" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period_bal dbname="ut_hold_ledger_item.period_bal" )
+ column=(type=char(28) update=yes updatewhereclause=yes name=last_chg_login dbname="ut_hold_ledger_item.last_chg_login" )
+ column=(type=datetime update=yes updatewhereclause=yes name=last_chg_datetime dbname="ut_hold_ledger_item.last_chg_datetime" )
+ retrieve="  SELECT ut_hold_ledger_item.dock_year,   
+         ut_hold_ledger_item.cb_type,   
+         ut_hold_ledger_item.fee_type,   
+         ut_hold_ledger_item.period,   
+         ut_hold_ledger_item.period_bal,   
+         ut_hold_ledger_item.last_chg_login,   
+         ut_hold_ledger_item.last_chg_datetime  
+    FROM ut_hold_ledger_item   
+" update="ut_hold_ledger_item" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Dock Year"border="0" color="0" x="4" y="3" height="64" width="351"  name=dock_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cb Type"border="0" color="0" x="358" y="3" height="64" width="227"  name=cb_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Type"border="0" color="0" x="589" y="3" height="64" width="322"  name=fee_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period"border="0" color="0" x="914" y="3" height="64" width="351"  name=period_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period Bal"border="0" color="0" x="1273" y="3" height="64" width="351"  name=period_bal_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Chg Login"border="0" color="0" x="1627" y="3" height="64" width="845"  name=last_chg_login_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Chg Datetime"border="0" color="0" x="2480" y="3" height="64" width="644"  name=last_chg_datetime_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="4" y="4" height="74" width="351" format="[general]"  name=dock_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="358" y="4" height="74" width="59" format="[general]"  name=cb_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="589" y="4" height="74" width="322" format="[general]"  name=fee_type edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="914" y="4" height="74" width="351" format="[general]"  name=period edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="0" color="0" x="1273" y="4" height="74" width="351" format="[general]"  name=period_bal edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="0" x="1627" y="4" height="74" width="845" format="[general]"  name=last_chg_login edit.limit=28 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="0" x="2480" y="4" height="74" width="644" format="[shortdate] [time]"  name=last_chg_datetime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

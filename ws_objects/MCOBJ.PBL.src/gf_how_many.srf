@@ -1,0 +1,45 @@
+﻿$PBExportHeader$gf_how_many.srf
+global type gf_how_many from function_object
+end type
+
+forward prototypes
+global function integer gf_how_many (string as_source, string as_pattern)
+end prototypes
+
+global function integer gf_how_many (string as_source, string as_pattern);//****************************************************************************
+//* FUNCTION: gf_how_many
+//* AUTHOR: Dan Roland
+//* DATE: 10/23/96
+//* DESCRIPTION: counts the instances of a substring in a given string
+//* ARGUMENTS:	v  	as_Source
+//*					v 	as_Pattern
+//* RETURNS: Integer - how many instances of as_Pattern were found in as_Source
+//*===========================================================================
+//* MODIFICATIONS LOG
+//*===========================================================================
+//* 10/23/96 droland
+//*	- Creation of gf_how_many
+//*---------------------------------------------------------------------------
+//*
+//****************************************************************************
+//* VARIABLES
+integer	li_Pos, li_PatternLen, ll_Instances
+
+// save off length of the pattern
+li_PatternLen = Len(as_Pattern)
+
+// get pos of first instance of pattern
+li_Pos = Pos(as_source, as_pattern)
+
+Do While li_Pos > 0
+	// bump the counter
+	ll_Instances ++
+
+	// get pos of next instance of pattern
+	li_Pos = Pos(as_source, as_pattern, li_pos + li_PatternLen)
+Loop
+
+Return(ll_Instances)
+
+end function
+

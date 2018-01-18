@@ -1,0 +1,46 @@
+﻿$PBExportHeader$f_load_officers_ddlb.srf
+global type f_load_officers_ddlb from function_object
+end type
+
+forward prototypes
+global function integer f_load_officers_ddlb (ref dropdownlistbox ddlb_to_load, string achcodetype)
+end prototypes
+
+global function integer f_load_officers_ddlb (ref dropdownlistbox ddlb_to_load, string achcodetype);// script variables
+string s_achSQL, s_achData
+
+s_achSQL = "SELECT DISTINCT ~"officer_name~" &
+   FROM ~"sh_docket_serve~" &
+	ORDER BY ~"officer_name~""
+
+DECLARE load_csr DYNAMIC CURSOR FOR SQLSA;
+PREPARE SQLSA FROM :s_achSQL USING SQLCA;
+
+OPEN DYNAMIC load_csr;
+If SQLCA.SQLCode = -1 Then
+	MessageBox("System Error", SQLCA.SQLErrText)
+	Return(-1)
+End If
+
+FETCH load_csr INTO :s_achData;
+
+Do While SQLCA.SQLCode = 0
+
+	// add item to list box and get next record
+	ddlb_to_load.AddItem(s_achData)
+	FETCH load_csr INTO :s_achData;
+
+Loop
+
+// check why we fell out of loop
+If SQLCA.SQLCode = -1 Then
+	MessageBox("System Error", SQLCA.SQLErrText)
+	Return(-1)
+Else
+	CLOSE load_csr;
+	ddlb_to_load.InsertItem("", 1)
+	Return(0)
+End If
+
+end function
+

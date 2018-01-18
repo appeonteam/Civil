@@ -1,0 +1,65 @@
+﻿$PBExportHeader$dw_docket_parties_involved_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1142 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_name.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_name.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=party_number dbname="sh_docket_name.party_number" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=involvement dbname="sh_docket_name.involvement" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=served dbname="sh_docket_name.served" values="No	N/Yes	Y/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=business dbname="sh_docket_name.business" values="No	N/Yes	Y/" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=name_addr dbname="sh_docket_name.name_addr" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=name_employ dbname="sh_docket_name.name_employ" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_name.last_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_name.first_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=middle_name dbname="sh_docket_name.middle_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=suffix dbname="sh_docket_name.suffix" )
+ column=(type=char(400) update=yes updatewhereclause=yes name=name_remark dbname="sh_docket_name.name_remark" )
+ retrieve="  SELECT sh_docket_name.docket_year,   
+         sh_docket_name.docket_number,   
+         sh_docket_name.party_number,   
+         sh_docket_name.involvement,   
+         sh_docket_name.served,   
+         sh_docket_name.business,   
+         sh_docket_name.name_addr,   
+         sh_docket_name.name_employ,   
+         sh_docket_name.last_name,   
+         sh_docket_name.first_name,   
+         sh_docket_name.middle_name,   
+         sh_docket_name.suffix,   
+         sh_docket_name.name_remark  
+    FROM sh_docket_name  
+   WHERE ( sh_docket_name.docket_year = :iyear ) AND  
+         ( sh_docket_name.docket_number = :ldocknum )    
+" update="sh_docket_name" updatewhere=1 updatekeyinplace=no arguments=(("iyear", number),("ldocknum", number)) )
+text(band=detail alignment="1" text="Docket Year:"border="0" color="0" x="26" y="6" height="58" width="384"  name=docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="424" y="3" height="61" width="351" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Docket Number:"border="0" color="0" x="856" y="6" height="58" width="464"  name=docket_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1331" y="3" height="61" width="351" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Party Number:"border="0" color="0" x="1759" y="6" height="58" width="417"  name=party_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2191" y="3" height="61" width="351" format="[general]"  name=party_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Business?:"border="0" color="0" x="26" y="80" height="58" width="384"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="424" y="77" height="61" width="260" format="[general]"  name=business ddlb.limit=0 ddlb.sorted=yes ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="If( business = ~"Y~", ~"Bus. Name:~", ~"Last Name:~" )"border="0" color="0" x="26" y="160" height="58" width="384" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="424" y="157" height="61" width="2549" format="[general]"  name=last_name edit.limit=85 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="If( business = ~"Y~", ~"Business 2:~", ~"First Name:~" )"border="0" color="0" x="26" y="240" height="58" width="384" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="424" y="237" height="61" width="2549" format="[general]"  name=first_name edit.limit=85 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="If( business = ~"Y~", ~"Business 3:~", ~"Middle Name:~" )"border="0" color="0" x="26" y="320" height="58" width="384" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="424" y="317" height="61" width="2549" format="[general]"  name=middle_name edit.limit=85 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+compute(band=detail alignment="1" expression="If( business = ~"Y~", ~"Business 4:~", ~"Suffix:~" )"border="0" color="0" x="26" y="400" height="58" width="384" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="424" y="397" height="61" width="2549" format="[general]"  name=suffix edit.limit=85 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Involvement:"border="0" color="0" x="26" y="480" height="58" width="384"  name=involvement_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="424" y="477" height="61" width="816" format="[general]"  name=involvement dddw.name=dddw_ut_codes dddw.displaycolumn=full_description dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes dddw.showlist=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="0" text="Service Slip Information"border="0" color="0" x="26" y="560" height="58" width="666"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Print On Slip?:"border="0" color="0" x="702" y="560" height="58" width="402"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1119" y="557" height="61" width="260" format="[general]"  name=served ddlb.limit=0 ddlb.sorted=yes ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Address:"border="0" color="0" x="7" y="640" height="58" width="311"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="333" y="637" height="61" width="2640" format="[general]"  name=name_addr edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Employed:"border="0" color="0" x="7" y="720" height="58" width="311"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="333" y="717" height="61" width="2640" format="[general]"  name=name_employ edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Remarks:"border="0" color="0" x="7" y="800" height="58" width="311"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="5" color="0" x="333" y="797" height="246" width="2640" format="[general]"  name=name_remark edit.limit=400 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autovscroll=yes edit.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="0" text="Press ~"F1~" or ~"Enter~" to Save, Press ~"F4~" to Leave Docket Parties Involved Continuous ADD Mode..."border="0" color="0" x="183" y="1062" height="58" width="2717"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

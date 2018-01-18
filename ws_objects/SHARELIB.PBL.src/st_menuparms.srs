@@ -1,0 +1,16 @@
+﻿$PBExportHeader$st_menuparms.srs
+global type st_menuparms from structure
+	boolean		bsearch
+	boolean		bclear
+	boolean		bnew
+	boolean		badd
+	boolean		bupdate
+	boolean		bdelete
+	boolean		bsave
+	boolean		bfirst
+	boolean		bback
+	boolean		bnext
+	boolean		blast
+	boolean		bescape
+end type
+

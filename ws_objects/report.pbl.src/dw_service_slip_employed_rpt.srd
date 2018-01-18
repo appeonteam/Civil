@@ -1,0 +1,64 @@
+﻿$PBExportHeader$dw_service_slip_employed_rpt.srd
+$PBExportComments$Service Slip Employed Report
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Service Slip Employed Report" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=512 color="553648127" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=208 color="553648127"  height.autosize=yes)
+table(column=(type=long updatewhereclause=yes name=sh_docket_docket_year dbname="sh_docket.docket_year" )
+ column=(type=long updatewhereclause=yes name=sh_docket_docket_number dbname="sh_docket.docket_number" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_case_number dbname="sh_docket.case_number" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_last_name dbname="sh_docket_name.last_name" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_first_name dbname="sh_docket_name.first_name" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_middle_name dbname="sh_docket_name.middle_name" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_name_suffix dbname="sh_docket_name.suffix" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_name_involvement dbname="sh_docket_name.involvement" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_name_business dbname="sh_docket_name.business" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_name_name_addr dbname="sh_docket_name.name_addr" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_name_name_employ dbname="sh_docket_name.name_employ" )
+ column=(type=char(400) updatewhereclause=yes name=sh_docket_name_name_remark dbname="sh_docket_name.name_remark" )
+ retrieve="  SELECT sh_docket.docket_year,   
+         sh_docket.docket_number,   
+         sh_docket.case_number,   
+         sh_docket_name.last_name,   
+         sh_docket_name.first_name,   
+         sh_docket_name.middle_name,   
+         sh_docket_name.suffix,   
+         sh_docket_name.involvement,   
+         sh_docket_name.business,   
+         sh_docket_name.name_addr,   
+         sh_docket_name.name_employ,   
+         sh_docket_name.name_remark  
+    FROM sh_docket_name,   
+         sh_docket  
+   WHERE ( sh_docket_name.docket_year = sh_docket.docket_year ) and  
+         ( sh_docket_name.docket_number = sh_docket.docket_number ) and  
+         ( ( sh_docket_name.name_employ like :achEmployCriteria ) )   
+ORDER BY sh_docket.docket_year DESC,   
+         sh_docket.docket_number DESC   
+" arguments=(("achEmployCriteria", string),("achEmploy", string)) )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="2765" y="90" height="61" width="688" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="~"Service Employed:  ~" + trim( achEmploy )"border="0" color="0" x="739" y="224" height="61" width="2019" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="     Year"border="0" color="0" x="59" y="451" height="58" width="219"  name=sh_docket_docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Docket"border="0" color="0" x="59" y="390" height="58" width="219"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="     Num"border="0" color="0" x="304" y="451" height="58" width="219"  name=sh_docket_docket_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Docket"border="0" color="0" x="304" y="390" height="58" width="219"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Service Remark"border="0" color="0" x="1273" y="451" height="58" width="527"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Case Number"border="0" color="0" x="589" y="451" height="58" width="527"  name=sh_docket_case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Inv"border="0" color="0" x="1126" y="451" height="58" width="128"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="2019"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Service Slip Employed Report"border="0" color="0" x="739" y="157" height="61" width="2019"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Party Involved"border="0" color="0" x="1273" y="330" height="58" width="527"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Service Employed"border="0" color="0" x="1273" y="390" height="58" width="527"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="1273" y="118" height="58" width="2044" format="[general]"  name=sh_docket_name_name_remark height.autosize=yes edit.limit=400 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="1126" y="3" height="58" width="128" format="[general]"  name=sh_docket_name_involvement edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="589" y="3" height="58" width="527" format="[general]"  name=sh_docket_case_number height.autosize=yes edit.limit=150 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="304" y="3" height="58" width="219" format="[general]"  name=sh_docket_docket_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="59" y="3" height="58" width="219" format="[general]"  name=sh_docket_docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( sh_docket_name_business = ~"Y~", 
+trim( sh_docket_name_last_name ) + ~" ~" + trim( sh_docket_name_first_name ) + ~" ~" + trim( sh_docket_name_middle_name ) + ~" ~" + trim( sh_docket_name_suffix ),
+trim( sh_docket_name_first_name ) + ~" ~" + trim( sh_docket_name_middle_name ) + ~" ~" + trim( sh_docket_name_last_name ) + ~" ~" + trim( sh_docket_name_suffix ) )"border="0" color="0" x="1273" y="3" height="58" width="2044" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="1273" y="61" height="58" width="2044" format="[general]"  name=sh_docket_name_name_employ edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

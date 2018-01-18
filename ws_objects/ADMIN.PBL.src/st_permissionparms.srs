@@ -1,0 +1,6 @@
+﻿$PBExportHeader$st_permissionparms.srs
+global type st_permissionparms from structure
+    integer icode
+    integer irow
+end type
+

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$dddw_personnel.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=ssan dbname="ut_personnel.ssan" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=last_name dbname="ut_personnel.last_name" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=first_name dbname="ut_personnel.first_name" )
+ retrieve="  SELECT ut_personnel.ssan,   
+         ut_personnel.last_name,   
+         ut_personnel.first_name  
+    FROM ut_personnel  
+ORDER BY ut_personnel.last_name ASC,   
+         ut_personnel.first_name ASC   
+" update="ut_personnel" updatewhere=1 updatekeyinplace=no )
+compute(band=detail alignment="0" expression="trim(last_name) + ~", ~" + trim(first_name)"border="0" color="0" x="15" y="3" height="74" width="1488" format="[GENERAL]"  name=full_name  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

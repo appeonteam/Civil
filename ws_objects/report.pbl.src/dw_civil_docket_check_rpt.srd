@@ -1,0 +1,94 @@
+﻿$PBExportHeader$dw_civil_docket_check_rpt.srd
+$PBExportComments$Docket Check - Single and Range
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Docket Check" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=2656 color="553648127" )
+detail(height=0 color="553648127" )
+table(column=(type=datetime update=yes updatewhereclause=yes name=date_paid dbname="sh_docket_disbursement.date_paid" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_paid dbname="sh_docket_disbursement.amount_paid" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_disbursement.last_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_disbursement.first_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=middle_name dbname="sh_docket_disbursement.middle_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=suffix dbname="sh_docket_disbursement.suffix" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=case_number dbname="sh_docket_disbursement.case_number" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cb_type dbname="sh_docket_disbursement.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_number dbname="sh_docket_disbursement.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_year dbname="sh_docket_disbursement.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes name=cbdis_number dbname="sh_docket_disbursement.cbdis_number" )
+ column=(type=long update=yes updatewhereclause=yes name=cbdis_year dbname="sh_docket_disbursement.cbdis_year" )
+ column=(type=long update=yes updatewhereclause=yes name=check_number dbname="sh_docket_disbursement.check_number" )
+ column=(type=char(100) updatewhereclause=yes name=sh_docket_receipt_note dbname="sh_docket_receipt.note" )
+ column=(type=decimal(2) updatewhereclause=yes name=sh_docket_receipt_total_received dbname="sh_docket_receipt.total_received" )
+ column=(type=datetime updatewhereclause=yes name=sh_docket_receipt_date_received dbname="sh_docket_receipt.date_received" )
+ column=(type=char(10) updatewhereclause=yes name=sh_docket_fee_paid_fee_type dbname="sh_docket_fee_paid.fee_type" )
+ column=(type=decimal(2) updatewhereclause=yes name=sh_docket_fee_paid_amount_received dbname="sh_docket_fee_paid.amount_received" )
+ column=(type=datetime updatewhereclause=yes name=sh_docket_fee_paid_date_received dbname="sh_docket_fee_paid.date_received" )
+ column=(type=char(5000) updatewhereclause=yes name=sh_docket_parties_involved dbname="sh_docket.parties_involved" )
+ column=(type=char(75) updatewhereclause=yes name=ut_codes_description dbname="ut_codes.description" )
+ column=(type=char(1) updatewhereclause=yes name=ut_codes_disbursed_type dbname="ut_codes.disbursed_type" )
+ retrieve="  SELECT sh_docket_disbursement.date_paid,   
+         sh_docket_disbursement.amount_paid,   
+         sh_docket_disbursement.last_name,   
+         sh_docket_disbursement.first_name,   
+         sh_docket_disbursement.middle_name,   
+         sh_docket_disbursement.suffix,   
+         sh_docket_disbursement.case_number,   
+         sh_docket_disbursement.cb_type,   
+         sh_docket_disbursement.docket_number,   
+         sh_docket_disbursement.docket_year,   
+         sh_docket_disbursement.cbdis_number,   
+         sh_docket_disbursement.cbdis_year,   
+         sh_docket_disbursement.check_number,   
+         sh_docket_receipt.note,   
+         sh_docket_receipt.total_received,   
+         sh_docket_receipt.date_received,   
+         sh_docket_fee_paid.fee_type,   
+         sh_docket_fee_paid.amount_received,   
+         sh_docket_fee_paid.date_received,   
+         sh_docket.parties_involved,   
+         ut_codes.description,   
+         ut_codes.disbursed_type  
+    FROM sh_docket_disbursement,   
+         sh_docket_fee_paid,   
+         sh_docket_receipt,   
+         sh_docket,   
+         ut_codes  
+   WHERE ( sh_docket_disbursement.cb_type = sh_docket_fee_paid.cb_type ) and  
+         ( sh_docket_fee_paid.cb_type = sh_docket_receipt.cb_type ) and  
+         ( sh_docket_disbursement.cbdis_year = sh_docket_fee_paid.cbdis_year ) and  
+         ( sh_docket_disbursement.cbdis_number = sh_docket_fee_paid.cbdis_number ) and  
+         ( sh_docket_fee_paid.cbrec_year = sh_docket_receipt.cbrec_year ) and  
+         ( sh_docket_fee_paid.cbrec_number = sh_docket_receipt.cbrec_number ) and  
+         ( sh_docket_disbursement.check_number = sh_docket_fee_paid.check_number ) and  
+         ( sh_docket_receipt.docket_number = sh_docket.docket_number ) and  
+         ( sh_docket_disbursement.docket_year = sh_docket.docket_year ) and  
+         ( sh_docket_fee_paid.fee_type = ut_codes.code ) and  
+         ( ( sh_docket_disbursement.disburse_status = :achstatus ) AND  
+         ( sh_docket_fee_paid.receipt_status = :achstatus ) ) AND  
+         sh_docket_disbursement.cb_type = :ach_cbtype_d AND  
+         ut_codes.code_type = :ach_fee AND  
+         sh_docket_disbursement.check_number >= :beg_check_num AND  
+         sh_docket_disbursement.check_number <= :end_check_num   
+ORDER BY sh_docket_disbursement.check_number ASC,   
+         sh_docket_fee_paid.fee_type ASC,   
+         sh_docket_fee_paid.amount_received ASC   
+" arguments=(("achstatus", string),("ach_cbtype_d", string),("ach_fee", string),("beg_check_num", number),("end_check_num", number)) )
+group(level=1 header.height=1293 trailer.height=0 by=("check_number" ) newpage=yes header.color="553648127" trailer.color="553648127" )
+group(level=2 header.height=0 trailer.height=0 by=("sh_docket_fee_paid_fee_type" ) header.color="553648127" trailer.color="553648127" )
+compute(band=header.1 alignment="0" expression="trim( last_name ) + trim( first_name )"border="0" color="0" x="461" y="429" height="74" width="2154" format="[general]"  name=whom_due  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="gf_convert_to_string( amount_paid )"border="0" color="0" x="461" y="570" height="131" width="2154" format="[general]"  name=check_amount  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=13 alignment="0" tabsequence=32766 border="0" color="0" x="271" y="861" height="58" width="260" format="[general]"  name=check_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="If( de_count > 0, trim( case_number ), ~"Monthly Fees~" )"border="0" color="0" x="549" y="861" height="58" width="1115" format="[general]"  name=memo_case  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=20 alignment="0" tabsequence=32766 border="0" color="0" x="271" y="922" height="99" width="1477" format="[general]"  name=sh_docket_parties_involved visible="1~tIf( de_count > 0, 1, 0 )" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header.1 id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1682" y="861" height="58" width="66" format="[general]"  name=case_number visible="1~t0" edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=1 alignment="0" tabsequence=32766 border="0" color="0" x="2911" y="205" height="74" width="421" format="mm/dd/yyyy"  name=date_paid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2911" y="512" height="74" width="479" format="$#,##0.00;($#,##0.00)"  name=amount_paid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="1061" y="3" height="64" width="464" format="#,##0.00"  name=sh_docket_fee_paid_amount_received edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="695" y="3" height="64" width="329" format="[general]"  name=sh_docket_fee_paid_fee_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="1" expression="If( ut_codes_disbursed_type = 'O', 1, 0 )"border="0" color="0" x="2099" y="3" height="64" width="230" format="#,##0"  name=de_indicator  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="2443" y="3" height="64" width="80" format="[general]"  name=ut_codes_disbursed_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(de_indicator for group 1)"border="0" color="0" x="2103" y="6" height="61" width="230" format="#,##0"  name=de_count visible="1~t0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=footer dataobject="dw_civil_docket_check_stub_rpt" x="0" y="6" height="1168" width="3313" border="0" criteria="" nest_arguments=(("'FEE'"),("check_number")) trail_footer = yes  slideup=directlyabove )
+report(band=footer dataobject="dw_civil_docket_check_stub_rpt" x="4" y="1373" height="1168" width="3313" border="0" criteria="" nest_arguments=(("'FEE'"),("check_number")) trail_footer = yes  slideup=directlyabove )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

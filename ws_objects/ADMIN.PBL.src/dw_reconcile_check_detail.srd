@@ -1,0 +1,70 @@
+﻿$PBExportHeader$dw_reconcile_check_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=451 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=cbdis_year dbname="sh_docket_disbursement.cbdis_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbdis_number dbname="sh_docket_disbursement.cbdis_number" )
+ column=(type=long update=yes updatewhereclause=yes name=check_number dbname="sh_docket_disbursement.check_number" )
+ column=(type=datetime update=yes updatewhereclause=yes name=date_paid dbname="sh_docket_disbursement.date_paid" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_paid dbname="sh_docket_disbursement.amount_paid" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_disbursement.last_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_disbursement.first_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=middle_name dbname="sh_docket_disbursement.middle_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=suffix dbname="sh_docket_disbursement.suffix" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=case_number dbname="sh_docket_disbursement.case_number" )
+ column=(type=datetime update=yes updatewhereclause=yes name=disburse_date dbname="sh_docket_disbursement.disburse_date" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=disburse_status dbname="sh_docket_disbursement.disburse_status" values="Warranted	W/Cleared	C/" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_disbursement.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_number dbname="sh_docket_disbursement.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_year dbname="sh_docket_disbursement.docket_year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=reconcile dbname="sh_docket_disbursement.reconcile" values="No	N/Yes	Y/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=clear_date dbname="sh_docket_disbursement.clear_date" )
+ retrieve="  SELECT sh_docket_disbursement.cbdis_year,   
+         sh_docket_disbursement.cbdis_number,   
+         sh_docket_disbursement.check_number,   
+         sh_docket_disbursement.date_paid,   
+         sh_docket_disbursement.amount_paid,   
+         sh_docket_disbursement.last_name,   
+         sh_docket_disbursement.first_name,   
+         sh_docket_disbursement.middle_name,   
+         sh_docket_disbursement.suffix,   
+         sh_docket_disbursement.case_number,   
+         sh_docket_disbursement.disburse_date,   
+         sh_docket_disbursement.disburse_status,   
+         sh_docket_disbursement.cb_type,   
+         sh_docket_disbursement.docket_number,   
+         sh_docket_disbursement.docket_year,   
+         sh_docket_disbursement.reconcile,   
+         sh_docket_disbursement.clear_date  
+    FROM sh_docket_disbursement  
+   WHERE ( sh_docket_disbursement.cb_type = :achcbtype ) AND  
+         ( sh_docket_disbursement.cbdis_year = :icbdisyear ) AND  
+         ( sh_docket_disbursement.cbdis_number = :lcbdisnum )    
+" update="sh_docket_disbursement" updatewhere=1 updatekeyinplace=no arguments=(("achcbtype", string),("icbdisyear", number),("lcbdisnum", number)) )
+text(band=detail alignment="1" text="CBDIS Year:"border="0" color="0" x="26" y="13" height="58" width="443"  name=cbdis_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="483" y="10" height="61" width="351" format="[general]"  name=cbdis_year edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="CBDIS Num:"border="0" color="0" x="856" y="13" height="58" width="351"  name=cbdis_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1221" y="10" height="61" width="351" format="[general]"  name=cbdis_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Dock Year:"border="0" color="0" x="1605" y="13" height="58" width="347"  name=docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1968" y="10" height="61" width="179" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Dock Num:"border="0" color="0" x="2169" y="13" height="58" width="307"  name=docket_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2491" y="10" height="61" width="351" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Check Number:"border="0" color="0" x="26" y="96" height="58" width="443"  name=check_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="483" y="93" height="61" width="351" format="[general]"  name=check_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Date Paid:"border="0" color="0" x="856" y="96" height="58" width="351"  name=date_paid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Amount Paid:"border="0" color="0" x="2033" y="96" height="58" width="443"  name=amount_paid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="2491" y="93" height="61" width="351" format="[general]"  name=amount_paid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Whom Due:"border="0" color="0" x="26" y="179" height="58" width="443"  name=last_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="trim( last_name ) + ~", ~" + trim( first_name )"border="0" color="0" x="483" y="176" height="61" width="1682" format="[general]"  name=full_name  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Status:"border="0" color="0" x="2224" y="179" height="58" width="252"  name=disburse_status_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Case Number:"border="0" color="0" x="26" y="266" height="58" width="443"  name=case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="483" y="262" height="61" width="1203" format="[general]"  name=case_number edit.limit=150 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1221" y="93" height="61" width="351" format="mm/dd/yyyy"  name=date_paid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="2491" y="176" height="61" width="424" format="[general]"  name=disburse_status ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="5" color="0" x="483" y="349" height="64" width="285" format="[general]"  name=reconcile ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2491" y="349" height="61" width="351" format="mm/dd/yyyy"  name=clear_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Reconciled?:"border="0" color="0" x="18" y="352" height="58" width="450"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Clear Date:"border="0" color="0" x="2150" y="352" height="58" width="325"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

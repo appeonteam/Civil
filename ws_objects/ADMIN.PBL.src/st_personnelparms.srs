@@ -1,0 +1,6 @@
+﻿$PBExportHeader$st_personnelparms.srs
+global type st_personnelparms from structure
+	string		achoptype
+	string		achempnum
+end type
+

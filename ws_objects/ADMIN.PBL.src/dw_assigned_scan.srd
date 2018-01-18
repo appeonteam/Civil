@@ -1,0 +1,30 @@
+﻿$PBExportHeader$dw_assigned_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 97 print.margin.bottom = 97 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="553648127" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=ssan dbname="ut_assigned_permissions.ssan" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=code dbname="ut_assigned_permissions.code" )
+ column=(type=char(20) updatewhereclause=yes name=ut_personnel_last_name dbname="ut_personnel.last_name" )
+ column=(type=char(20) updatewhereclause=yes name=ut_personnel_first_name dbname="ut_personnel.first_name" )
+ column=(type=char(75) updatewhereclause=yes name=ut_permissions_description dbname="ut_permissions.description" )
+ retrieve="  SELECT ut_assigned_permissions.ssan,   
+         ut_assigned_permissions.code,   
+         ut_personnel.last_name,   
+         ut_personnel.first_name,   
+         ut_permissions.description  
+    FROM ut_assigned_permissions,   
+         ut_personnel,   
+         ut_permissions  
+   WHERE ( ut_personnel.ssan = ut_assigned_permissions.ssan ) and  
+         ( ut_permissions.code = ut_assigned_permissions.code )    
+" update="ut_assigned_permissions" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Personnel"border="0" color="0" x="55" y="3" height="58" width="296"  name=ssan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Permission"border="0" color="0" x="794" y="3" height="58" width="322"  name=code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="trim( ut_personnel_last_name ) + ~", ~" + trim( ut_personnel_first_name ) "border="0" color="0" x="55" y="4" height="74" width="713" format="[general]"  name=full_name  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="794" y="4" height="74" width="1719" format="[general]"  name=ut_permissions_description edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="3035" y="4" height="74" width="402" format="[general]"  name=code visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="3482" y="7" height="64" width="260" format="[general]"  name=ssan edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

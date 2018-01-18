@@ -1,0 +1,51 @@
+﻿$PBExportHeader$dw_misc_cash_receipts_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=125 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=datetime update=yes updatewhereclause=yes name=date_received dbname="sh_docket_fee_paid.date_received" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_received dbname="sh_docket_fee_paid.amount_received" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=new_balance_disbursed dbname="sh_docket_fee_paid.new_balance_disbursed" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=new_amount_disbursed dbname="sh_docket_fee_paid.new_amount_disbursed" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_fee_paid.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_fee_paid.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_fee_paid.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_number dbname="sh_docket_fee_paid.cbrec_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_year dbname="sh_docket_fee_paid.cbrec_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=fee_number dbname="sh_docket_fee_paid.fee_number" )
+ column=(type=char(10) updatewhereclause=yes name=sh_docket_fee_fee_type dbname="sh_docket_fee.fee_type" )
+ retrieve="  SELECT sh_docket_fee_paid.date_received,   
+         sh_docket_fee_paid.amount_received,   
+         sh_docket_fee_paid.new_balance_disbursed,   
+         sh_docket_fee_paid.new_amount_disbursed,   
+         sh_docket_fee_paid.cb_type,   
+         sh_docket_fee_paid.docket_number,   
+         sh_docket_fee_paid.docket_year,   
+         sh_docket_fee_paid.cbrec_number,   
+         sh_docket_fee_paid.cbrec_year,   
+         sh_docket_fee_paid.fee_number,   
+         sh_docket_fee.fee_type  
+    FROM sh_docket_fee_paid,   
+         sh_docket_fee  
+   WHERE ( sh_docket_fee_paid.cb_type = sh_docket_fee.cb_type ) and  
+         ( sh_docket_fee_paid.docket_year = sh_docket_fee.docket_year ) and  
+         ( sh_docket_fee_paid.docket_number = sh_docket_fee.docket_number ) and  
+         ( sh_docket_fee_paid.fee_number = sh_docket_fee.fee_number )    
+" update="sh_docket_fee_paid" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="Comp. - Rec"border="0" color="0" x="95" y="61" height="58" width="344"  name=cbrec_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee"border="0" color="0" x="933" y="61" height="58" width="110"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Total Rcvd"border="0" color="0" x="2267" y="61" height="58" width="307"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Disbursed"border="0" color="0" x="2681" y="61" height="58" width="296"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Balance"border="0" color="0" x="2736" y="3" height="58" width="238"  name=new_balance_disbursed_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Disbursed"border="0" color="0" x="3068" y="54" height="58" width="296"  name=new_amount_disbursed_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount"border="0" color="0" x="3134" y="3" height="58" width="227"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Date Received"border="0" color="0" x="475" y="61" height="58" width="424"  name=date_received_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="string( cbrec_year ) + ~" - ~" + string( cbrec_number )"border="0" color="0" x="95" y="3" height="64" width="344" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="475" y="3" height="64" width="424" format="mm/dd/yyyy"  name=date_received edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="933" y="3" height="64" width="1232" format="[general]"  name=sh_docket_fee_fee_type dddw.name=dddw_ut_codes dddw.displaycolumn=description dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="2213" y="3" height="64" width="395" format="#,##0.00"  name=amount_received edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="2626" y="3" height="64" width="351" format="#,##0.00"  name=new_balance_disbursed edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=10 border="5" color="0" x="3013" y="3" height="64" width="351" format="#,##0.00"  name=new_amount_disbursed edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

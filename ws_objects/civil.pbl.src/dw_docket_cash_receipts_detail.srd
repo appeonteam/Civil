@@ -1,0 +1,51 @@
+﻿$PBExportHeader$dw_docket_cash_receipts_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=118 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes name=receipt_number dbname="sh_docket_receipt.receipt_number" )
+ column=(type=datetime update=yes updatewhereclause=yes name=date_received dbname="sh_docket_receipt.date_received" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=total_received dbname="sh_docket_receipt.total_received" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=balance_disbursed dbname="sh_docket_receipt.balance_disbursed" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_disbursed dbname="sh_docket_receipt.amount_disbursed" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_receipt.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_year dbname="sh_docket_receipt.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_number dbname="sh_docket_receipt.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_year dbname="sh_docket_receipt.cbrec_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_number dbname="sh_docket_receipt.cbrec_number" )
+ retrieve="  SELECT sh_docket_receipt.receipt_number,   
+         sh_docket_receipt.date_received,   
+         sh_docket_receipt.total_received,   
+         sh_docket_receipt.balance_disbursed,   
+         sh_docket_receipt.amount_disbursed,   
+         sh_docket_receipt.cb_type,   
+         sh_docket_receipt.docket_year,   
+         sh_docket_receipt.docket_number,   
+         sh_docket_receipt.cbrec_year,   
+         sh_docket_receipt.cbrec_number  
+    FROM sh_docket_receipt  
+   WHERE ( sh_docket_receipt.cb_type = :achcbtype ) AND  
+         ( sh_docket_receipt.docket_year = :idockyear ) AND  
+         ( sh_docket_receipt.docket_number = :ldocknum )    
+" update="sh_docket_receipt" updatewhere=1 updatekeyinplace=no arguments=(("achcbtype", string),("idockyear", number),("ldocknum", number)) )
+text(band=header alignment="0" text="Receipt Num"border="0" color="0" x="165" y="54" height="58" width="369"  name=receipt_num_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Date Rcvd"border="0" color="0" x="556" y="54" height="58" width="300"  name=date_received_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="From Whom"border="0" color="0" x="936" y="54" height="58" width="344"  name=from_whom_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Total Rcvd"border="0" color="0" x="2311" y="54" height="58" width="307"  name=total_received_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Disbursed"border="0" color="0" x="2699" y="54" height="58" width="296"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Balance"border="0" color="0" x="2728" y="3" height="58" width="238"  name=balance_disbursed_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Disbursed"border="0" color="0" x="3079" y="54" height="58" width="296"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Amount"border="0" color="0" x="3112" y="3" height="58" width="227"  name=amount_disbursed_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="150" y="0" height="77" width="355" format="[general]"  name=receipt_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="3072" y="0" height="77" width="311" format="[general]"  name=amount_disbursed edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="10010" y="0" height="77" width="33" format="[general]"  name=cb_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="10043" y="0" height="77" width="1419" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="11461" y="0" height="77" width="1419" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="12880" y="0" height="77" width="1419" format="[general]"  name=cbrec_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="14299" y="0" height="77" width="1419" format="[general]"  name=cbrec_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="545" y="0" height="77" width="351" format="[shortdate] [time]"  name=date_received edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="2267" y="0" height="77" width="358" format="[general]"  name=total_received edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2666" y="0" height="77" width="369" format="[general]"  name=balance_disbursed edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

@@ -1,0 +1,9 @@
+﻿$PBExportHeader$st_draindistrictparms.srs
+global type st_draindistrictparms from structure
+	string		achoptype
+	string		achdistrict
+	string		achlateral
+	window		wprev
+	datawindow		dwprev
+end type
+

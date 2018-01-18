@@ -1,0 +1,39 @@
+﻿$PBExportHeader$dw_comp_disbursement.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=134 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=cb_type dbname="sh_docket_fee_paid.cb_type" )
+ column=(type=long updatewhereclause=yes name=cbdis_year dbname="sh_docket_fee_paid.cbdis_year" )
+ column=(type=long updatewhereclause=yes name=cbdis_number dbname="sh_docket_fee_paid.cbdis_number" )
+ column=(type=decimal(2) updatewhereclause=yes name=amount_received dbname="sh_docket_fee_paid.amount_received" )
+ column=(type=decimal(2) updatewhereclause=yes name=sh_docket_disbursement_amount_paid dbname="sh_docket_disbursement.amount_paid" )
+ retrieve="  SELECT sh_docket_fee_paid.cb_type,   
+         sh_docket_fee_paid.cbdis_year,   
+         sh_docket_fee_paid.cbdis_number,   
+         sh_docket_fee_paid.amount_received,   
+         sh_docket_disbursement.amount_paid  
+    FROM sh_docket_fee_paid,   
+         sh_docket_disbursement  
+   WHERE ( sh_docket_fee_paid.cb_type = sh_docket_disbursement.cb_type ) and  
+         ( sh_docket_fee_paid.cbdis_year = sh_docket_disbursement.cbdis_year ) and  
+         ( sh_docket_fee_paid.cbdis_number = sh_docket_disbursement.cbdis_number ) and  
+         ( ( sh_docket_fee_paid.date_received >= '2007-12-1' ) AND  
+         ( sh_docket_fee_paid.date_received <= '2007-12-31' ) )    
+" )
+group(level=1 header.height=0 trailer.height=122 by=("cb_type" , "cbdis_year" , "cbdis_number" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Cb Type"border="0" color="0" x="4" y="3" height="64" width="227"  name=cb_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cbdis Year"border="0" color="0" x="234" y="3" height="64" width="351"  name=cbdis_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cbdis Number"border="0" color="0" x="589" y="3" height="64" width="380"  name=cbdis_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount Received"border="0" color="0" x="973" y="3" height="64" width="464"  name=amount_received_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="4" y="4" height="74" width="59" format="[general]"  name=cb_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="234" y="4" height="74" width="351" format="[general]"  name=cbdis_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="589" y="4" height="74" width="351" format="[general]"  name=cbdis_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="0" expression="sum(  amount_received  for group 1 )"border="0" color="0" x="1108" y="7" height="64" width="417" format="[general]"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1602" y="16" height="64" width="1247" format="[general]"  name=sh_docket_disbursement_amount_paid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(  amount_received  for all )"border="0" color="0" x="1108" y="32" height="64" width="417" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="0" expression="sum(  sh_docket_disbursement_amount_paid  for all )"border="0" color="0" x="1748" y="19" height="64" width="519" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1090" y="4" height="64" width="464"  name=amount_received  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

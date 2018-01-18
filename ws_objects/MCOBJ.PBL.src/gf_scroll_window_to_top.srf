@@ -1,0 +1,34 @@
+﻿$PBExportHeader$gf_scroll_window_to_top.srf
+global type gf_scroll_window_to_top from function_object
+end type
+
+forward prototypes
+global subroutine gf_scroll_window_to_top (ref window aw_window, datawindow adw_datawindow)
+end prototypes
+
+global subroutine gf_scroll_window_to_top (ref window aw_window, datawindow adw_datawindow);// setting tag so we know adw_datawindow is scrolling
+adw_datawindow.tag = "scroll"
+
+// script variables
+integer	li_difference, li_last, li_Mark
+integer	li_LRPageStep = -150, li_UDPageStep = 80
+integer	li_BottomBorder = 175, li_RightBorder = 115	// constants
+
+// make sure the window is still open
+If Not(IsValid(aw_Window)) Then Return
+
+If aw_Window.WindowState = Minimized! Then Return
+
+// make sure the datawindow is redrawing, otherwise X and Y might not move
+adw_datawindow.SetRedraw(True)
+Do 
+	li_Last = adw_DataWindow.Y
+	gf_scroll_win_up_page(aw_Window)
+	Yield()
+Loop Until adw_DataWindow.Y = li_Last
+
+// turn scroll tag off
+adw_datawindow.tag = ""
+
+end subroutine
+

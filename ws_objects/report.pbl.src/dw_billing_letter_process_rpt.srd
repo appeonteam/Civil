@@ -1,0 +1,63 @@
+﻿$PBExportHeader$dw_billing_letter_process_rpt.srd
+$PBExportComments$Nest
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=74 color="553648127"  height.autosize=yes)
+table(column=(type=datetime updatewhereclause=yes name=received_date dbname="sh_docket.received_date" )
+ column=(type=char(5000) updatewhereclause=yes name=process_description dbname="sh_docket.process_description" )
+ retrieve="  SELECT sh_docket.received_date,   
+         sh_docket.process_description  
+    FROM sh_docket  
+   WHERE ( sh_docket.docket_year = :idockyear ) AND  
+         ( sh_docket.docket_number = :idocknum )    
+" arguments=(("idockyear", number),("idocknum", number)) )
+compute(band=detail alignment="0" expression="If( Month( received_date ) = 1, ~"January~",
+If( Month( received_date ) = 2, ~"February~",
+If( Month( received_date ) = 3, ~"March~",
+If( Month( received_date ) = 4, ~"April~",
+If( Month( received_date ) = 5, ~"May~",
+If( Month( received_date ) = 6, ~"June~",
+If( Month( received_date ) = 7, ~"July~",
+If( Month( received_date ) = 8, ~"August~",
+If( Month( received_date ) = 9, ~"September~",
+If( Month( received_date ) = 10, ~"October~",
+If( Month( received_date ) = 11, ~"November~",
+If( Month( received_date ) = 12, ~"December~",
+~" ~") ) ) ) ) ) ) ) ) ) ) ) "border="0" color="0" x="33" y="3" height="64" width="55" format=""  name=month_name visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="If( Day( received_date ) = 1, ~"1st~",
+If( Day( received_date ) = 2, ~"2nd~",
+If( Day( received_date ) = 3, ~"3rd~",
+If( Day( received_date ) = 4, ~"4th~",
+If( Day( received_date ) = 5, ~"5th~",
+If( Day( received_date ) = 6, ~"6th~",
+If( Day( received_date ) = 7, ~"7th~",
+If( Day( received_date ) = 8, ~"8th~",
+If( Day( received_date ) = 9, ~"9th~",
+If( Day( received_date ) = 10, ~"10th~",
+If( Day( received_date ) = 11, ~"11th~",
+If( Day( received_date ) = 12, ~"12th~",
+If( Day( received_date ) = 13, ~"13th~",
+If( Day( received_date ) = 14, ~"14th~",
+If( Day( received_date ) = 15, ~"15th~",
+If( Day( received_date ) = 16, ~"16th~",
+If( Day( received_date ) = 17, ~"17th~",
+If( Day( received_date ) = 18, ~"18th~",
+If( Day( received_date ) = 19, ~"19th~",
+If( Day( received_date ) = 20, ~"20th~",
+If( Day( received_date ) = 21, ~"21st~",
+If( Day( received_date ) = 22, ~"22nd~",
+If( Day( received_date ) = 23, ~"23rd~",
+If( Day( received_date ) = 24, ~"24th~",
+If( Day( received_date ) = 25, ~"25th~",
+If( Day( received_date ) = 26, ~"26th~",
+If( Day( received_date ) = 27, ~"27th~",
+If( Day( received_date ) = 28, ~"28th~",
+If( Day( received_date ) = 29, ~"29th~",
+If( Day( received_date ) = 30, ~"30th~",
+If( Day( received_date ) = 31, ~"31st~",
+~" ~" ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) ) )"border="0" color="0" x="117" y="3" height="64" width="51" format="[general]"  name=day_name visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="PAPER(S):"border="0" color="0" x="88" y="3" height="64" width="325"  name=process_description_t  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="428" y="3" height="64" width="2600" format="[general]"  name=process_description height.autosize=yes edit.limit=32000 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

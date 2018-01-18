@@ -1,0 +1,54 @@
+﻿$PBExportHeader$gf_sortcolumn.srf
+global type gf_sortcolumn from function_object
+end type
+
+forward prototypes
+global subroutine gf_sortcolumn (ref datawindow adw_object)
+end prototypes
+
+global subroutine gf_sortcolumn (ref datawindow adw_object);//************************************************************************//
+//* Author: Dan Roland																	 *//
+//* 																							 *//
+//* Sort datawindow based on which column in heading is clicked.			 *//
+//*																							 *//
+//* 	- 	clicking on column heading sorts ascending							 *//
+//*	-	ALT-clicking on column heading sorts descending 					 *//
+//*																							 *//
+//*	ARGUMENT:	adw_Object		(datawindow)									 *//
+//*																							 *//
+//*----------------------------------------------------------------------*//
+//* KNOWN FEATURES:																		 *//
+//*	- clicking to the far right of the right-most column will trigger  *//
+//*	   this column as being clicked. Column headers must be the same   *//
+//*		as the column name + "_t"													 *//
+//************************************************************************//
+
+String  ls_Object
+String  ls_ColName
+
+IF Left (adw_Object.GetBandAtPointer ( ), 7) = "header~t" THEN
+
+        ls_Object = adw_Object.GetObjectAtPointer ()
+        ls_Object = Left (ls_Object, Pos (ls_Object, "~t") - 1)
+        ls_ColName = Left (ls_Object, Pos (ls_Object, "_t") - 1)
+
+        // 3d lowered border
+		  If KeyDown ( KeyAlt! ) Then
+				ls_ColName += " D"
+		  Else
+				ls_ColName += " A"
+		  End If
+
+        adw_Object.SetSort (ls_ColName)
+        adw_Object.Sort ()
+        adw_Object.PostEvent (RowFocusChanged!)
+
+        // 3d raised border
+//        adw_Object.Modify (ls_Object + ".border='6'")
+ELSE
+        adw_Object.PostEvent (RowFocusChanged!)
+END IF
+
+
+end subroutine
+

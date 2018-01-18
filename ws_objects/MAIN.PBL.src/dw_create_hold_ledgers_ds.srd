@@ -1,0 +1,82 @@
+﻿$PBExportHeader$dw_create_hold_ledgers_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=dock_year dbname="ut_hold_ledger.dock_year" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="ut_hold_ledger.cb_type" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=fee_type dbname="ut_hold_ledger.fee_type" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=beg_balance dbname="ut_hold_ledger.beg_balance" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period1 dbname="ut_hold_ledger.period1" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period2 dbname="ut_hold_ledger.period2" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period3 dbname="ut_hold_ledger.period3" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period4 dbname="ut_hold_ledger.period4" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period5 dbname="ut_hold_ledger.period5" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period6 dbname="ut_hold_ledger.period6" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period7 dbname="ut_hold_ledger.period7" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period8 dbname="ut_hold_ledger.period8" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period9 dbname="ut_hold_ledger.period9" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period10 dbname="ut_hold_ledger.period10" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period11 dbname="ut_hold_ledger.period11" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=period12 dbname="ut_hold_ledger.period12" )
+ column=(type=char(28) update=yes updatewhereclause=yes name=last_chg_login dbname="ut_hold_ledger.last_chg_login" )
+ column=(type=datetime update=yes updatewhereclause=yes name=last_chg_datetime dbname="ut_hold_ledger.last_chg_datetime" )
+ retrieve="  SELECT ut_hold_ledger.dock_year,   
+         ut_hold_ledger.cb_type,   
+         ut_hold_ledger.fee_type,   
+         ut_hold_ledger.beg_balance,   
+         ut_hold_ledger.period1,   
+         ut_hold_ledger.period2,   
+         ut_hold_ledger.period3,   
+         ut_hold_ledger.period4,   
+         ut_hold_ledger.period5,   
+         ut_hold_ledger.period6,   
+         ut_hold_ledger.period7,   
+         ut_hold_ledger.period8,   
+         ut_hold_ledger.period9,   
+         ut_hold_ledger.period10,   
+         ut_hold_ledger.period11,   
+         ut_hold_ledger.period12,   
+         ut_hold_ledger.last_chg_login,   
+         ut_hold_ledger.last_chg_datetime  
+    FROM ut_hold_ledger   
+" update="ut_hold_ledger" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Dock Year"border="0" color="0" x="4" y="3" height="64" width="351"  name=dock_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cb Type"border="0" color="0" x="358" y="3" height="64" width="227"  name=cb_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Type"border="0" color="0" x="589" y="3" height="64" width="322"  name=fee_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Beg Balance"border="0" color="0" x="914" y="3" height="64" width="351"  name=beg_balance_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period1"border="0" color="0" x="1273" y="3" height="64" width="351"  name=period1_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period2"border="0" color="0" x="1627" y="3" height="64" width="351"  name=period2_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period3"border="0" color="0" x="1982" y="3" height="64" width="351"  name=period3_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period4"border="0" color="0" x="2337" y="3" height="64" width="351"  name=period4_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period5"border="0" color="0" x="2692" y="3" height="64" width="351"  name=period5_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period6"border="0" color="0" x="3046" y="3" height="64" width="351"  name=period6_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period7"border="0" color="0" x="3401" y="3" height="64" width="351"  name=period7_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period8"border="0" color="0" x="3756" y="3" height="64" width="351"  name=period8_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period9"border="0" color="0" x="4111" y="3" height="64" width="351"  name=period9_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period10"border="0" color="0" x="4465" y="3" height="64" width="351"  name=period10_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period11"border="0" color="0" x="4820" y="3" height="64" width="351"  name=period11_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period12"border="0" color="0" x="5175" y="3" height="64" width="351"  name=period12_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Chg Login"border="0" color="0" x="5530" y="3" height="64" width="848"  name=last_chg_login_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Last Chg Datetime"border="0" color="0" x="6382" y="3" height="64" width="644"  name=last_chg_datetime_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="4" y="4" height="74" width="351" format="[general]"  name=dock_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="358" y="4" height="74" width="59" format="[general]"  name=cb_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="589" y="4" height="74" width="322" format="[general]"  name=fee_type edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="914" y="4" height="74" width="351" format="[general]"  name=beg_balance edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="0" color="0" x="1273" y="4" height="74" width="351" format="[general]"  name=period1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="0" color="0" x="1627" y="4" height="74" width="351" format="[general]"  name=period2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=70 border="0" color="0" x="1982" y="4" height="74" width="351" format="[general]"  name=period3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=80 border="0" color="0" x="2337" y="4" height="74" width="351" format="[general]"  name=period4 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=90 border="0" color="0" x="2692" y="4" height="74" width="351" format="[general]"  name=period5 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=100 border="0" color="0" x="3046" y="4" height="74" width="351" format="[general]"  name=period6 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=110 border="0" color="0" x="3401" y="4" height="74" width="351" format="[general]"  name=period7 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=120 border="0" color="0" x="3756" y="4" height="74" width="351" format="[general]"  name=period8 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=130 border="0" color="0" x="4111" y="4" height="74" width="351" format="[general]"  name=period9 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=140 border="0" color="0" x="4465" y="4" height="74" width="351" format="[general]"  name=period10 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=150 border="0" color="0" x="4820" y="4" height="74" width="351" format="[general]"  name=period11 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=160 border="0" color="0" x="5175" y="4" height="74" width="351" format="[general]"  name=period12 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=170 border="0" color="0" x="5530" y="4" height="74" width="848" format="[general]"  name=last_chg_login edit.limit=28 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=180 border="0" color="0" x="6382" y="4" height="74" width="644" format="[shortdate] [time]"  name=last_chg_datetime edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

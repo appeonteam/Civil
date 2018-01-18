@@ -1,0 +1,63 @@
+﻿$PBExportHeader$dw_disb_checknum_rpt.srd
+$PBExportComments$Disb. Report - By Check Num
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Disb. Report - By Check Num" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=461 color="536870912" )
+summary(height=93 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=67 color="553648127"  height.autosize=yes)
+table(column=(type=char(1) updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_disbursement.cb_type" )
+ column=(type=datetime updatewhereclause=yes name=date_paid dbname="sh_docket_disbursement.date_paid" )
+ column=(type=long updatewhereclause=yes name=check_number dbname="sh_docket_disbursement.check_number" )
+ column=(type=long updatewhereclause=yes key=yes name=cbdis_year dbname="sh_docket_disbursement.cbdis_year" )
+ column=(type=long updatewhereclause=yes key=yes name=cbdis_number dbname="sh_docket_disbursement.cbdis_number" )
+ column=(type=long updatewhereclause=yes name=docket_year dbname="sh_docket_disbursement.docket_year" )
+ column=(type=long updatewhereclause=yes name=docket_number dbname="sh_docket_disbursement.docket_number" )
+ column=(type=char(100) updatewhereclause=yes name=last_name dbname="sh_docket_disbursement.last_name" )
+ column=(type=char(100) updatewhereclause=yes name=first_name dbname="sh_docket_disbursement.first_name" )
+ column=(type=char(100) updatewhereclause=yes name=middle_name dbname="sh_docket_disbursement.middle_name" )
+ column=(type=char(100) updatewhereclause=yes name=suffix dbname="sh_docket_disbursement.suffix" )
+ column=(type=decimal(2) updatewhereclause=yes name=amount_paid dbname="sh_docket_disbursement.amount_paid" )
+ retrieve="  SELECT sh_docket_disbursement.cb_type,   
+         sh_docket_disbursement.date_paid,   
+         sh_docket_disbursement.check_number,   
+         sh_docket_disbursement.cbdis_year,   
+         sh_docket_disbursement.cbdis_number,   
+         sh_docket_disbursement.docket_year,   
+         sh_docket_disbursement.docket_number,   
+         sh_docket_disbursement.last_name,   
+         sh_docket_disbursement.first_name,   
+         sh_docket_disbursement.middle_name,   
+         sh_docket_disbursement.suffix,   
+         sh_docket_disbursement.amount_paid  
+    FROM sh_docket_disbursement  
+   WHERE ( sh_docket_disbursement.date_paid >= :beg_date ) AND  
+         ( sh_docket_disbursement.date_paid <= :end_date )   
+ORDER BY sh_docket_disbursement.check_number ASC   
+" update="sh_docket_disbursement" updatewhere=1 updatekeyinplace=no arguments=(("beg_date", date),("end_date", date)) )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="3851" y="90" height="61" width="688" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Disb."border="0" color="0" x="44" y="339" height="58" width="161"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amt Paid"border="0" color="0" x="4019" y="400" height="58" width="406"  name=sh_docket_case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="3105"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Disbursement Report - By Check Number"border="0" color="0" x="739" y="157" height="61" width="3105"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Type"border="0" color="0" x="44" y="400" height="58" width="161"  name=sh_docket_docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Name"border="0" color="0" x="1957" y="400" height="58" width="245"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="~"From:  ~" + string( beg_date ,'mm/dd/yyyy') + ~"     To:  ~" + string( end_date ,'mm/dd/yyyy')"border="0" color="0" x="739" y="224" height="61" width="3105" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Comp. Disb."border="0" color="0" x="1075" y="339" height="58" width="329"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Docket"border="0" color="0" x="1430" y="339" height="58" width="329"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Date Paid"border="0" color="0" x="293" y="400" height="58" width="318"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Check #"border="0" color="0" x="644" y="400" height="58" width="282"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Year - Num"border="0" color="0" x="1075" y="400" height="58" width="329"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Year - Num"border="0" color="0" x="1430" y="400" height="58" width="329"  name=sh_docket_docket_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="4019" y="3" height="61" width="406" format="#,##0.00"  name=amount_paid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( last_name ) + ~", ~" + trim( first_name ) + ~" ~" + trim( middle_name ) + ~" ~" + trim( suffix )"border="0" color="0" x="1957" y="3" height="61" width="1986" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+compute(band=detail alignment="0" expression="string( cbdis_year ) + ~" - ~" + string( cbdis_number )"border="0" color="0" x="1075" y="3" height="61" width="329" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="string( docket_year ) + ~" - ~" + string( docket_number )"border="0" color="0" x="1430" y="3" height="61" width="329" format="[general]" visible="1~tIf( cb_type = 'D', 1, 0 )"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="644" y="3" height="61" width="282" format="[general]"  name=check_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="3" height="61" width="318" format="mm/dd/yyyy"  name=date_paid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="44" y="3" height="61" width="161" format="[general]"  name=cb_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=summary alignment="1" expression="sum( amount_paid for all)"border="0" color="0" x="4019" y="29" height="61" width="406" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="GRAND TOTAL:"border="0" color="0" x="3427" y="29" height="61" width="516"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(check_number for all)"border="0" color="0" x="44" y="29" height="61" width="282" format="#,##0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

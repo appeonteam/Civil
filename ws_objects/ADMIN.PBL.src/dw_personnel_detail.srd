@@ -1,0 +1,30 @@
+﻿$PBExportHeader$dw_personnel_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=630 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=ssan dbname="ut_personnel.ssan" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=last_name dbname="ut_personnel.last_name" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=first_name dbname="ut_personnel.first_name" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=user_id dbname="ut_personnel.user_id" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=user_password dbname="ut_personnel.user_password" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=system_type dbname="ut_personnel.system_type" )
+ retrieve="  SELECT ut_personnel.ssan,   
+         ut_personnel.last_name,   
+         ut_personnel.first_name,   
+         ut_personnel.user_id,   
+         ut_personnel.user_password,   
+         ut_personnel.system_type  
+    FROM ut_personnel  
+   WHERE ut_personnel.ssan = :achssan    
+" update="ut_personnel" updatewhere=1 updatekeyinplace=no arguments=(("achssan", string)) )
+text(band=detail alignment="1" text="SSAN:"border="0" color="0" x="267" y="29" height="58" width="183"  name=ssan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Last Name:"border="0" color="0" x="124" y="118" height="58" width="325"  name=last_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="First Name:"border="0" color="0" x="121" y="208" height="58" width="329"  name=first_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="User ID:"border="0" color="0" x="219" y="298" height="58" width="230"  name=user_id_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="464" y="26" height="61" width="424" format="[general]"  name=ssan editmask.mask="###-##-####" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="464" y="115" height="61" width="900" format="[general]"  name=last_name edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="464" y="205" height="61" width="900" format="[general]"  name=first_name edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="464" y="294" height="61" width="391" format="[general]"  name=user_id edit.limit=7 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

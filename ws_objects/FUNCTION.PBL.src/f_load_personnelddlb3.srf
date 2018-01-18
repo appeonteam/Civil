@@ -1,0 +1,46 @@
+﻿$PBExportHeader$f_load_personnelddlb3.srf
+global type f_load_personnelddlb3 from function_object
+end type
+
+forward prototypes
+global function integer f_load_personnelddlb3 (ref dropdownlistbox ddlb_to_load)
+end prototypes
+
+global function integer f_load_personnelddlb3 (ref dropdownlistbox ddlb_to_load);// script variables
+string s_achSQL, s_achData, s_achDescLast, s_achDescFirst
+
+s_achSQL = "SELECT ~"ssan~", ~"last_name~", ~"first_name~"  &
+   FROM ~"ut_personnel~" &
+	ORDER BY ~"last_name~""
+
+DECLARE load_csr DYNAMIC CURSOR FOR SQLSA;
+PREPARE SQLSA FROM :s_achSQL USING SQLCA;
+
+OPEN DYNAMIC load_csr;
+If SQLCA.SQLCode = -1 Then
+	MessageBox("System Error", SQLCA.SQLErrText)
+	Return(-1)
+End If
+
+FETCH load_csr INTO :s_achData, :s_achDescLast, :s_achDescFirst;
+
+Do While SQLCA.SQLCode = 0
+
+	// add item to list box and get next record
+	ddlb_to_load.AddItem(s_achData + Fill(" ", 10 - Len(s_achData)) + s_achDescLast + ", " + s_achDescFirst)
+	FETCH load_csr INTO :s_achData, :s_achDescLast, :s_achDescFirst;
+
+Loop
+
+// check why we fell out of loop
+If SQLCA.SQLCode = -1 Then
+	MessageBox("System Error", SQLCA.SQLErrText)
+	Return(-1)
+Else
+	CLOSE load_csr;
+	ddlb_to_load.InsertItem("", 1)
+	Return(0)
+End If
+
+end function
+

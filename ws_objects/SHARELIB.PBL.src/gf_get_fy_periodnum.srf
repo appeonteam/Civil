@@ -1,0 +1,37 @@
+﻿$PBExportHeader$gf_get_fy_periodnum.srf
+global type gf_get_fy_periodnum from function_object
+end type
+
+forward prototypes
+global function integer gf_get_fy_periodnum (date a_dtperioddate)
+end prototypes
+
+global function integer gf_get_fy_periodnum (date a_dtperioddate);//////////////////////////////////////////////////////////////////////
+//
+// Function: gf_get_fy_periodnum
+//
+// Purpose: returns the correct period number for the date given
+//
+//	Scope: public	
+//
+//	Arguments: a_dtperioddate	a valid period date
+//
+//	Returns: s_iperiodnum		the correct period number for the given date
+//
+//////////////////////////////////////////////////////////////////////
+
+integer s_iPeriodNum
+date dtPeriodDate
+// If month is Jan through June, period number is 6 greater than the month's calendar number
+// If month is July through December, period number is 6 less than the month's calendar number
+
+dtPeriodDate = a_dtPeriodDate
+If Month(dtPeriodDate) <= 6 Then
+	s_iPeriodNum = Month(dtPeriodDate) + 6
+Else
+	s_iPeriodNum = Month(dtPeriodDate) - 6
+End If	
+
+Return (s_iPeriodNum)
+end function
+

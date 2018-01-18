@@ -1,0 +1,31 @@
+﻿$PBExportHeader$dw_docket_fee_balance_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_fee.cb_type" )
+ column=(type=long updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_fee.docket_year" )
+ column=(type=long updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_fee.docket_number" )
+ column=(type=long updatewhereclause=yes key=yes name=fee_number dbname="sh_docket_fee.fee_number" )
+ retrieve="  SELECT sh_docket_fee.cb_type,   
+         sh_docket_fee.docket_year,   
+         sh_docket_fee.docket_number,   
+         sh_docket_fee.fee_number  
+    FROM sh_docket_fee  
+   WHERE ( sh_docket_fee.cb_type = :cbtype ) AND  
+         ( sh_docket_fee.docket_year = :dockyear ) AND  
+         ( sh_docket_fee.docket_number = :docknum ) AND  
+         sh_docket_fee.balance_due > 0   
+ORDER BY sh_docket_fee.fee_number ASC   
+" update="sh_docket_fee" updatewhere=0 updatekeyinplace=no arguments=(("cbtype", string),("dockyear", number),("docknum", number)) )
+text(band=header alignment="2" text="Cb Type"border="0" color="0" x="4" y="3" height="64" width="227"  name=cb_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Docket Year"border="0" color="0" x="234" y="3" height="64" width="351"  name=docket_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Docket Number"border="0" color="0" x="589" y="3" height="64" width="413"  name=docket_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Number"border="0" color="0" x="1006" y="3" height="64" width="351"  name=fee_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="4" y="4" height="74" width="59" format="[general]"  name=cb_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="0" color="0" x="234" y="4" height="74" width="351" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="0" x="589" y="4" height="74" width="351" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="1006" y="4" height="74" width="351" format="[general]"  name=fee_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

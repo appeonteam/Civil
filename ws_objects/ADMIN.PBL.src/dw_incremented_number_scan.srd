@@ -1,0 +1,26 @@
+﻿$PBExportHeader$dw_incremented_number_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=civil_year dbname="ut_incremented_number.civil_year" )
+ column=(type=char(12) update=yes updatewhereclause=yes key=yes name=number_type dbname="ut_incremented_number.number_type" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=description dbname="ut_incremented_number.description" )
+ column=(type=long update=yes updatewhereclause=yes name=max_number dbname="ut_incremented_number.max_number" )
+ retrieve="  SELECT ut_incremented_number.civil_year,   
+         ut_incremented_number.number_type,   
+         ut_incremented_number.description,   
+         ut_incremented_number.max_number  
+    FROM ut_incremented_number   
+" update="ut_incremented_number" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="1" text="Year"border="0" color="0" x="62" y="3" height="58" width="183"  name=emt_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Number Type"border="0" color="0" x="289" y="3" height="58" width="388"  name=number_type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Description"border="0" color="0" x="746" y="3" height="58" width="333"  name=description_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Max Number"border="0" color="0" x="2480" y="3" height="58" width="362"  name=max_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="62" y="4" height="74" width="183" format="[general]"  name=civil_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="289" y="4" height="74" width="380" format="[general]"  name=number_type edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="746" y="4" height="74" width="1719" format="[general]"  name=description edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2491" y="4" height="74" width="351" format="[general]"  name=max_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

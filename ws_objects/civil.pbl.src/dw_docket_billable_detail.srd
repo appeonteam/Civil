@@ -1,0 +1,58 @@
+﻿$PBExportHeader$dw_docket_billable_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1018 color="536870912" )
+table(column=(type=char(80) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_billable.last_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_billable.first_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=middle_name dbname="sh_docket_billable.middle_name" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=suffix dbname="sh_docket_billable.suffix" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_billable.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_billable.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=billable_number dbname="sh_docket_billable.billable_number" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=address1 dbname="sh_docket_billable.address1" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=address2 dbname="sh_docket_billable.address2" )
+ column=(type=char(25) update=yes updatewhereclause=yes name=city dbname="sh_docket_billable.city" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=state dbname="sh_docket_billable.state" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=zip_code dbname="sh_docket_billable.zip_code" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=zip_4 dbname="sh_docket_billable.zip_4" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=work_phone dbname="sh_docket_billable.work_phone" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=business dbname="sh_docket_billable.business" values="No	N/Yes	Y/" )
+ retrieve="  SELECT sh_docket_billable.last_name,   
+         sh_docket_billable.first_name,   
+         sh_docket_billable.middle_name,   
+         sh_docket_billable.suffix,   
+         sh_docket_billable.docket_year,   
+         sh_docket_billable.docket_number,   
+         sh_docket_billable.billable_number,   
+         sh_docket_billable.address1,   
+         sh_docket_billable.address2,   
+         sh_docket_billable.city,   
+         sh_docket_billable.state,   
+         sh_docket_billable.zip_code,   
+         sh_docket_billable.zip_4,   
+         sh_docket_billable.work_phone,   
+         sh_docket_billable.business  
+    FROM sh_docket_billable  
+   WHERE ( sh_docket_billable.docket_year = :iyear ) AND  
+         ( sh_docket_billable.docket_number = :ldocknum )    
+" update="sh_docket_billable" updatewhere=1 updatekeyinplace=no arguments=(("iyear", number),("ldocknum", number)) )
+compute(band=detail alignment="1" expression="If( business = ~"Y~", ~"Name Line:~", ~"Last Name:~" )"border="0" color="0" x="40" y="54" height="58" width="421" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="475" y="51" height="61" width="2370" format="[general]"  name=last_name edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Address1:"border="0" color="0" x="40" y="141" height="58" width="421"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="475" y="138" height="61" width="1730" format="[general]"  name=address1 edit.limit=50 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Address2:"border="0" color="0" x="40" y="224" height="58" width="421"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="475" y="221" height="61" width="1730" format="[general]"  name=address2 edit.limit=50 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="City:"border="0" color="0" x="40" y="310" height="58" width="421"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="475" y="307" height="61" width="728" format="[general]"  name=city edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="State:"border="0" color="0" x="1232" y="310" height="58" width="183"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="1430" y="307" height="61" width="190" format="[general]"  name=state edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Zip:"border="0" color="0" x="1646" y="310" height="58" width="150"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="1810" y="307" height="61" width="219" format="[general]"  name=zip_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="2" text="-"border="0" color="0" x="2048" y="310" height="58" width="26"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="5" color="0" x="2092" y="307" height="61" width="187" format="[general]"  name=zip_4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Work Phone:"border="0" color="0" x="40" y="397" height="58" width="421"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="5" color="0" x="475" y="394" height="61" width="578" format="(@@@) @@@-@@@@"  name=work_phone edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="0" text="Press ~"F1~" or ~"Enter~" to Save, Press ~"F4~" to Leave Docket Billable Parties Continuous ADD Mode..."border="0" color="0" x="121" y="512" height="58" width="2845"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

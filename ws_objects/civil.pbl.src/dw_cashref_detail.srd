@@ -1,0 +1,57 @@
+﻿$PBExportHeader$dw_cashref_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=date update=yes updatewhereclause=yes name=date_paid dbname="date_paid" )
+ column=(type=long update=yes updatewhereclause=yes name=cbdis_num dbname="cbdis_num" )
+ column=(type=long update=yes updatewhereclause=yes name=cbdis_year dbname="cbdis_year" )
+ column=(type=char(9) update=yes updatewhereclause=yes name=ssan dbname="ssan" )
+ column=(type=long update=yes updatewhereclause=yes name=bus_num dbname="bus_num" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_paid dbname="amount_paid" )
+ column=(type=long update=yes updatewhereclause=yes name=check_num dbname="check_num" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cb_type dbname="cb_type" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=user_type dbname="user_type" )
+ column=(type=char(30) updatewhereclause=yes name=business_card_bus_name dbname="bus_name" )
+ column=(type=char(20) updatewhereclause=yes name=master_names_last_name dbname="last_name" )
+ column=(type=char(15) updatewhereclause=yes name=master_names_first_name dbname="first_name" )
+ column=(type=char(15) updatewhereclause=yes name=master_names_mid_name dbname="mid_name" )
+ retrieve="  SELECT ~"dba~".~"cb_dis~".~"date_paid~",   
+         ~"dba~".~"cb_dis~".~"cbdis_num~",   
+         ~"dba~".~"cb_dis~".~"cbdis_year~",   
+         ~"dba~".~"cb_dis~".~"ssan~",   
+         ~"dba~".~"cb_dis~".~"bus_num~",   
+         ~"dba~".~"cb_dis~".~"amount_paid~",   
+         ~"dba~".~"cb_dis~".~"check_num~",   
+         ~"dba~".~"cb_dis~".~"cb_type~",   
+         ~"dba~".~"cb_dis~".~"user_type~",   
+         ~"dba~".~"business_card~".~"bus_name~",   
+         ~"dba~".~"master_names~".~"last_name~",   
+         ~"dba~".~"master_names~".~"first_name~",   
+         ~"dba~".~"master_names~".~"mid_name~"  
+    FROM {oj {oj ~"dba~".~"cb_dis~"  LEFT OUTER JOIN ~"dba~".~"business_card~"  ON ~"dba~".~"cb_dis~".~"bus_num~" = ~"dba~".~"business_card~".~"bus_num~"} LEFT OUTER JOIN ~"dba~".~"master_names~"  ON ~"dba~".~"cb_dis~".~"ssan~" = ~"dba~".~"master_names~".~"ssan~"},   
+         ~"dba~".~"cash_ref~"  
+   WHERE ( ~"dba~".~"cb_dis~".~"user_type~" = ~"dba~".~"cash_ref~".~"user_type~" ) and  
+         ( ~"dba~".~"cb_dis~".~"cbdis_year~" = ~"dba~".~"cash_ref~".~"cbdis_year~" ) and  
+         ( ~"dba~".~"cb_dis~".~"cbdis_num~" = ~"dba~".~"cash_ref~".~"cbdis_num~" ) and  
+         ( ( ~"dba~".~"cash_ref~".~"user_type~" = :achusertype ) AND  
+         ( ~"dba~".~"cash_ref~".~"cbrec_year~" = :icbrecyear ) AND  
+         ( ~"dba~".~"cash_ref~".~"cbrec_num~" = :lcbrecnum ) )    
+" arguments=(("achusertype", string),("icbrecyear", number),("lcbrecnum", number)) )
+text(band=header alignment="0" text="Date Paid"border="0" color="0" x="40" y="3" height="58" width="282"  name=date_paid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cbdis Num"border="0" color="0" x="399" y="3" height="58" width="300"  name=cbdis_num_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cbdis Year"border="0" color="0" x="713" y="3" height="58" width="300"  name=cbdis_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Bus Num"border="0" color="0" x="1865" y="3" height="58" width="260"  name=bus_num_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Check Num"border="0" color="0" x="3127" y="3" height="58" width="329"  name=check_num_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="SSAN"border="0" color="0" x="1031" y="3" height="58" width="168"  name=ssan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="40" y="4" height="74" width="351" format="[general]"  name=date_paid editmask.mask="mm/dd/yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="402" y="4" height="74" width="263" format="[general]"  name=cbdis_num edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="713" y="4" height="74" width="278" format="[general]"  name=cbdis_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1865" y="7" height="64" width="870" format="[general]"  name=business_card_bus_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="3116" y="4" height="74" width="322" format="[general]"  name=check_num edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if(trim( master_names_mid_name ) <> '',trim( master_names_last_name ) + ~", ~" + trim( master_names_first_name ) + ~" ~" + trim( master_names_mid_name ), trim( master_names_last_name ) + ~", ~" + trim( master_names_first_name ))"border="0" color="0" x="1031" y="7" height="64" width="819" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2761" y="4" height="74" width="318" format="[general]"  name=amount_paid edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount Paid"border="0" color="0" x="2728" y="3" height="58" width="351"  name=amount_paid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

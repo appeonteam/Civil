@@ -1,0 +1,31 @@
+﻿$PBExportHeader$dw_billing_letter_fees_rpt.srd
+$PBExportComments$Nest
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=96 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=70 color="536870912" )
+table(column=(type=char(75) updatewhereclause=yes name=ut_codes_description dbname="ut_codes.description" )
+ column=(type=decimal(2) updatewhereclause=yes name=sh_docket_fee_fee_amount dbname="sh_docket_fee.fee_amount" )
+ retrieve="  SELECT ut_codes.description,   
+         sh_docket_fee.fee_amount  
+    FROM sh_docket_fee,   
+         ut_codes  
+   WHERE ( sh_docket_fee.fee_type = ut_codes.code ) and  
+         ( ( sh_docket_fee.docket_year = :idockyear ) AND  
+         ( sh_docket_fee.docket_number = :idocknum ) AND  
+         ( ut_codes.code_type = :achfee ) ) AND  
+         sh_docket_fee.cb_type = 'D' AND
+			sh_docket_fee.fee_type <> 'DE' AND
+			sh_docket_fee.fee_type <> 'OP'  
+ORDER BY ut_codes.description ASC   
+" arguments=(("idockyear", number),("idocknum", number),("achfee", string)) )
+text(band=header alignment="0" text="FEES:"border="0" color="0" x="88" y="3" height="64" width="318"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="88" y="4" height="64" width="852" format="[general]"  name=ut_codes_description edit.limit=75 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="955" y="4" height="64" width="315" format="$#,##0.00;($#,##0.00)"  name=sh_docket_fee_fee_amount edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="TOTAL"border="0" color="0" x="88" y="29" height="64" width="399"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+line(band=summary x1="955" y1="9" x2="1269" y2="9" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(sh_docket_fee_fee_amount for all)"border="0" color="0" x="955" y="29" height="64" width="315" format="$#,##0.00;($#,##0.00)"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="0" text="**Please remit payment to the address above"border="0" color="0" x="1584" y="29" height="64" width="1379"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

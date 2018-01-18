@@ -1,0 +1,11 @@
+﻿$PBExportHeader$st_disburseparms.srs
+global type st_disburseparms from structure
+	string		achcbtype
+	integer		idockyear
+	long		ldocknum
+	integer		idisyear
+	integer		idisnum
+	decimal {2}	dbaldisb
+	window		wprev
+end type
+

@@ -1,0 +1,54 @@
+﻿$PBExportHeader$dw_misc_cash_disburse_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=70 color="553648127" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=cbdis_number dbname="sh_docket_disbursement.cbdis_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbdis_year dbname="sh_docket_disbursement.cbdis_year" )
+ column=(type=datetime update=yes updatewhereclause=yes name=date_paid dbname="sh_docket_disbursement.date_paid" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_disbursement.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_number dbname="sh_docket_disbursement.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_year dbname="sh_docket_disbursement.docket_year" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_paid dbname="sh_docket_disbursement.amount_paid" )
+ column=(type=long update=yes updatewhereclause=yes name=check_number dbname="sh_docket_disbursement.check_number" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_disbursement.last_name" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_disbursement.first_name" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=case_number dbname="sh_docket_disbursement.case_number" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=disburse_status dbname="sh_docket_disbursement.disburse_status" )
+ retrieve="  SELECT sh_docket_disbursement.cbdis_number,   
+         sh_docket_disbursement.cbdis_year,   
+         sh_docket_disbursement.date_paid,   
+         sh_docket_disbursement.cb_type,   
+         sh_docket_disbursement.docket_number,   
+         sh_docket_disbursement.docket_year,   
+         sh_docket_disbursement.amount_paid,   
+         sh_docket_disbursement.check_number,   
+         sh_docket_disbursement.last_name,   
+         sh_docket_disbursement.first_name,   
+         sh_docket_disbursement.case_number,   
+         sh_docket_disbursement.disburse_status  
+    FROM sh_docket_disbursement   
+" update="sh_docket_disbursement" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Date Paid"border="0" color="0" x="121" y="10" height="58" width="362"  name=date_paid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount Paid"border="0" color="0" x="2271" y="10" height="58" width="391"  name=amount_paid_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Whom Due"border="0" color="0" x="819" y="10" height="58" width="1412"  name=whom_due_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Check #"border="0" color="0" x="505" y="10" height="58" width="252"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0~tIf( trim( last_name ) = 'Cerro Gordo County Treasurer', RGB(255,0,0),
+If( trim( last_name ) = 'Iowa Dept of Public Safety', RGB(0,0,128), 
+If( trim( last_name ) = 'Iowa Dept of Transportation', RGB(0,0,128), 
+ RGB(0,0,0) ) ) )" x="121" y="4" height="64" width="362" format="mm/dd/yyyy"  name=date_paid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400~tIf( trim( disburse_status ) = 'C', 700, 400 )"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0~tIf( trim( last_name ) = 'Cerro Gordo County Treasurer', RGB(255,0,0),
+If( trim( last_name ) = 'Iowa Dept of Public Safety', RGB(0,0,128), 
+If( trim( last_name ) = 'Iowa Dept of Transportation', RGB(0,0,128), 
+ RGB(0,0,0) ) ) )" x="2271" y="4" height="64" width="391" format="#,##0.00"  name=amount_paid edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400~tIf( trim( disburse_status ) = 'C', 700, 400 )"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( last_name ) + ~", ~" + trim( first_name )"border="0" color="0~tIf( trim( last_name ) = 'Cerro Gordo County Treasurer', RGB(255,0,0),
+If( trim( last_name ) = 'Iowa Dept of Public Safety', RGB(0,0,128), 
+If( trim( last_name ) = 'Iowa Dept of Transportation', RGB(0,0,128), 
+ RGB(0,0,0) ) ) )" x="819" y="4" height="64" width="1408" format="[general]"  font.face="Arial" font.height="-10" font.weight="400~tIf( trim( disburse_status ) = 'C', 700, 400 )"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0~tIf( trim( last_name ) = 'Cerro Gordo County Treasurer', RGB(255,0,0),
+If( trim( last_name ) = 'Iowa Dept of Public Safety', RGB(0,0,128), 
+If( trim( last_name ) = 'Iowa Dept of Transportation', RGB(0,0,128), 
+ RGB(0,0,0) ) ) )" x="505" y="4" height="64" width="252" format="[general]"  name=check_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400~tIf( trim( disburse_status ) = 'C', 700, 400 )"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

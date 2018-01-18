@@ -1,0 +1,52 @@
+﻿$PBExportHeader$dw_get_receipt_fees_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_fee.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_fee.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_fee.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=fee_number dbname="sh_docket_fee.fee_number" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=fee_type dbname="sh_docket_fee.fee_type" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=fee_amount dbname="sh_docket_fee.fee_amount" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=fee_note dbname="sh_docket_fee.fee_note" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_received dbname="sh_docket_fee.amount_received" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=balance_due dbname="sh_docket_fee.balance_due" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=fee_end dbname="sh_docket_fee.fee_end" )
+ retrieve="  SELECT sh_docket_fee.cb_type,   
+         sh_docket_fee.docket_year,   
+         sh_docket_fee.docket_number,   
+         sh_docket_fee.fee_number,   
+         sh_docket_fee.fee_type,   
+         sh_docket_fee.fee_amount,   
+         sh_docket_fee.fee_note,   
+         sh_docket_fee.amount_received,   
+         sh_docket_fee.balance_due,   
+         sh_docket_fee.fee_end  
+    FROM sh_docket_fee  
+   WHERE ( sh_docket_fee.cb_type = :achcbtype ) AND  
+         ( sh_docket_fee.fee_type = :achfeetype )    
+" update="sh_docket_fee" updatewhere=1 updatekeyinplace=no arguments=(("achcbtype", string),("achfeetype", string)) )
+text(band=header alignment="2" text="Cb Type"border="0" color="0" x="4" y="3" height="64" width="227"  name=cb_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Docket Year"border="0" color="0" x="234" y="3" height="64" width="351"  name=docket_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Docket Number"border="0" color="0" x="589" y="3" height="64" width="413"  name=docket_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Number"border="0" color="0" x="1006" y="3" height="64" width="351"  name=fee_number_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Type"border="0" color="0" x="1360" y="3" height="64" width="322"  name=fee_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Amount"border="0" color="0" x="1690" y="3" height="64" width="351"  name=fee_amount_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee Note"border="0" color="0" x="2044" y="3" height="64" width="1492"  name=fee_note_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amount Received"border="0" color="0" x="3540" y="3" height="64" width="464"  name=amount_received_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Balance Due"border="0" color="0" x="4008" y="3" height="64" width="351"  name=balance_due_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fee End"border="0" color="0" x="4363" y="3" height="64" width="227"  name=fee_end_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="4" y="4" height="74" width="59" format="[general]"  name=cb_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="0" color="0" x="234" y="4" height="74" width="351" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="0" x="589" y="4" height="74" width="351" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="1006" y="4" height="74" width="351" format="[general]"  name=fee_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="1360" y="4" height="74" width="322" format="[general]"  name=fee_type edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="0" color="0" x="1690" y="4" height="74" width="351" format="[general]"  name=fee_amount edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="0" x="2044" y="4" height="74" width="1492" format="[general]"  name=fee_note edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=80 border="0" color="0" x="3540" y="4" height="74" width="351" format="[general]"  name=amount_received edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=90 border="0" color="0" x="4008" y="4" height="74" width="351" format="[general]"  name=balance_due edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="0" color="0" x="4363" y="4" height="74" width="59" format="[general]"  name=fee_end edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

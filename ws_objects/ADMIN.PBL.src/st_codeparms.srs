@@ -1,0 +1,7 @@
+﻿$PBExportHeader$st_codeparms.srs
+global type st_codeparms from structure
+    string achoptype
+    string achCodeType
+    string achCode
+end type
+

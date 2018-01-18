@@ -1,0 +1,27 @@
+﻿$PBExportHeader$dw_docket_note_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(80) update=yes updatewhereclause=yes name=comments dbname="sh_docket_note.comments" )
+ column=(type=datetime update=yes updatewhereclause=yes name=comment_date dbname="sh_docket_note.comment_date" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_note.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_note.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=line_number dbname="sh_docket_note.line_number" )
+ retrieve="  SELECT sh_docket_note.comments,   
+         sh_docket_note.comment_date,   
+         sh_docket_note.docket_year,   
+         sh_docket_note.docket_number,   
+         sh_docket_note.line_number  
+    FROM sh_docket_note  
+   WHERE ( sh_docket_note.docket_year = :iyear ) AND  
+         ( sh_docket_note.docket_number = :ldocknum )   
+ORDER BY sh_docket_note.comment_date DESC   
+" update="sh_docket_note" updatewhere=1 updatekeyinplace=no arguments=(("iyear", number),("ldocknum", number)) )
+text(band=header alignment="0" text="Press ~"F1~" or ~"Enter~" to Save, Press ~"F4~" to Leave Docket Memo Continuous ADD Mode..."border="0" color="0" x="424" y="3" height="58" width="2425"  name=directions  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="0" text="Memo"border="0" color="0" x="124" y="3" height="58" width="208"  name=comments_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="2403" y="4" height="74" width="443" format="[shortdate] [time]"  name=comment_date editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="124" y="4" height="74" width="2249" format="[general]"  name=comments edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

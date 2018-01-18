@@ -1,0 +1,122 @@
+﻿$PBExportHeader$dw_docket_served_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1139 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_serve.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_serve.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=served_number dbname="sh_docket_serve.served_number" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=last_name dbname="sh_docket_serve.last_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=first_name dbname="sh_docket_serve.first_name" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=middle_name dbname="sh_docket_serve.middle_name" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=suffix dbname="sh_docket_serve.suffix" )
+ column=(type=datetime update=yes updatewhereclause=yes name=date_returned dbname="sh_docket_serve.date_returned" )
+ column=(type=datetime update=yes updatewhereclause=yes name=time_limit dbname="sh_docket_serve.time_limit" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=type_served dbname="sh_docket_serve.type_served" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=personal_place_served dbname="sh_docket_serve.personal_place_served" )
+ column=(type=datetime update=yes updatewhereclause=yes name=personal_date_served dbname="sh_docket_serve.personal_date_served" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=personal_time_served dbname="sh_docket_serve.personal_time_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=personal_am_pm dbname="sh_docket_serve.personal_am_pm" values="AM	A/PM	P/ 	 /" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=subs_served_on dbname="sh_docket_serve.subs_served_on" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=subs_place_served dbname="sh_docket_serve.subs_place_served" )
+ column=(type=datetime update=yes updatewhereclause=yes name=subs_date_served dbname="sh_docket_serve.subs_date_served" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=subs_time_served dbname="sh_docket_serve.subs_time_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=subs_am_pm dbname="sh_docket_serve.subs_am_pm" values="AM	A/PM	P/ 	 /" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=corp_served_on dbname="sh_docket_serve.corp_served_on" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=corp_position dbname="sh_docket_serve.corp_position" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=corp_place_served dbname="sh_docket_serve.corp_place_served" )
+ column=(type=datetime update=yes updatewhereclause=yes name=corp_date_served dbname="sh_docket_serve.corp_date_served" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=corp_time_served dbname="sh_docket_serve.corp_time_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=corp_am_pm dbname="sh_docket_serve.corp_am_pm" values="AM	A/PM	P/ 	 /" )
+ column=(type=char(500) update=yes updatewhereclause=yes name=other_served dbname="sh_docket_serve.other_served" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=diligent_search dbname="sh_docket_serve.diligent_search" values="Yes	Y/No	N/" )
+ column=(type=char(500) update=yes updatewhereclause=yes name=served_note dbname="sh_docket_serve.served_note" )
+ column=(type=char(80) update=yes updatewhereclause=yes name=officer_name dbname="sh_docket_serve.officer_name" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=personal_military_time dbname="sh_docket_serve.personal_military_time" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=subs_military_time dbname="sh_docket_serve.subs_military_time" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=corp_military_time dbname="sh_docket_serve.corp_military_time" )
+ retrieve="  SELECT sh_docket_serve.docket_number,   
+         sh_docket_serve.docket_year,   
+         sh_docket_serve.served_number,   
+         sh_docket_serve.last_name,   
+         sh_docket_serve.first_name,   
+         sh_docket_serve.middle_name,   
+         sh_docket_serve.suffix,   
+         sh_docket_serve.date_returned,   
+         sh_docket_serve.time_limit,   
+         sh_docket_serve.type_served,   
+         sh_docket_serve.personal_place_served,   
+         sh_docket_serve.personal_date_served,   
+         sh_docket_serve.personal_time_served,   
+         sh_docket_serve.personal_am_pm,   
+         sh_docket_serve.subs_served_on,   
+         sh_docket_serve.subs_place_served,   
+         sh_docket_serve.subs_date_served,   
+         sh_docket_serve.subs_time_served,   
+         sh_docket_serve.subs_am_pm,   
+         sh_docket_serve.corp_served_on,   
+         sh_docket_serve.corp_position,   
+         sh_docket_serve.corp_place_served,   
+         sh_docket_serve.corp_date_served,   
+         sh_docket_serve.corp_time_served,   
+         sh_docket_serve.corp_am_pm,   
+         sh_docket_serve.other_served,   
+         sh_docket_serve.diligent_search,   
+         sh_docket_serve.served_note,   
+         sh_docket_serve.officer_name,   
+         sh_docket_serve.personal_military_time,   
+         sh_docket_serve.subs_military_time,   
+         sh_docket_serve.corp_military_time  
+    FROM sh_docket_serve  
+   WHERE ( sh_docket_serve.docket_year = :iyear ) AND  
+         ( sh_docket_serve.docket_number = :ldocknum )    
+" update="sh_docket_serve" updatewhere=1 updatekeyinplace=no arguments=(("iyear", number),("ldocknum", number)) )
+text(band=detail alignment="1" text="Suf:"border="0" color="0" x="2703" y="93" height="58" width="128"  name=suffix_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="2845" y="90" height="61" width="165" format="[general]"  name=suffix edit.limit=5 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="163" x2="3090" y2="163" pen.style="0" pen.width="4" pen.color="0"  background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Date Returned:"border="0" color="0" x="1730" y="182" height="58" width="421"  name=date_returned_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="2165" y="179" height="61" width="384" format=""  name=date_returned editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="253" x2="3090" y2="253" pen.style="0" pen.width="4" pen.color="0"  background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Pers. Place, Date:"border="0" color="0" x="7" y="272" height="58" width="505"  name=place_served_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="269" height="61" width="1598" format="[general]"  name=personal_place_served edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="2165" y="269" height="61" width="384" format=""  name=personal_date_served editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="5" color="0" x="2589" y="269" height="61" width="190" format="[general]"  name=personal_time_served editmask.mask="aa:aa" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="5" color="0" x="2809" y="269" height="61" width="201" format="[general]"  name=personal_am_pm ddlb.limit=0 ddlb.sorted=yes ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="342" x2="3090" y2="342" pen.style="0" pen.width="4" pen.color="0"  background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Subs. By Serving:"border="0" color="0" x="7" y="362" height="58" width="505"  name=served_on_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Place, Date:"border="0" color="0" x="7" y="442" height="58" width="505"  name=position_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="438" height="61" width="1598" format="[general]"  name=subs_place_served edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="5" color="0" x="2165" y="438" height="61" width="384" format="[shortdate] [time]"  name=subs_date_served editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="5" color="0" x="2589" y="438" height="61" width="190" format=""  name=subs_time_served editmask.mask="aa:aa" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="5" color="0" x="2809" y="438" height="61" width="201" format="[general]"  name=subs_am_pm ddlb.limit=0 ddlb.sorted=yes ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="512" x2="3090" y2="512" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Corp. By Serving:"border="0" color="0" x="7" y="531" height="58" width="505"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="528" height="61" width="1115" format="[general]"  name=corp_served_on edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Position:"border="0" color="0" x="1664" y="531" height="58" width="260"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="5" color="0" x="1938" y="528" height="61" width="1072" format="[general]"  name=corp_position edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Place, Date:"border="0" color="0" x="7" y="611" height="58" width="505"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="608" height="61" width="1598" format="[general]"  name=corp_place_served edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="5" color="0" x="2165" y="608" height="61" width="384" format="[shortdate] [time]"  name=corp_date_served editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="5" color="0" x="2589" y="608" height="61" width="190" format="[general]"  name=corp_time_served editmask.mask="aa:aa" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="5" color="0" x="2809" y="608" height="61" width="201" format=""  name=corp_am_pm ddlb.limit=0 ddlb.sorted=yes ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="682" x2="3090" y2="682" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="698" height="192" width="2483" format=""  name=other_served edit.limit=450 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+line(band=detail x1="0" y1="902" x2="3090" y2="902" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Officer Name:"border="0" color="0" x="7" y="922" height="58" width="505"  name=officer_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="918" height="61" width="2483" format="[general]"  name=officer_name dddw.name=dddw_serve_personnel dddw.displaycolumn=officer_name dddw.datacolumn=officer_name dddw.percentwidth=100 dddw.lines=5 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes dddw.showlist=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Served Note:"border="0" color="0" x="7" y="1002" height="58" width="505"  name=served_note_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="998" height="61" width="2483" format="[general]"  name=served_note edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="0" text="Press ~"F1~" or ~"Enter~" to Save, Press ~"F4~" to Leave Docket Served Continuous ADD Mode..."border="0" color="0" x="183" y="1078" height="58" width="2619"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Other Serve:"border="0" color="0" x="7" y="701" height="58" width="505"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="or Diligent Explain "border="0" color="0" x="7" y="765" height="58" width="505"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="358" height="61" width="2483" format="[general]"  name=subs_served_on edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="10" height="61" width="2483" format="[general]"  name=last_name edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Type Served:"border="0" color="0" x="7" y="182" height="58" width="505"  name=type_served_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="179" height="61" width="1163" format="[general]"  name=type_served dddw.name=dddw_ut_codes dddw.displaycolumn=full_description dddw.datacolumn=code dddw.percentwidth=115 dddw.lines=0 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes dddw.showlist=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="527" y="90" height="61" width="1163" format="[general]"  name=first_name edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Middle:"border="0" color="0" x="1712" y="93" height="58" width="208"  name=middle_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="1935" y="90" height="61" width="750" format="[general]"  name=middle_name edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Last Name:"border="0" color="0" x="7" y="13" height="58" width="505"  name=last_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="First Name:"border="0" color="0" x="7" y="93" height="58" width="505"  name=first_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

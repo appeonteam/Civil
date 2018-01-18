@@ -1,0 +1,12 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "DROPDDWS.PBL" "";
+@end;
+@begin Objects 
+ "dddw_officers.srd" "DROPDDWS.PBL";
+ "dddw_permissions.srd" "DROPDDWS.PBL";
+ "dddw_personnel.srd" "DROPDDWS.PBL";
+ "dddw_serve_personnel.srd" "DROPDDWS.PBL";
+ "dddw_ut_codes.srd" "DROPDDWS.PBL";
+ "dddw_ut_codes2.srd" "DROPDDWS.PBL";
+@end;

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$dw_personnel_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=70 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=ssan dbname="ut_personnel.ssan" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=last_name dbname="ut_personnel.last_name" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=first_name dbname="ut_personnel.first_name" )
+ column=(type=char(7) update=yes updatewhereclause=yes name=user_id dbname="ut_personnel.user_id" )
+ retrieve="  SELECT ut_personnel.ssan,   
+         ut_personnel.last_name,   
+         ut_personnel.first_name,   
+         ut_personnel.user_id  
+    FROM ut_personnel   
+" update="ut_personnel" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="SSAN"border="0" color="0" x="161" y="3" height="58" width="168"  name=ssan_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Last Name"border="0" color="0" x="706" y="3" height="58" width="311"  name=last_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="First Name"border="0" color="0" x="1525" y="3" height="58" width="315"  name=first_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="User ID"border="0" color="0" x="2253" y="3" height="58" width="216"  name=user_id_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="157" y="4" height="64" width="497" format="@@@-@@-@@@@"  name=ssan edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="706" y="4" height="64" width="794" format="[general]"  name=last_name edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1525" y="4" height="64" width="680" format="[general]"  name=first_name edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2253" y="4" height="64" width="402" format="[general]"  name=user_id edit.limit=7 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

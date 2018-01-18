@@ -1,0 +1,22 @@
+﻿$PBExportHeader$dw_return_service_3rdparty_rpt.srd
+$PBExportComments$Nest
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=349 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=docket_year dbname="sh_docket_name.docket_year" )
+ column=(type=long updatewhereclause=yes name=docket_number dbname="sh_docket_name.docket_number" )
+ retrieve="  SELECT DISTINCT sh_docket_name.docket_year,   
+         sh_docket_name.docket_number  
+    FROM sh_docket_name  
+   WHERE ( sh_docket_name.docket_year = :idockyear ) AND  
+         ( sh_docket_name.docket_number = :idocknum ) AND  
+         ( sh_docket_name.involvement = :code_l OR  
+           sh_docket_name.involvement = :code_e )    
+" arguments=(("idockyear", number),("idocknum", number),("code_l", string),("code_e", string),("plaintiffs", string),("defendants", string)) )
+text(band=detail alignment="1" text="vs"border="0" color="0" x="88" y="144" height="64" width="490"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( defendants )"border="0" color="0" x="88" y="214" height="131" width="2103" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( plaintiffs )"border="0" color="0" x="88" y="6" height="131" width="2103" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+line(band=detail x1="88" y1="3" x2="2191" y2="3" pen.style="0" pen.width="4" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

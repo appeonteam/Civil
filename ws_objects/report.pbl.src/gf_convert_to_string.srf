@@ -1,0 +1,98 @@
+﻿$PBExportHeader$gf_convert_to_string.srf
+global type gf_convert_to_string from function_object
+end type
+
+forward prototypes
+global function string gf_convert_to_string (decimal damount)
+end prototypes
+
+global function string gf_convert_to_string (decimal damount);string s_achMoneyString, s_achDollarString, s_achCentString, s_achTotalString, s_achCentStr
+string s_achDollarIdx, s_achHundredIdx, s_achLiteral
+integer s_iTotalLength, s_iCount, i, j, k, s_iDollarStringLen, s_iDollarIdx, s_iHundredIdx
+decimal {2} s_dAmount
+
+s_achMoneyString = ""
+s_achDollarString = ""
+s_achCentString = ""
+
+//s_achTotalString = String(dAmount, "##,###,###.00")
+s_achTotalString = String(dAmount, "########.00")
+
+s_iTotalLength = Len(s_achTotalString)
+
+For s_iCount = 1 To s_iTotalLength
+	
+	If Mid(s_achTotalString, s_iCount,1) <> "." Then
+		s_achDollarString = s_achDollarString + Mid(s_achTotalString, s_iCount, 1)
+		Continue
+	Else
+		s_achCentString = Mid(s_achTotalString, s_iCount + 1, s_iTotalLength - s_iCount + 1)
+		GoTo ParseDone
+	End If	
+Next	
+ParseDone:
+
+// Create the cents substring for the amount
+If Integer(s_achCentString) < 10 And Len(s_achCentString) = 1 Then
+	s_achCentString = s_achCentString + "0"
+End If
+
+If Integer(s_achCentString) <> 0 Then
+	s_achCentStr = s_achCentString + " CENTS"
+Else
+	s_achCentStr = "NO CENTS"
+End If	
+
+i = 0
+s_iDollarStringLen = Len(s_achDollarString)
+
+Do While s_iDollarStringLen > 0
+
+	i ++
+	If i = 3 Then
+		s_achMoneyString = " MILLION " + s_achMoneyString
+	End If
+	
+	s_achDollarIdx = ""
+	s_achHundredIdx = ""
+	
+	If s_iDollarStringLen = 1 Then
+		s_achDollarIdx = Mid(s_achDollarString, s_iDollarStringLen, 1)
+		s_iDollarStringLen --
+	ElseIf s_iDollarStringLen = 2 Then
+		s_achDollarIdx = Mid(s_achDollarString, s_iDollarStringLen - 1, 2)
+		s_iDollarStringLen = s_iDollarStringLen - 2
+	Else
+		s_achDollarIdx = Mid(s_achDollarString, s_iDollarStringLen - 1, 2)
+		s_achHundredIdx = Mid(s_achDollarString, s_iDollarStringLen - 2, 1)		
+		s_iDollarStringLen = s_iDollarStringLen - 3
+	End If
+	
+	If i = 2 And (Integer(s_achHundredIdx) <> 0 Or Integer(s_achDollarIdx) <> 0) Then
+		s_achMoneyString = " THOUSAND " + s_achMoneyString
+	End If
+	
+	If Integer(s_achDollarIdx) <> 0 Then
+		s_iDollarIdx = Integer(s_achDollarIdx)
+		SELECT literal INTO :s_achLiteral
+			FROM ut_literals
+			WHERE ut_literals.numeral = :s_iDollarIdx;
+		
+		s_achMoneyString = Upper(Trim(s_achLiteral)) + s_achMoneyString
+	End If	
+		
+	If Integer(s_achHundredIdx) <> 0 Then		
+		s_iHundredIdx = Integer(s_achHundredIdx)
+		SELECT literal INTO :s_achLiteral
+			FROM ut_literals
+			WHERE ut_literals.numeral = :s_iHundredIdx;
+		
+		s_achMoneyString = Upper(Trim(s_achLiteral)) + " HUNDRED " + s_achMoneyString		
+	End If
+	
+Loop
+s_achMoneyString = s_achMoneyString + " DOLLARS AND " + s_achCentStr
+
+Return(s_achMoneyString)
+end function
+

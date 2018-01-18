@@ -1,0 +1,37 @@
+﻿$PBExportHeader$gf_get_fy_periodyear.srf
+global type gf_get_fy_periodyear from function_object
+end type
+
+forward prototypes
+global function integer gf_get_fy_periodyear (date a_dtperioddate)
+end prototypes
+
+global function integer gf_get_fy_periodyear (date a_dtperioddate);//////////////////////////////////////////////////////////////////////
+//
+// Function: gf_get_fy_periodyear
+//
+// Purpose: returns the correct period year for the date given
+//
+//	Scope: public	
+//
+//	Arguments: a_dtperioddate	a valid period date
+//
+//	Returns: s_iperiodyear		the correct period year for the given date
+//
+//////////////////////////////////////////////////////////////////////
+
+date dtPeriodDate
+integer s_iPeriodYear
+
+// If month is Jan through June, period year is the same as year of the period date
+
+dtPeriodDate = a_dtPeriodDate
+If Month(dtPeriodDate) <= 6 Then
+	s_iPeriodYear = Year(dtPeriodDate)
+Else
+	s_iPeriodYear = Year(dtPeriodDate) + 1
+End If	
+
+Return (s_iPeriodYear)
+end function
+

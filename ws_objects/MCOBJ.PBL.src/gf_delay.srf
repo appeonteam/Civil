@@ -1,0 +1,31 @@
+﻿$PBExportHeader$gf_delay.srf
+global type gf_delay from function_object
+end type
+
+forward prototypes
+global subroutine gf_delay (long al_DelayTime)
+end prototypes
+
+global subroutine gf_delay (long al_DelayTime);//****************************************************************************
+//* FUNCTION: gf_delay
+//* AUTHOR: Dan Roland
+//* DATE: 10/3/96
+//* DESCRIPTION: Do a delay loop
+//* ARGUMENTS:	v 	al_DelayTime	(number of seconds to delay)
+//* RETURNS: None
+//*===========================================================================
+//* MODIFICATIONS LOG
+//*===========================================================================
+//*	10/3/96 droland
+//*		- Initial creation of gf_delay
+//*---------------------------------------------------------------------------
+//*
+//****************************************************************************
+TIME		lt_Timer
+
+lt_Timer = Now()
+Do While SecondsAfter(lt_Timer, Now()) < al_DelayTime
+Loop
+
+end subroutine
+

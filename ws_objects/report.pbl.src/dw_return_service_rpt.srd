@@ -1,0 +1,41 @@
+﻿$PBExportHeader$dw_return_service_rpt.srd
+$PBExportComments$Return of Service
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Return of Service" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=205 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1078 color="553648127"  height.autosize=yes)
+table(column=(type=long updatewhereclause=yes key=yes name=docket_year dbname="sh_docket.docket_year" )
+ column=(type=long updatewhereclause=yes key=yes name=docket_number dbname="sh_docket.docket_number" )
+ column=(type=char(30) updatewhereclause=yes name=county dbname="sh_docket.county" )
+ column=(type=char(150) updatewhereclause=yes name=case_number dbname="sh_docket.case_number" )
+ column=(type=char(20) updatewhereclause=yes name=docket_state dbname="sh_docket.docket_state" )
+ retrieve="  SELECT sh_docket.docket_year,   
+         sh_docket.docket_number,   
+         sh_docket.county,   
+         sh_docket.case_number,   
+         sh_docket.docket_state  
+    FROM sh_docket  
+   WHERE ( sh_docket.docket_year = :idockyear ) AND  
+         ( sh_docket.docket_number = :idocknum )    
+" update="sh_docket" updatewhere=0 updatekeyinplace=no arguments=(("idockyear", number),("idocknum", number),("plaintiffs", string),("defendants", string),("thirdplaintiffs", string),("thirddefendants", string)) )
+compute(band=header alignment="2" expression="If( IsNull( county ) or trim( county ) = ~"~", 
+~"IN THE ~" + trim( upper(docket_state ) ) + ~" DISTRICT COURT FOR ________ COUNTY~",
+~"IN THE ~" + trim( upper(docket_state ) ) + ~" DISTRICT COURT FOR ~" + trim( upper( county ) ) )"border="0" color="0" x="0" y="74" height="86" width="3408" format="[general]"  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+report(band=detail dataobject="dw_return_service_fees_rpt" x="0" y="1011" height="61" width="1298" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number"),("'FEE'"),("'D'")) trail_footer = yes  slideup=directlyabove )
+report(band=detail dataobject="dw_return_service_officer_rpt" x="2117" y="1011" height="61" width="1291" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number")) trail_footer = yes  slideup=directlyabove )
+report(band=detail dataobject="dw_return_service_served_rpt" x="0" y="925" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number")) trail_footer = yes  slideup=directlyabove )
+report(band=detail dataobject="dw_return_service_3rdparty_rpt" x="0" y="761" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number"),("'L'"),("'E'"),("thirdplaintiffs"),("thirddefendants")) trail_footer = yes  slideup=directlyabove )
+report(band=detail dataobject="dw_return_service_process_rpt" x="0" y="838" height="61" width="3408" border="0"  height.autosize=yes criteria="" nest_arguments=(("docket_year"),("docket_number")) trail_footer = yes  slideup=directlyabove )
+compute(band=detail alignment="0" expression="trim( plaintiffs )"border="0" color="0" x="88" y="9" height="307" width="2352" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="vs"border="0" color="0" x="88" y="320" height="54" width="490"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+line(band=detail x1="2480" y1="3" x2="2480" y2="361" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="3408" y1="3" x2="3408" y2="361" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="RETURN OF SERVICE"border="0" color="0" x="2491" y="9" height="64" width="911"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="NUMBER(S)"border="0" color="0" x="2491" y="80" height="64" width="911"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=detail x1="2480" y1="361" x2="3408" y2="361" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+line(band=detail x1="2480" y1="150" x2="3408" y2="150" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="2498" y="160" height="64" width="896" format="[general]"  name=case_number height.autosize=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="trim( defendants )"border="0" color="0" x="88" y="377" height="362" width="3306" format="[general]"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

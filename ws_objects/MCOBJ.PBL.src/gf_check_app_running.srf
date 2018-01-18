@@ -1,0 +1,57 @@
+﻿$PBExportHeader$gf_check_app_running.srf
+global type gf_check_app_running from function_object
+end type
+
+forward prototypes
+global function integer gf_check_app_running (string as_mainwintitle, boolean ab_setfocus)
+end prototypes
+
+global function integer gf_check_app_running (string as_mainwintitle, boolean ab_setfocus);//************************************************************************************
+//* FUNCTION: gf_check_app_running
+//* AUTHOR: Dan Roland
+//* DATE: 1/10/97
+//*
+//* DESCRIPTION: This function name of an executable and checks if it is already running.
+//*		This only works in 32 bit environment.
+//*
+//* GLOBAL EXTERNAL FUNCTION DECLARATIONS NEEDED
+//* Function uInt	FindWindowA( String szClass, String szName )	Library "user32.dll"
+//* Function uInt	SetFocus( uInt hWnd )  Library "user32.dll"
+//*
+//* ARGUMENTS: as_MainWinTitle	- The application name
+//*				ab_SetFocus 		- Whether to set focus to the previously running app.
+//*
+//* RETURNS: 	0 = App not running
+//*				1 = App is running
+//*===================================================================================
+//* MODIFICATIONS LOG
+//*===================================================================================
+//* 1/10/97 droland
+//*	- Creation of gf_check_app_running
+//*-----------------------------------------------------------------------------------
+//*
+//************************************************************************************
+//*	SCRIPT VARIABLES	*//
+uInt		lui_WindowHandle
+string	ls_Null
+
+SetNull(ls_Null)
+
+// look for the app
+//lui_WindowHandle = FindWindowA(ls_Null, as_MainWinTitle)
+
+// process the return
+If lui_WindowHandle = 0 Then
+	Return(0)	// not found
+Else
+	If ab_SetFocus Then 
+//		SetFocus(lui_WindowHandle)
+	Else
+		MessageBox("Warning", as_MainWinTitle + " is already running.", Exclamation!)
+	End If
+	
+	Return(1)
+End If
+
+end function
+

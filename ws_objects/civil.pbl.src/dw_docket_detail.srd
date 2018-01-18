@@ -1,0 +1,44 @@
+﻿$PBExportHeader$dw_docket_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1142 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket.docket_number" )
+ column=(type=datetime update=yes updatewhereclause=yes name=incident_date dbname="sh_docket.incident_date" )
+ column=(type=datetime update=yes updatewhereclause=yes name=received_date dbname="sh_docket.received_date" )
+ column=(type=char(5000) update=yes updatewhereclause=yes name=parties_involved dbname="sh_docket.parties_involved" )
+ column=(type=char(5000) update=yes updatewhereclause=yes name=process_description dbname="sh_docket.process_description" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=county dbname="sh_docket.county" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=case_number dbname="sh_docket.case_number" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=docket_state dbname="sh_docket.docket_state" )
+ retrieve="  SELECT sh_docket.docket_year,   
+         sh_docket.docket_number,   
+         sh_docket.incident_date,   
+         sh_docket.received_date,   
+         sh_docket.parties_involved,   
+         sh_docket.process_description,   
+         sh_docket.county,   
+         sh_docket.case_number,   
+         sh_docket.docket_state  
+    FROM sh_docket  
+   WHERE ( sh_docket.docket_year = :iyear ) AND  
+         ( sh_docket.docket_number = :ldocknum )    
+" update="sh_docket" updatewhere=1 updatekeyinplace=no arguments=(("iyear", number),("ldocknum", number)) )
+text(band=detail alignment="1" text="Docket Year:"border="0" color="0" x="15" y="13" height="58" width="410"  name=docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="439" y="10" height="61" width="351" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Docket #:"border="0" color="0" x="1291" y="13" height="58" width="450"  name=docket_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1755" y="10" height="61" width="384" format="[general]"  name=docket_number edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="IN THE"border="0" color="0" x="132" y="86" height="58" width="293"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="439" y="83" height="61" width="644" format="[general]"  name=docket_state edit.limit=20 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="2" text="DISTRICT COURT FOR"border="0" color="0" x="1101" y="86" height="58" width="640"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="1755" y="83" height="61" width="1083" format="[general]"  name=county edit.limit=30 edit.case=upper edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Description:"border="0" color="0" x="15" y="170" height="58" width="410"  name=process_description_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="439" y="166" height="691" width="2545" format="[general]"  name=process_description edit.limit=5000 edit.case=any edit.autoselect=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Case Number:"border="0" color="0" x="15" y="883" height="58" width="410"  name=case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="439" y="880" height="61" width="2366" format="[general]"  name=case_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Received Date:"border="0" color="0" x="0" y="966" height="58" width="424"  name=received_date_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="439" y="963" height="61" width="384" format="[shortdate] [time]"  name=received_date editmask.spin=yes editmask.mask="mm/dd/yyyy" editmask.spinrange="~~" editmask.spinincr=1 editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="0" text="Press ~"F1~" or ~"Enter~" to Save, Press ~"F4~" to Leave Docket Continuous ADD Mode..."border="0" color="0" x="183" y="1043" height="58" width="2395"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

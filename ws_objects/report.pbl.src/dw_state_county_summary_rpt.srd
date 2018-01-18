@@ -1,0 +1,48 @@
+﻿$PBExportHeader$dw_state_county_summary_rpt.srd
+$PBExportComments$State / County Summary Report
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="State / County Summary Report" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=445 color="536870912" )
+summary(height=99 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="553648127" )
+table(column=(type=long updatewhereclause=yes key=yes name=sh_docket_docket_year dbname="sh_docket.docket_year" )
+ column=(type=long updatewhereclause=yes key=yes name=sh_docket_docket_number dbname="sh_docket.docket_number" )
+ column=(type=char(150) updatewhereclause=yes name=sh_docket_case_number dbname="sh_docket.case_number" )
+ column=(type=datetime updatewhereclause=yes name=sh_docket_received_date dbname="sh_docket.received_date" )
+ column=(type=char(20) updatewhereclause=yes name=docket_state dbname="sh_docket.docket_state" )
+ column=(type=char(30) updatewhereclause=yes name=county dbname="sh_docket.county" )
+ retrieve="  SELECT sh_docket.docket_year,   
+         sh_docket.docket_number,   
+         sh_docket.case_number,   
+         sh_docket.received_date,   
+         sh_docket.docket_state,   
+         sh_docket.county  
+    FROM sh_docket  
+   WHERE ( sh_docket.received_date >= :beg_date ) AND  
+         ( sh_docket.received_date <= :end_date )   
+ORDER BY sh_docket.docket_state ASC,   
+         sh_docket.county ASC,   
+         sh_docket.docket_year ASC,   
+         sh_docket.docket_number ASC   
+" update="sh_docket" updatewhere=0 updatekeyinplace=no arguments=(("beg_date", date),("end_date", date)) )
+group(level=1 header.height=0 trailer.height=67 by=("docket_state" , "county" ) header.color="536870912" trailer.color="536870912" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression="~"From:  ~" + string( beg_date ,'mm/dd/yyyy') + ~"     To:  ~" + string( end_date ,'mm/dd/yyyy')"border="0" color="0" x="739" y="224" height="61" width="2019" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="2765" y="90" height="61" width="688" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="2019"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="State / County Summary Report"border="0" color="0" x="739" y="157" height="61" width="2019"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="State"border="0" color="0" x="91" y="384" height="58" width="263"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="County"border="0" color="0" x="772" y="384" height="58" width="432"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="59" y="3" height="61" width="219" format="[general]"  name=sh_docket_docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="304" y="3" height="61" width="219" format="[general]"  name=sh_docket_docket_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="552" y="3" height="61" width="311" format="mm/dd/yyyy"  name=sh_docket_received_date edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="914" y="3" height="61" width="567" format="[general]"  name=sh_docket_case_number height.autosize=yes edit.limit=150 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2202" y="3" height="61" width="834" format="[general]"  name=county edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1521" y="3" height="61" width="651" format="[general]"  name=docket_state edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=5 alignment="0" tabsequence=32766 border="0" color="0" x="91" y="3" height="61" width="651" format="[general]" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="count(sh_docket_docket_number for group 1)"border="0" color="0" x="1788" y="3" height="61" width="219" format="#,##0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(sh_docket_docket_number for all)"border="0" color="0" x="1788" y="35" height="61" width="219" format="#,##0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=trailer.1 id=6 alignment="0" tabsequence=32766 border="0" color="0" x="772" y="3" height="61" width="965" format="[general]" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="Total Dockets:"border="0" color="0" x="1302" y="35" height="61" width="435"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

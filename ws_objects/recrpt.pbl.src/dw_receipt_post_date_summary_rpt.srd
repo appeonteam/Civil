@@ -1,0 +1,83 @@
+﻿$PBExportHeader$dw_receipt_post_date_summary_rpt.srd
+$PBExportComments$Receipt Summary Rpt - Post Date
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Receipt Summary Rpt - Post Date" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no print.columns=4 print.columns.width=1130 )
+header(height=394 color="536870912" )
+summary(height=77 color="553648127" )
+footer(height=0 color="553648127" )
+detail(height=0 color="553648127" )
+table(column=(type=char(1) updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_receipt.cb_type" )
+ column=(type=datetime updatewhereclause=yes name=date_received dbname="sh_docket_receipt.date_received" )
+ column=(type=long updatewhereclause=yes name=receipt_number dbname="sh_docket_receipt.receipt_number" )
+ column=(type=long updatewhereclause=yes key=yes name=cbrec_year dbname="sh_docket_receipt.cbrec_year" )
+ column=(type=long updatewhereclause=yes key=yes name=cbrec_number dbname="sh_docket_receipt.cbrec_number" )
+ column=(type=long updatewhereclause=yes name=docket_year dbname="sh_docket_receipt.docket_year" )
+ column=(type=long updatewhereclause=yes name=docket_number dbname="sh_docket_receipt.docket_number" )
+ column=(type=char(100) updatewhereclause=yes name=last_name dbname="sh_docket_receipt.last_name" )
+ column=(type=char(100) updatewhereclause=yes name=first_name dbname="sh_docket_receipt.first_name" )
+ column=(type=char(100) updatewhereclause=yes name=middle_name dbname="sh_docket_receipt.middle_name" )
+ column=(type=char(100) updatewhereclause=yes name=suffix dbname="sh_docket_receipt.suffix" )
+ column=(type=decimal(2) updatewhereclause=yes name=total_received dbname="sh_docket_receipt.total_received" )
+ column=(type=datetime updatewhereclause=yes name=post_date dbname="sh_docket_receipt.post_date" )
+ retrieve="  SELECT sh_docket_receipt.cb_type,   
+         sh_docket_receipt.date_received,   
+         sh_docket_receipt.receipt_number,   
+         sh_docket_receipt.cbrec_year,   
+         sh_docket_receipt.cbrec_number,   
+         sh_docket_receipt.docket_year,   
+         sh_docket_receipt.docket_number,   
+         sh_docket_receipt.last_name,   
+         sh_docket_receipt.first_name,   
+         sh_docket_receipt.middle_name,   
+         sh_docket_receipt.suffix,   
+         sh_docket_receipt.total_received,   
+         sh_docket_receipt.post_date  
+    FROM sh_docket_receipt  
+   WHERE ( sh_docket_receipt.post_date >= :beg_date ) AND  
+         ( sh_docket_receipt.post_date <= :end_date )   
+ORDER BY sh_docket_receipt.post_date ASC,   
+         sh_docket_receipt.receipt_number ASC   
+" update="sh_docket_receipt" updatewhere=1 updatekeyinplace=no arguments=(("beg_date", date),("end_date", date)) )
+group(level=1 header.height=0 trailer.height=86 by=("month( post_date )" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=58 by=("post_date" ) header.color="536870912" trailer.color="553648127" )
+compute(band=header alignment="2" expression="~"From:  ~" + string( beg_date ,'mm/dd/yyyy') + ~"     To:  ~" + string( end_date ,'mm/dd/yyyy')"border="0" color="0" x="739" y="224" height="61" width="3105" format="[general]"  hidesnaked=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="3851" y="90" height="61" width="688" format="[general]"  hidesnaked=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="3105"  hidesnaked=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Receipt Summary Report - Post Date"border="0" color="0" x="739" y="157" height="61" width="3105"  hidesnaked=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  hidesnaked=1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Post Date"border="0" color="0" x="44" y="333" height="58" width="329"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Rcpts"border="0" color="0" x="388" y="333" height="58" width="219"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amt Received"border="0" color="0" x="622" y="333" height="58" width="424"  name=sh_docket_case_number_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="234" y="3" height="61" width="366" format="mm/dd/yyyy"  name=date_received edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="611" y="3" height="61" width="282" format="[general]"  name=receipt_number edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="string( cbrec_year ) + ~" - ~" + string( cbrec_number )"border="0" color="0" x="1017" y="3" height="61" width="329" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="string( docket_year ) + ~" - ~" + string( docket_number )"border="0" color="0" x="1371" y="3" height="61" width="329" format="[general]" visible="1~tIf( cb_type = 'D', 1, 0 )"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="4019" y="3" height="61" width="406" format="#,##0.00"  name=total_received edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="44" y="3" height="61" width="161" format="[general]"  name=cb_type edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="trim( last_name ) + ~", ~" + trim( first_name ) + ~" ~" + trim( middle_name ) + ~" ~" + trim( suffix )"border="0" color="0" x="1788" y="3" height="61" width="1851" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912"  height.autosize=yes)
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3664" y="3" height="61" width="296" format="mm/dd/yyyy"  name=post_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.2 x1="1126" y1="0" x2="1126" y2="60" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="count(receipt_number for group 1)"border="0" color="0" x="388" y="13" height="61" width="219" format="#,##0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="1126" y1="0" x2="1126" y2="87" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="If( Month( post_date ) = 1, ~"Jan. ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 2, ~"Feb. ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 3, ~"March ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 4, ~"April ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 5, ~"May ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 6, ~"June ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 7, ~"July ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 8, ~"Aug. ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 9, ~"Sept. ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 10, ~"Oct. ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 11, ~"Nov. ~" + String( Year( post_date ) ),
+If( Month( post_date ) = 12, ~"Dec. ~" + String( Year( post_date ) ),
+~"~" ) ) ) ) ) ) ) ) ) ) ) )"border="0" color="0" x="7" y="13" height="61" width="366" format="[general]"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(total_received for group 1)"border="0" color="0" x="622" y="13" height="61" width="424" format="#,##0.00"  name=month_total  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.italic="1" background.mode="1" background.color="536870912" )
+line(band=summary x1="1126" y1="0" x2="1126" y2="76" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(total_received for all)"border="0" color="0" x="622" y="12" height="61" width="424" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="count(receipt_number for all)"border="0" color="0" x="388" y="12" height="61" width="219" format="#,##0"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text=" TOTAL:"border="0" color="0" x="7" y="12" height="61" width="366"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression=" post_date "border="0" color="0" x="44" y="3" height="54" width="329" format="mm/dd/yyyy"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="count(receipt_number for group 2)"border="0" color="0" x="388" y="3" height="54" width="219" format="#,##0"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(total_received for group 2)"border="0" color="0" x="622" y="3" height="54" width="424" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

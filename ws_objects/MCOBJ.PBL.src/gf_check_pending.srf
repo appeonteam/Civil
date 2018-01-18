@@ -1,0 +1,51 @@
+﻿$PBExportHeader$gf_check_pending.srf
+$PBExportComments$Checks a datawindow for pending changes that haven't been sent to the DB.
+global type gf_check_pending from function_object
+end type
+
+forward prototypes
+global function integer gf_check_pending (ref datawindow dw_check)
+end prototypes
+
+global function integer gf_check_pending (ref datawindow dw_check);//****************************************************************************
+//* FUNCTION: gf_check_pending
+//* AUTHOR: Dan Roland
+//* DATE: 10/17/95
+//* DESCRIPTION: This function checks a datawindow whether there are any 
+//*					database changes (updates or deletes) waiting to be applied.
+//*				  If there are changes pending it call gf_yesno_message() to 
+//*			     see if the user wishes to contine.
+//* ARGUMENTS: dw_check - datawindow to check for pending database updates.
+//* RETURNS: 0 = Nothing Pending
+//*			 1 = Save
+//*          2 = Don't Save
+//*===========================================================================
+//* MODIFICATIONS LOG
+//*===========================================================================
+//* 10/17/95 droland
+//*	- Creation of gf_check_pending
+//*---------------------------------------------------------------------------
+//*
+//****************************************************************************
+
+// script variables
+integer	li_TotalRows, li_Row
+
+SetPointer(HourGlass!)
+
+// check for pending deletes
+If dw_check.DeletedCount() > 0 Then
+	Return(gf_yesnocancel_message("Changes Pending", "Save current changes?"))
+Else
+	// check for pending updates or inserts
+	li_TotalRows = dw_check.RowCount()
+	For li_Row = 1 TO li_TotalRows
+		Choose Case dw_check.GetItemStatus(li_Row, 0, Primary!)
+			Case NewModified!, DataModified!
+				Return(gf_yesnocancel_message("Changes Pending", "Save current changes?"))
+		End Choose
+	Next
+End If
+Return(0)
+end function
+

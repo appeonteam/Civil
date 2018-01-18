@@ -1,0 +1,64 @@
+﻿$PBExportHeader$gf_find_row.srf
+global type gf_find_row from function_object
+end type
+
+forward prototypes
+global function long gf_find_row (ref datawindowchild adwc_match, string as_search, integer ai_string_length, string as_col_type, string as_col_name)
+end prototypes
+
+global function long gf_find_row (ref datawindowchild adwc_match, string as_search, integer ai_string_length, string as_col_type, string as_col_name);//****************************************************************************
+//* FUNCTION: gf_find_row
+//* AUTHOR: Dan Roland
+//* DATE: 
+//* DESCRIPTION: 	Find a row in a DDDW
+//* RETURNS: 		long - Row Number of row found ( 0  if not found )
+//* ARGUMENTS: 	datawindowchild - handle to dddw
+//*					string - String to search for
+//*					integer - number of characters is search string to compare
+//*					string - Column Type ('string' or 'number')
+//*					string - Column Name
+//*===========================================================================
+//* MODIFICATIONS LOG
+//*===========================================================================
+//*  DROLAND
+//*	- Creation of gf_find_row
+//*---------------------------------------------------------------------------
+//*
+//****************************************************************************
+string	ls_Compare
+long		ll_Compare
+long		ll_Counter = 1
+long		ll_Row, ll_Rows
+
+ll_Rows = adwc_Match.RowCount()
+Choose Case as_Col_Type
+	Case "number"
+		Do Until ll_Counter > ll_Rows
+			
+			ll_Compare = adwc_Match.GetItemNumber(ll_Counter,  as_Col_Name)
+			If Left(String(ll_Compare), ai_String_Length) = as_Search Then 
+				Return(ll_Counter)
+			Else
+				ll_Counter ++
+			End If
+
+		Loop
+		
+	Case "string"
+		Do Until ll_Counter > ll_Rows
+			
+			ls_Compare = adwc_Match.GetItemString(ll_Counter,  as_Col_Name)
+			If Left(ls_Compare, ai_String_Length) = as_Search Then 
+				Return(ll_Counter)
+			Else
+				ll_Counter ++
+			End If
+
+		Loop
+		
+End Choose
+
+// didn't find a match
+Return(0)
+end function
+

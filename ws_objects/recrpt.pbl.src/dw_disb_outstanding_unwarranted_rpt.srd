@@ -1,0 +1,82 @@
+﻿$PBExportHeader$dw_disb_outstanding_unwarranted_rpt.srd
+$PBExportComments$Disb. Report - Oustanding Unwarranted
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="Disb. Rpt - Oustand Unwarranted" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 1 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=400 color="536870912" )
+summary(height=93 color="553648127" )
+footer(height=0 color="536870912" )
+detail(height=54 color="553648127" )
+table(column=(type=datetime updatewhereclause=yes name=date_paid dbname="sh_docket_disbursement.date_paid" )
+ column=(type=decimal(2) updatewhereclause=yes name=amount_paid dbname="sh_docket_disbursement.amount_paid" )
+ column=(type=char(150) updatewhereclause=yes name=case_number dbname="sh_docket_disbursement.case_number" )
+ column=(type=char(100) updatewhereclause=yes name=last_name dbname="sh_docket_disbursement.last_name" )
+ column=(type=char(100) updatewhereclause=yes name=first_name dbname="sh_docket_disbursement.first_name" )
+ column=(type=char(100) updatewhereclause=yes name=middle_name dbname="sh_docket_disbursement.middle_name" )
+ column=(type=char(1) updatewhereclause=yes name=cb_type dbname="sh_docket_disbursement.cb_type" )
+ column=(type=long updatewhereclause=yes name=sh_docket_fee_paid_fee_number dbname="sh_docket_fee_paid.fee_number" )
+ column=(type=decimal(2) updatewhereclause=yes name=sh_docket_fee_paid_new_balance_disbursed dbname="sh_docket_fee_paid.new_balance_disbursed" )
+ column=(type=long updatewhereclause=yes name=sh_docket_fee_paid_cbdis_year dbname="sh_docket_fee_paid.cbdis_year" )
+ column=(type=long updatewhereclause=yes name=sh_docket_fee_paid_cbdis_number dbname="sh_docket_fee_paid.cbdis_number" )
+ column=(type=long updatewhereclause=yes name=sh_docket_fee_paid_docket_year dbname="sh_docket_fee_paid.docket_year" )
+ column=(type=long updatewhereclause=yes name=sh_docket_fee_paid_docket_number dbname="sh_docket_fee_paid.docket_number" )
+ column=(type=char(1) updatewhereclause=yes name=sh_docket_disbursement_cb_type dbname="sh_docket_disbursement.cb_type" )
+ column=(type=long updatewhereclause=yes name=cbdis_year dbname="sh_docket_disbursement.cbdis_year" )
+ column=(type=long updatewhereclause=yes name=cbdis_number dbname="sh_docket_disbursement.cbdis_number" )
+ column=(type=char(10) updatewhereclause=yes name=sh_docket_fee_paid_fee_type dbname="sh_docket_fee_paid.fee_type" )
+ retrieve="  SELECT sh_docket_disbursement.date_paid,   
+         sh_docket_disbursement.amount_paid,   
+         sh_docket_disbursement.case_number,   
+         sh_docket_disbursement.last_name,   
+         sh_docket_disbursement.first_name,   
+         sh_docket_disbursement.middle_name,   
+         sh_docket_disbursement.cb_type,   
+         sh_docket_fee_paid.fee_number,   
+         sh_docket_fee_paid.new_balance_disbursed,   
+         sh_docket_fee_paid.cbdis_year,   
+         sh_docket_fee_paid.cbdis_number,   
+         sh_docket_fee_paid.docket_year,   
+         sh_docket_fee_paid.docket_number,   
+         sh_docket_disbursement.cb_type,   
+         sh_docket_disbursement.cbdis_year,   
+         sh_docket_disbursement.cbdis_number,   
+         sh_docket_fee_paid.fee_type  
+    FROM sh_docket_disbursement,   
+         sh_docket_fee_paid  
+   WHERE ( sh_docket_disbursement.cb_type  *= sh_docket_fee_paid.cb_type) and  
+         ( sh_docket_disbursement.cbdis_year  *= sh_docket_fee_paid.cbdis_year) and  
+         ( sh_docket_disbursement.cbdis_number  *= sh_docket_fee_paid.cbdis_number) and  
+         ( sh_docket_disbursement.check_number = 0 ) AND  
+         ( sh_docket_disbursement.disburse_status = :achWarranted )   
+ORDER BY sh_docket_disbursement.cb_type ASC, 
+	sh_docket_disbursement.cbdis_year ASC, 
+	sh_docket_disbursement.cbdis_number ASC,
+   sh_docket_fee_paid.docket_year ASC,   
+   sh_docket_fee_paid.docket_number ASC        
+" arguments=(("achWarranted", string)) )
+group(level=1 header.height=67 trailer.height=67 by=("cb_type" , "cbdis_year" , "cbdis_number" ) header.color="553648127" trailer.color="553648127" )
+compute(band=header alignment="0" expression="today()"border="0" color="0" x="44" y="90" height="61" width="688" format="mm/dd/yyyy  -  hh:mm"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="'Page ' + page() + ' of ' + pageCount()"border="0" color="0" x="3851" y="90" height="61" width="688" format="[general]"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cerro Gordo County"border="0" color="0" x="739" y="90" height="61" width="3105"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Disbursement Report - Outstanding Unwarranted Disbursements "border="0" color="0" x="1342" y="157" height="54" width="1898"  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Comp. Disb."border="0" color="0" x="88" y="275" height="58" width="340"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Case Number"border="0" color="0" x="757" y="339" height="58" width="501"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount Disb."border="0" color="0" x="3862" y="339" height="58" width="432"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Year - Num"border="0" color="0" x="88" y="336" height="58" width="329"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Whom Due"border="0" color="0" x="1287" y="339" height="58" width="311"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Type"border="0" color="0" x="508" y="339" height="58" width="205"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=header.1 id=15 alignment="0" tabsequence=32766 border="0" color="0" x="88" y="3" height="61" width="154" format="[general]"  name=cbdis_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=16 alignment="0" tabsequence=32766 border="0" color="0" x="263" y="3" height="61" width="205" format="[general]"  name=cbdis_number edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="757" y="3" height="61" width="501" format="[general]"  name=case_number edit.limit=150 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=2 alignment="1" tabsequence=32766 border="0" color="0" x="3862" y="3" height="61" width="432" format="#,##0.00"  name=amount_paid edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=header.1 alignment="0" expression="trim( last_name ) + ~", ~" + trim( first_name ) + ~" ~" +  middle_name "border="0" color="0" x="1287" y="3" height="61" width="2165" format="[general]"  name=whom_due  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=header.1 id=7 alignment="2" tabsequence=32766 border="0" color="0" x="508" y="3" height="61" width="205" format="[general]"  name=cb_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="string( sh_docket_fee_paid_docket_year ) + ~"-~" + string( sh_docket_fee_paid_docket_number )"border="0" color="0" x="1887" y="0" height="54" width="432" format="[general]"  name=docket_receipt_num  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2348" y="0" height="54" width="263" format="[general]"  name=sh_docket_fee_paid_fee_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2633" y="0" height="54" width="384" format="[general]"  name=sh_docket_fee_paid_new_balance_disbursed edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="2586" y1="0" x2="3017" y2="0" pen.style="0" pen.width="4" pen.color="0"  background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum( sh_docket_fee_paid_new_balance_disbursed  for group 1 )"border="0" color="0" x="2586" y="9" height="54" width="432" format="#,##0.00"  font.face="Arial" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="FEE PAID GRAND TOTAL:"border="0" color="0" x="1821" y="29" height="61" width="746"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( sh_docket_fee_paid_new_balance_disbursed  for all )"border="0" color="0" x="2586" y="29" height="61" width="432" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=summary alignment="1" text="DISB. GRAND TOTAL:"border="0" color="0" x="3211" y="29" height="61" width="629"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum( amount_paid for all DISTINCT cb_type, cbdis_year , cbdis_number  )"border="0" color="0" x="3862" y="29" height="61" width="432" format="#,##0.00"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

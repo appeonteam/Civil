@@ -1,0 +1,49 @@
+﻿$PBExportHeader$dw_cash_receipts_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=118 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes name=receipt_num dbname="cb_rec.receipt_num" )
+ column=(type=date update=yes updatewhereclause=yes name=date_received dbname="cb_rec.date_received" )
+ column=(type=char(55) update=yes updatewhereclause=yes name=from_whom dbname="cb_rec.from_whom" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=total_received dbname="cb_rec.total_received" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=balance_disbursed dbname="cb_rec.balance_disbursed" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_disbursed dbname="cb_rec.amount_disbursed" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="cb_rec.cb_type" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=user_type dbname="cb_rec.user_type" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_year dbname="cb_rec.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes name=docket_num dbname="cb_rec.docket_num" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_year dbname="cb_rec.cbrec_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=cbrec_num dbname="cb_rec.cbrec_num" )
+ retrieve="  SELECT ~"dba~".~"cb_rec~".~"receipt_num~",   
+         ~"dba~".~"cb_rec~".~"date_received~",   
+         ~"dba~".~"cb_rec~".~"from_whom~",   
+         ~"dba~".~"cb_rec~".~"total_received~",   
+         ~"dba~".~"cb_rec~".~"balance_disbursed~",   
+         ~"dba~".~"cb_rec~".~"amount_disbursed~",   
+         ~"dba~".~"cb_rec~".~"cb_type~",   
+         ~"dba~".~"cb_rec~".~"user_type~",   
+         ~"dba~".~"cb_rec~".~"docket_year~",   
+         ~"dba~".~"cb_rec~".~"docket_num~",   
+         ~"dba~".~"cb_rec~".~"cbrec_year~",   
+         ~"dba~".~"cb_rec~".~"cbrec_num~"  
+    FROM ~"dba~".~"cb_rec~"  
+ 
+" update="dba.cb_rec" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Receipt Num"border="0" color="0" x="165" y="54" height="58" width="369"  name=receipt_num_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Date Rcvd"border="0" color="0" x="556" y="54" height="58" width="300"  name=date_received_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="From Whom"border="0" color="0" x="936" y="54" height="58" width="344"  name=from_whom_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Total Rcvd"border="0" color="0" x="2311" y="54" height="58" width="307"  name=total_received_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Disbursed"border="0" color="0" x="2699" y="54" height="58" width="296"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Balance"border="0" color="0" x="2728" y="3" height="58" width="238"  name=balance_disbursed_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Disbursed"border="0" color="0" x="3079" y="54" height="58" width="296"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Amount"border="0" color="0" x="3112" y="3" height="58" width="227"  name=amount_disbursed_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="165" y="4" height="74" width="351" format="[general]"  name=receipt_num editmask.mask="000000" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="556" y="4" height="74" width="351" format="[general]"  name=date_received editmask.mask="mm/dd/yyyy" editmask.focusrectangle=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="936" y="4" height="74" width="1309" format="[general]"  name=from_whom edit.limit=55 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="2267" y="4" height="74" width="351" format="[general]"  name=total_received edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="2644" y="4" height="74" width="351" format="[general]"  name=balance_disbursed edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=10 border="0" color="0" x="3024" y="4" height="74" width="351" format="[general]"  name=amount_disbursed edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

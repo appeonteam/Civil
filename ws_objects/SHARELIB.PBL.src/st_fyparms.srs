@@ -1,0 +1,6 @@
+﻿$PBExportHeader$st_fyparms.srs
+global type st_fyparms from structure
+	integer		iperiodyear
+	integer		iperiodnum
+end type
+

@@ -1,0 +1,386 @@
+﻿$PBExportHeader$gf_keycode2string.srf
+global type gf_keycode2string from function_object
+end type
+
+forward prototypes
+global function string gf_keycode2string (keycode ak_keycode)
+end prototypes
+
+global function string gf_keycode2string (keycode ak_keycode);//****************************************************************************
+//* FUNCTION: gf_keycode2string
+//* AUTHOR: Tim Hoefer
+//* DATE: 12/16/96
+//* DESCRIPTION: Takes a keycode and returns the string and ascii value (if valid)
+//* ARGUMENTS:		v  	ak_KeyCode		Keycode of the key pressed
+//*
+//* RETURNS: str_KeyCode	key text and ascii value
+//*===========================================================================
+//* MODIFICATIONS LOG
+//*===========================================================================
+//* 12/16/96 thoefer
+//*	- Creation of gf_keycode2string
+//*---------------------------------------------------------------------------
+//* 12/17/96 droland
+//*	- 	Changed the function to only worry about the key actually pressed,
+//*		not what other keys may be also down (unless they affect the output
+//*		of the key represented by ak_KeyCode)
+//*	-	Changed the structure to only worry about display value and ascii value
+//*---------------------------------------------------------------------------
+//* 12/27/96 droland
+//*	-	Changed the function to return the string 'UNKNOWN' if it doesn't
+//*		find a match.
+//*---------------------------------------------------------------------------
+//*
+//****************************************************************************
+//* 	VARIABLES	*//
+/*
+str_KeyCode	lstr_KeyCode
+
+// CHECK THE KEYS THAT COULD BE DIfFERENT DEPENDING ON If SHIFT IS DOWN
+If KeyDown( KeyShift!) Then
+	Choose Case ak_keycode
+		Case	KeyA!
+			lstr_KeyCode.s_String = "A"
+		Case	KeyB!
+			lstr_KeyCode.s_String = "B"
+		Case	KeyC!
+			lstr_KeyCode.s_String = "C"
+		Case	KeyD!
+			lstr_KeyCode.s_String = "D"
+		Case	KeyE!
+			lstr_KeyCode.s_String = "E"
+		Case	KeyF!
+			lstr_KeyCode.s_String = "F"
+		Case	KeyG!
+			lstr_KeyCode.s_String = "G"
+		Case	KeyH!
+			lstr_KeyCode.s_String = "H"
+		Case	KeyI!
+			lstr_KeyCode.s_String = "I"
+		Case	KeyJ!
+			lstr_KeyCode.s_String = "J"
+		Case	KeyK!
+			lstr_KeyCode.s_String = "K"
+		Case	KeyL!
+			lstr_KeyCode.s_String = "L"
+		Case	KeyN!
+			lstr_KeyCode.s_String = "M"
+		Case	KeyM!
+			lstr_KeyCode.s_String = "N"
+		Case	KeyO!
+			lstr_KeyCode.s_String = "O"
+		Case	KeyP!
+			lstr_KeyCode.s_String = "P"
+		Case	KeyQ!
+			lstr_KeyCode.s_String = "Q"
+		Case	KeyR!
+			lstr_KeyCode.s_String = "R"
+		Case	KeyS!
+			lstr_KeyCode.s_String = "S"
+		Case	KeyT!
+			lstr_KeyCode.s_String = "T"
+		Case	KeyU!
+			lstr_KeyCode.s_String = "U"
+		Case	KeyV!
+			lstr_KeyCode.s_String = "V"
+		Case	KeyW!
+			lstr_KeyCode.s_String = "W"
+		Case	KeyX!
+			lstr_KeyCode.s_String = "X"
+		Case	KeyY!
+			lstr_KeyCode.s_String = "Y"
+		Case	KeyZ!
+			lstr_KeyCode.s_String = "Z"
+		Case	Key0!
+			lstr_KeyCode.s_String = ")"
+		Case	Key1!
+			lstr_KeyCode.s_String = "!"
+		Case	Key2!
+			lstr_KeyCode.s_String = "@"
+		Case	Key3!
+			lstr_KeyCode.s_String = "#"
+		Case	Key4!
+			lstr_KeyCode.s_String = "$"
+		Case	Key5!
+			lstr_KeyCode.s_String = "%"
+		Case	Key6!
+			lstr_KeyCode.s_String = "^"
+		Case	Key7!
+			lstr_KeyCode.s_String = "&"
+		Case	Key8!
+			lstr_KeyCode.s_String = "*"
+		Case	Key9!
+			lstr_KeyCode.s_String = "("
+		Case	KeyQuote!   
+			lstr_KeyCode.s_String = "~""
+		Case	KeyEqual!   
+			lstr_KeyCode.s_String = "+"
+		Case	KeyComma!   
+			lstr_KeyCode.s_String = "<"
+		Case	KeyDash!   
+			lstr_KeyCode.s_String = "_"
+		Case	KeyPeriod!   
+			lstr_KeyCode.s_String = ">"
+		Case	KeySlash!
+			lstr_KeyCode.s_String = "?"
+		Case	KeyBackQuote!   
+			lstr_KeyCode.s_String = "~~"
+		Case	KeyLeftBracket!   
+			lstr_KeyCode.s_String = "{"
+		Case	KeyBackSlash!   
+			lstr_KeyCode.s_String = "|"
+		Case	KeyRightBracket!   
+			lstr_KeyCode.s_String = "}"
+		Case	KeySemiColon!   
+			lstr_KeyCode.s_String = ":"
+		Case	KeyNumpad0!
+			lstr_KeyCode.s_String = "0"
+		Case	KeyNumpad1!
+			lstr_KeyCode.s_String = "1"
+		Case	KeyNumpad2!
+			lstr_KeyCode.s_String = "2"
+		Case	KeyNumpad3!
+			lstr_KeyCode.s_String = "3"
+		Case	KeyNumpad4!
+			lstr_KeyCode.s_String = "4"
+		Case	KeyNumpad5!
+			lstr_KeyCode.s_String = "5"
+		Case	KeyNumpad6!
+			lstr_KeyCode.s_String = "6"
+		Case	KeyNumpad7!
+			lstr_KeyCode.s_String = "7"
+		Case	KeyNumpad8!
+			lstr_KeyCode.s_String = "8"
+		Case	KeyNumpad9!
+			lstr_KeyCode.s_String = "9"
+	End Choose
+	
+ELSE
+	
+	Choose Case ak_keycode
+		Case	KeyA!
+			lstr_KeyCode.s_String = "a"
+		Case	KeyB!
+			lstr_KeyCode.s_String = "b"
+		Case	KeyC!
+			lstr_KeyCode.s_String = "c"
+		Case	KeyD!
+			lstr_KeyCode.s_String = "d"
+		Case	KeyE!
+			lstr_KeyCode.s_String = "e"
+		Case	KeyF!
+			lstr_KeyCode.s_String = "f"
+		Case	KeyG!
+			lstr_KeyCode.s_String = "g"
+		Case	KeyH!
+			lstr_KeyCode.s_String = "h"
+		Case	KeyI!
+			lstr_KeyCode.s_String = "i"
+		Case	KeyJ!
+			lstr_KeyCode.s_String = "j"
+		Case	KeyK!
+			lstr_KeyCode.s_String = "k"
+		Case	KeyL!
+			lstr_KeyCode.s_String = "l"
+		Case	KeyN!
+			lstr_KeyCode.s_String = "m"
+		Case	KeyM!
+			lstr_KeyCode.s_String = "n"
+		Case	KeyO!
+			lstr_KeyCode.s_String = "o"
+		Case	KeyP!
+			lstr_KeyCode.s_String = "p"
+		Case	KeyQ!
+			lstr_KeyCode.s_String = "q"
+		Case	KeyR!
+			lstr_KeyCode.s_String = "r"
+		Case	KeyS!
+			lstr_KeyCode.s_String = "s"
+		Case	KeyT!
+			lstr_KeyCode.s_String = "t"
+		Case	KeyU!
+			lstr_KeyCode.s_String = "u"
+		Case	KeyV!
+			lstr_KeyCode.s_String = "v"
+		Case	KeyW!
+			lstr_KeyCode.s_String = "w"
+		Case	KeyX!
+			lstr_KeyCode.s_String = "x"
+		Case	KeyY!
+			lstr_KeyCode.s_String = "y"
+		Case	KeyZ!
+			lstr_KeyCode.s_String = "z"
+		Case	Key0!
+			lstr_KeyCode.s_String = "0"
+		Case	Key1!
+			lstr_KeyCode.s_String = "1"
+		Case	Key2!
+			lstr_KeyCode.s_String = "2"
+		Case	Key3!
+			lstr_KeyCode.s_String = "3"
+		Case	Key4!
+			lstr_KeyCode.s_String = "4"
+		Case	Key5!
+			lstr_KeyCode.s_String = "5"
+		Case	Key6!
+			lstr_KeyCode.s_String = "6"
+		Case	Key7!
+			lstr_KeyCode.s_String = "7"
+		Case	Key8!
+			lstr_KeyCode.s_String = "8"
+		Case	Key9!
+			lstr_KeyCode.s_String = "9"
+		Case	KeyQuote!   
+			lstr_KeyCode.s_String = "~""
+		Case	KeyEqual!   
+			lstr_KeyCode.s_String = "+"
+		Case	KeyComma!   
+			lstr_KeyCode.s_String = "<"
+		Case	KeyDash!   
+			lstr_KeyCode.s_String = "_"
+		Case	KeyPeriod!   
+			lstr_KeyCode.s_String = ">"
+		Case	KeySlash!
+			lstr_KeyCode.s_String = "?"
+		Case	KeyBackQuote!   
+			lstr_KeyCode.s_String = "~~"
+		Case	KeyLeftBracket!   
+			lstr_KeyCode.s_String = "{"
+		Case	KeyBackSlash!   
+			lstr_KeyCode.s_String = "|"
+		Case	KeyRightBracket!   
+			lstr_KeyCode.s_String = "}"
+		Case	KeySemiColon!   
+			lstr_KeyCode.s_String = ":"
+		Case	KeyNumpad0!
+			lstr_KeyCode.s_String = "0"
+		Case	KeyNumpad1!
+			lstr_KeyCode.s_String = "1"
+		Case	KeyNumpad2!
+			lstr_KeyCode.s_String = "2"
+		Case	KeyNumpad3!
+			lstr_KeyCode.s_String = "3"
+		Case	KeyNumpad4!
+			lstr_KeyCode.s_String = "4"
+		Case	KeyNumpad5!
+			lstr_KeyCode.s_String = "5"
+		Case	KeyNumpad6!
+			lstr_KeyCode.s_String = "6"
+		Case	KeyNumpad7!
+			lstr_KeyCode.s_String = "7"
+		Case	KeyNumpad8!
+			lstr_KeyCode.s_String = "8"
+		Case	KeyNumpad9!
+			lstr_KeyCode.s_String = "9"
+	End Choose
+	
+End If		
+
+// If WE HAVEN'T FIGURED IT OUT, CHECK THE KEYS THAT AREN'T DEPENDENT ON SHIFT,
+// BUT DO HAVE AN ASCII VALUE
+If lstr_KeyCode.s_String = "" Then
+	Choose Case ak_KeyCode
+		Case	KeySpaceBar!
+			lstr_KeyCode.s_String = " "
+			lstr_KeyCode.i_Ascii = 32
+		Case	KeyEscape!
+			lstr_KeyCode.s_String = "ESC"
+			lstr_KeyCode.i_Ascii = 27
+		Case	KeyTab!
+			lstr_KeyCode.s_String = "TAB"
+			lstr_KeyCode.i_Ascii = 9
+		Case	KeyDelete!
+			lstr_KeyCode.s_String = "DELETE"
+			lstr_KeyCode.i_Ascii = 127
+		Case	KeyMultiply!
+			lstr_KeyCode.s_String = "*"
+			lstr_KeyCode.i_Ascii = 42
+		Case	KeyAdd!
+			lstr_KeyCode.s_String = "+"
+			lstr_KeyCode.i_Ascii = 43
+		Case 	KeySubtract!
+			lstr_KeyCode.s_String = "-"
+			lstr_KeyCode.i_Ascii = 45
+		Case	KeyDecimal!
+			lstr_KeyCode.s_String = "."
+			lstr_KeyCode.i_Ascii = 46
+		Case 	KeyDivide!
+			lstr_KeyCode.s_String = "/"
+			lstr_KeyCode.i_Ascii = 47
+	End Choose
+	
+End If
+
+// If WE HAVEN'T FIGURED IT OUT, CHECK THE KEYS THAT AREN'T DEPENDENT ON SHIFT,
+// AND DON'T HAVE AN ASCII VALUE
+If lstr_KeyCode.s_String = "" Then
+	lstr_KeyCode.i_Ascii = 0
+	Choose Case ak_KeyCode
+		Case	KeyF1!
+			lstr_KeyCode.s_String = "F1"
+		Case	KeyF2!
+			lstr_KeyCode.s_String = "F2"
+		Case	KeyF3!
+			lstr_KeyCode.s_String = "F3"
+		Case	KeyF4!
+			lstr_KeyCode.s_String = "F4"
+		Case	KeyF5!
+			lstr_KeyCode.s_String = "F5"
+		Case	KeyF6!
+			lstr_KeyCode.s_String = "F6"
+		Case	KeyF7!
+			lstr_KeyCode.s_String = "F7"
+		Case	KeyF8!
+			lstr_KeyCode.s_String = "F8"
+		Case	KeyF9!
+			lstr_KeyCode.s_String = "F9"
+		Case	KeyF10!
+			lstr_KeyCode.s_String = "F10"
+		Case	KeyF11!
+			lstr_KeyCode.s_String = "F11"
+		Case	KeyF12!
+			lstr_KeyCode.s_String = "F12"
+		Case	KeyEnd!
+			lstr_KeyCode.s_String = "END"
+		Case	KeyHome!
+			lstr_KeyCode.s_String = "HOME"
+		Case	KeyInsert!
+			lstr_KeyCode.s_String = "INSERT"
+		Case	KeyPageUp!
+			lstr_KeyCode.s_String = "PAGEUP"
+		Case	KeyPageDown!
+			lstr_KeyCode.s_String = "PAGEDOWN"
+		Case	KeyPause!
+			lstr_KeyCode.s_String = "PAUSE"
+		Case	KeyEnter!
+			lstr_KeyCode.s_String = "ENTER"
+		Case	KeyShIft!
+			lstr_KeyCode.s_String = "SHIFT"
+		Case	KeyNumLock!
+			lstr_KeyCode.s_String = "NUMLOCK"
+		Case	KeyAlt!
+			lstr_KeyCode.s_String = "ALT"
+		Case	KeyControl!
+			lstr_KeyCode.s_String = "CONTROL"
+		Case	KeyCapsLock!
+			lstr_KeyCode.s_String = "CAPSLOCK"
+		Case	KeyScrollLock!
+			lstr_KeyCode.s_String = "SCROLLLOCK"
+		Case	Else
+			lstr_KeyCode.s_String = "UNKNOWN"
+	End Choose
+Else
+	If lstr_KeyCode.i_Ascii = 0 Then
+		lstr_KeyCode.i_Ascii = Asc(lstr_KeyCode.s_String)
+	End If
+End If
+
+// return the key and ascii value
+Return( lstr_KeyCode )   
+*/
+
+// value returned used to be str_keycode, this is new code from this point
+string str_keycode
+Return(str_keycode)
+end function
+

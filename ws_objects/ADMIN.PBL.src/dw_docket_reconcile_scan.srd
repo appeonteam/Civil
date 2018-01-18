@@ -1,0 +1,28 @@
+﻿$PBExportHeader$dw_docket_reconcile_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=77 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_reconcile.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=period dbname="sh_docket_reconcile.period" values="January - 1	1/February - 2	2/March - 3	3/April - 4	4/May - 5	5/June - 6	6/July - 7	7/August - 8	8/September - 9	9/October - 10	10/November - 11	11/December - 12	12/" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=end_bank_balance dbname="sh_docket_reconcile.end_bank_balance" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sheriff_balance dbname="sh_docket_reconcile.sheriff_balance" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=closed dbname="sh_docket_reconcile.closed" values="Open	O/Closed	C/" )
+ retrieve="  SELECT sh_docket_reconcile.docket_year,   
+         sh_docket_reconcile.period,   
+         sh_docket_reconcile.end_bank_balance,   
+         sh_docket_reconcile.sheriff_balance,   
+         sh_docket_reconcile.closed  
+    FROM sh_docket_reconcile   
+" update="sh_docket_reconcile" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Period"border="0" color="0" x="358" y="10" height="58" width="399"  name=period_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Year"border="0" color="0" x="135" y="10" height="58" width="190"  name=docket_year_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="End Bank Balance"border="0" color="0" x="1814" y="10" height="58" width="530"  name=end_bank_balance_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Status"border="0" color="0" x="896" y="10" height="58" width="190"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="135" y="4" height="70" width="190" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1814" y="4" height="70" width="530" format="#,##0.00"  name=end_bank_balance edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="358" y="4" height="70" width="494" format="[general]"  name=period ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="896" y="4" height="70" width="494" format="[general]"  name=closed ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

@@ -1,0 +1,46 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "recrpt.pbl" "";
+@end;
+@begin Objects 
+ "dw_comp_disbursement.srd" "recrpt.pbl";
+ "dw_compare_receipt_to_balance_due_rpt.srd" "recrpt.pbl";
+ "dw_disb_checknum_rpt.srd" "recrpt.pbl";
+ "dw_disb_cleared_check_rpt.srd" "recrpt.pbl";
+ "dw_disb_compdisbnum_rpt.srd" "recrpt.pbl";
+ "dw_disb_date_rpt.srd" "recrpt.pbl";
+ "dw_disb_name_rpt.srd" "recrpt.pbl";
+ "dw_disb_outstanding_check_date_rpt.srd" "recrpt.pbl";
+ "dw_disb_outstanding_check_rpt.srd" "recrpt.pbl";
+ "dw_disb_outstanding_unwarranted_rpt.srd" "recrpt.pbl";
+ "dw_disb_paid_check_date_rpt.srd" "recrpt.pbl";
+ "dw_disb_single_name_rpt.srd" "recrpt.pbl";
+ "dw_disb_single_type_rpt.srd" "recrpt.pbl";
+ "dw_disb_type_rpt.srd" "recrpt.pbl";
+ "dw_disb_voided_check_rpt.srd" "recrpt.pbl";
+ "dw_receipt_comprecnum_rpt.srd" "recrpt.pbl";
+ "dw_receipt_date_rpt.srd" "recrpt.pbl";
+ "dw_receipt_feetype_posting_rpt.srd" "recrpt.pbl";
+ "dw_receipt_feetype_rpt.srd" "recrpt.pbl";
+ "dw_receipt_feetypetotal_rpt.srd" "recrpt.pbl";
+ "dw_receipt_judgment_rpt.srd" "recrpt.pbl";
+ "dw_receipt_name_rpt.srd" "recrpt.pbl";
+ "dw_receipt_open_rpt.srd" "recrpt.pbl";
+ "dw_receipt_post_date_rpt.srd" "recrpt.pbl";
+ "dw_receipt_post_date_summary_rpt.srd" "recrpt.pbl";
+ "dw_receipt_posting_feetype_rpt.srd" "recrpt.pbl";
+ "dw_receipt_posting_feetypetotal_rpt.srd" "recrpt.pbl";
+ "dw_receipt_posting_recnum_rpt.srd" "recrpt.pbl";
+ "dw_receipt_posting_recnum_subint_rpt.srd" "recrpt.pbl";
+ "dw_receipt_recnum_detail_rpt.srd" "recrpt.pbl";
+ "dw_receipt_recnum_detail_sub_rpt.srd" "recrpt.pbl";
+ "dw_receipt_recnum_rpt.srd" "recrpt.pbl";
+ "dw_receipt_single_feetype_rpt.srd" "recrpt.pbl";
+ "dw_receipt_single_name_rpt.srd" "recrpt.pbl";
+ "dw_receipt_single_type_rpt.srd" "recrpt.pbl";
+ "dw_receipt_type_rpt.srd" "recrpt.pbl";
+ "dw_receipt_unposted_rpt.srd" "recrpt.pbl";
+ "w_civil_disbursement_rpt.srw" "recrpt.pbl";
+ "w_civil_posting_rpt.srw" "recrpt.pbl";
+ "w_civil_receipt_rpt.srw" "recrpt.pbl";
+@end;

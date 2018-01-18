@@ -1,0 +1,41 @@
+﻿$PBExportHeader$dw_cash_disburse_fees_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=157 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=fee_type dbname="sh_docket_fee.fee_type" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=fee_amount dbname="sh_docket_fee.fee_amount" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=balance_due dbname="sh_docket_fee.balance_due" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=cb_type dbname="sh_docket_fee.cb_type" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_fee.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=docket_number dbname="sh_docket_fee.docket_number" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=fee_number dbname="sh_docket_fee.fee_number" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=fee_note dbname="sh_docket_fee.fee_note" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=amount_received dbname="sh_docket_fee.amount_received" )
+ retrieve="  SELECT sh_docket_fee.fee_type,   
+         sh_docket_fee.fee_amount,   
+         sh_docket_fee.balance_due,   
+         sh_docket_fee.cb_type,   
+         sh_docket_fee.docket_year,   
+         sh_docket_fee.docket_number,   
+         sh_docket_fee.fee_number,   
+         sh_docket_fee.fee_note,   
+         sh_docket_fee.amount_received  
+    FROM sh_docket_fee  
+   WHERE ( sh_docket_fee.cb_type = :achcbtype ) AND  
+         ( sh_docket_fee.docket_year = :idockyear ) AND  
+         ( sh_docket_fee.docket_number = :ldocknum )   
+ORDER BY sh_docket_fee.balance_due DESC   
+" update="sh_docket_fee" updatewhere=1 updatekeyinplace=no arguments=(("achcbtype", string),("idockyear", number),("ldocknum", number)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="139" y="0" height="77" width="973" format="[general]"  name=fee_type dddw.name=dddw_ut_codes dddw.displaycolumn=full_description dddw.datacolumn=code dddw.percentwidth=100 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="1130" y="0" height="77" width="355" format="#,##0.00"  name=fee_amount edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="1532" y="0" height="77" width="355" format="#,##0.00"  name=balance_due edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="1960" y="0" height="77" width="355" format="#,##0.00"  name=amount_received edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="** REMINDER: ALWAYS Press <TAB> AFTER Each Amount Entered!**"border="6" color="16777215" x="135" y="13" height="64" width="2176"  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="255" )
+text(band=header alignment="0" text="Fee Type"border="0" color="0" x="139" y="96" height="58" width="267"  name=fee_type_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount Due"border="0" color="0" x="1126" y="96" height="58" width="358"  name=amount_due_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Balance Due"border="0" color="0" x="1518" y="96" height="58" width="369"  name=balance_due_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Amount Rcvd"border="0" color="0" x="1927" y="96" height="58" width="388"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

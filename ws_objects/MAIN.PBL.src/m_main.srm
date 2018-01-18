@@ -1,0 +1,3189 @@
+﻿$PBExportHeader$m_main.srm
+forward
+global type m_main from menu
+end type
+type m_file from menu within m_main
+end type
+type m_changepassword from menu within m_file
+end type
+type m_printersetup from menu within m_file
+end type
+type m_-1 from menu within m_file
+end type
+type m_fixes from menu within m_file
+end type
+type m_-9 from menu within m_file
+end type
+type m_exit from menu within m_file
+end type
+type m_file from menu within m_main
+m_changepassword m_changepassword
+m_printersetup m_printersetup
+m_-1 m_-1
+m_fixes m_fixes
+m_-9 m_-9
+m_exit m_exit
+end type
+type m_administration from menu within m_main
+end type
+type m_personnel from menu within m_administration
+end type
+type m_servingpersonnel from menu within m_administration
+end type
+type m_generalcodes from menu within m_administration
+end type
+type m_generalcodesreports from menu within m_administration
+end type
+type m_-8 from menu within m_administration
+end type
+type m_postdepositreceipts from menu within m_administration
+end type
+type m_-11 from menu within m_administration
+end type
+type m_clearchecks from menu within m_administration
+end type
+type m_reconcilechecks from menu within m_administration
+end type
+type m_-10 from menu within m_administration
+end type
+type m_cashbookledgers from menu within m_administration
+end type
+type m_correctiveentries from menu within m_administration
+end type
+type m_checkbookreconciliation from menu within m_administration
+end type
+type m_- from menu within m_administration
+end type
+type m_incrementednumbers from menu within m_administration
+end type
+type m_createnewyearincrementednumbers from menu within m_administration
+end type
+type m_createnewyearledgers from menu within m_administration
+end type
+type m_-4 from menu within m_administration
+end type
+type m_security from menu within m_administration
+end type
+type m_permissions from menu within m_security
+end type
+type m_access from menu within m_security
+end type
+type m_security from menu within m_administration
+m_permissions m_permissions
+m_access m_access
+end type
+type m_-6 from menu within m_administration
+end type
+type m_company from menu within m_administration
+end type
+type m_administration from menu within m_main
+m_personnel m_personnel
+m_servingpersonnel m_servingpersonnel
+m_generalcodes m_generalcodes
+m_generalcodesreports m_generalcodesreports
+m_-8 m_-8
+m_postdepositreceipts m_postdepositreceipts
+m_-11 m_-11
+m_clearchecks m_clearchecks
+m_reconcilechecks m_reconcilechecks
+m_-10 m_-10
+m_cashbookledgers m_cashbookledgers
+m_correctiveentries m_correctiveentries
+m_checkbookreconciliation m_checkbookreconciliation
+m_- m_-
+m_incrementednumbers m_incrementednumbers
+m_createnewyearincrementednumbers m_createnewyearincrementednumbers
+m_createnewyearledgers m_createnewyearledgers
+m_-4 m_-4
+m_security m_security
+m_-6 m_-6
+m_company m_company
+end type
+type m_civilprocesses from menu within m_main
+end type
+type m_dockets from menu within m_civilprocesses
+end type
+type m_docketreceipts from menu within m_civilprocesses
+end type
+type m_miscellaneouscashreceipts from menu within m_civilprocesses
+end type
+type m_-7 from menu within m_civilprocesses
+end type
+type m_docketdisbursements from menu within m_civilprocesses
+end type
+type m_miscellaneouscashdisbursements from menu within m_civilprocesses
+end type
+type m_-5 from menu within m_civilprocesses
+end type
+type m_printdocketchecks from menu within m_civilprocesses
+end type
+type m_printmiscreceiptchecks from menu within m_civilprocesses
+end type
+type m_civilprocesses from menu within m_main
+m_dockets m_dockets
+m_docketreceipts m_docketreceipts
+m_miscellaneouscashreceipts m_miscellaneouscashreceipts
+m_-7 m_-7
+m_docketdisbursements m_docketdisbursements
+m_miscellaneouscashdisbursements m_miscellaneouscashdisbursements
+m_-5 m_-5
+m_printdocketchecks m_printdocketchecks
+m_printmiscreceiptchecks m_printmiscreceiptchecks
+end type
+type m_reports from menu within m_main
+end type
+type m_generalreports from menu within m_reports
+end type
+type m_feesreports from menu within m_reports
+end type
+type m_servicereports from menu within m_reports
+end type
+type m_-12 from menu within m_reports
+end type
+type m_receiptreports from menu within m_reports
+end type
+type m_postingreports from menu within m_reports
+end type
+type m_disbursementreports from menu within m_reports
+end type
+type m_reports from menu within m_main
+m_generalreports m_generalreports
+m_feesreports m_feesreports
+m_servicereports m_servicereports
+m_-12 m_-12
+m_receiptreports m_receiptreports
+m_postingreports m_postingreports
+m_disbursementreports m_disbursementreports
+end type
+type m_inquiry from menu within m_main
+end type
+type m_inquiredockets from menu within m_inquiry
+end type
+type m_inquiry from menu within m_main
+m_inquiredockets m_inquiredockets
+end type
+type m_general from menu within m_main
+end type
+type m_search from menu within m_general
+end type
+type m_clear from menu within m_general
+end type
+type m_-24 from menu within m_general
+end type
+type m_new from menu within m_general
+end type
+type m_add from menu within m_general
+end type
+type m_update from menu within m_general
+end type
+type m_delete from menu within m_general
+end type
+type m_escape from menu within m_general
+end type
+type m_save from menu within m_general
+end type
+type m_-25 from menu within m_general
+end type
+type m_printlist from menu within m_general
+end type
+type m_printdetail from menu within m_general
+end type
+type m_-31 from menu within m_general
+end type
+type m_first from menu within m_general
+end type
+type m_back from menu within m_general
+end type
+type m_next from menu within m_general
+end type
+type m_last from menu within m_general
+end type
+type m_-26 from menu within m_general
+end type
+type m_exit1 from menu within m_general
+end type
+type m_general from menu within m_main
+m_search m_search
+m_clear m_clear
+m_-24 m_-24
+m_new m_new
+m_add m_add
+m_update m_update
+m_delete m_delete
+m_escape m_escape
+m_save m_save
+m_-25 m_-25
+m_printlist m_printlist
+m_printdetail m_printdetail
+m_-31 m_-31
+m_first m_first
+m_back m_back
+m_next m_next
+m_last m_last
+m_-26 m_-26
+m_exit1 m_exit1
+end type
+type m_window from menu within m_main
+end type
+type m_vertical from menu within m_window
+end type
+type m_horizontal from menu within m_window
+end type
+type m_layer from menu within m_window
+end type
+type m_cascade from menu within m_window
+end type
+type m_-2 from menu within m_window
+end type
+type m_arrangeicons from menu within m_window
+end type
+type m_-3 from menu within m_window
+end type
+type m_toolbars from menu within m_window
+end type
+type m_window from menu within m_main
+m_vertical m_vertical
+m_horizontal m_horizontal
+m_layer m_layer
+m_cascade m_cascade
+m_-2 m_-2
+m_arrangeicons m_arrangeicons
+m_-3 m_-3
+m_toolbars m_toolbars
+end type
+type m_help from menu within m_main
+end type
+type m_about from menu within m_help
+end type
+type m_help from menu within m_main
+m_about m_about
+end type
+global type m_main from menu
+m_file m_file
+m_administration m_administration
+m_civilprocesses m_civilprocesses
+m_reports m_reports
+m_inquiry m_inquiry
+m_general m_general
+m_window m_window
+m_help m_help
+end type
+end forward
+
+global type m_main from menu
+m_file m_file
+m_administration m_administration
+m_civilprocesses m_civilprocesses
+m_reports m_reports
+m_inquiry m_inquiry
+m_general m_general
+m_window m_window
+m_help m_help
+end type
+global m_main m_main
+
+on m_main.create
+m_main=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_file=create m_file
+this.m_administration=create m_administration
+this.m_civilprocesses=create m_civilprocesses
+this.m_reports=create m_reports
+this.m_inquiry=create m_inquiry
+this.m_general=create m_general
+this.m_window=create m_window
+this.m_help=create m_help
+this.Item[UpperBound(this.Item)+1]=this.m_file
+this.Item[UpperBound(this.Item)+1]=this.m_administration
+this.Item[UpperBound(this.Item)+1]=this.m_civilprocesses
+this.Item[UpperBound(this.Item)+1]=this.m_reports
+this.Item[UpperBound(this.Item)+1]=this.m_inquiry
+this.Item[UpperBound(this.Item)+1]=this.m_general
+this.Item[UpperBound(this.Item)+1]=this.m_window
+this.Item[UpperBound(this.Item)+1]=this.m_help
+end on
+
+on m_main.destroy
+call super::destroy
+destroy(this.m_file)
+destroy(this.m_administration)
+destroy(this.m_civilprocesses)
+destroy(this.m_reports)
+destroy(this.m_inquiry)
+destroy(this.m_general)
+destroy(this.m_window)
+destroy(this.m_help)
+end on
+
+type m_file from menu within m_main
+m_changepassword m_changepassword
+m_printersetup m_printersetup
+m_-1 m_-1
+m_fixes m_fixes
+m_-9 m_-9
+m_exit m_exit
+end type
+
+on m_file.create
+call super::create
+this.text = "&File"
+this.toolbaritemtext = "Password"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_changepassword=create m_changepassword
+this.m_printersetup=create m_printersetup
+this.m_-1=create m_-1
+this.m_fixes=create m_fixes
+this.m_-9=create m_-9
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_changepassword
+this.Item[UpperBound(this.Item)+1]=this.m_printersetup
+this.Item[UpperBound(this.Item)+1]=this.m_-1
+this.Item[UpperBound(this.Item)+1]=this.m_fixes
+this.Item[UpperBound(this.Item)+1]=this.m_-9
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_file.destroy
+call super::destroy
+destroy(this.m_changepassword)
+destroy(this.m_printersetup)
+destroy(this.m_-1)
+destroy(this.m_fixes)
+destroy(this.m_-9)
+destroy(this.m_exit)
+end on
+
+type m_changepassword from menu within m_file
+end type
+
+on m_changepassword.create
+call super::create
+this.text = "&Change Password ..."
+this.microhelp = "Change Password"
+this.toolbaritemvisible = false
+this.toolbaritemname = "custom054!"
+this.toolbaritemtext = "Password"
+this.toolbaritemorder = 1
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;open(w_change_pass)
+end event
+
+on m_changepassword.destroy
+call super::destroy
+end on
+
+type m_printersetup from menu within m_file
+end type
+
+on m_printersetup.create
+call super::create
+this.text = "&Printer Setup ..."
+this.microhelp = "Printer Setup"
+this.toolbaritemname = "custom074!"
+this.toolbaritemtext = "Printer Setup"
+this.toolbaritemorder = 10
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;PrintSetup()
+end event
+
+on m_printersetup.destroy
+call super::destroy
+end on
+
+type m_-1 from menu within m_file
+end type
+
+on m_-1.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_fixes from menu within m_file
+end type
+
+event clicked;
+OpenSheet(w_fixes4, w_main, 0, Layered!)
+
+end event
+
+on m_fixes.create
+call super::create
+this.visible = false
+this.text = "Fixes..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_fixes.destroy
+call super::destroy
+end on
+
+type m_-9 from menu within m_file
+end type
+
+on m_-9.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-9.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_file
+end type
+
+event clicked;close(ParentWindow)
+end event
+
+on m_exit.create
+call super::create
+this.text = "E&xit"
+this.microhelp = "Exit CATS Application"
+this.toolbaritemname = "exit!"
+this.toolbaritemtext = "Exit"
+this.toolbaritemorder = 400
+this.toolbaritemspace = 1
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_administration from menu within m_main
+m_personnel m_personnel
+m_servingpersonnel m_servingpersonnel
+m_generalcodes m_generalcodes
+m_generalcodesreports m_generalcodesreports
+m_-8 m_-8
+m_postdepositreceipts m_postdepositreceipts
+m_-11 m_-11
+m_clearchecks m_clearchecks
+m_reconcilechecks m_reconcilechecks
+m_-10 m_-10
+m_cashbookledgers m_cashbookledgers
+m_correctiveentries m_correctiveentries
+m_checkbookreconciliation m_checkbookreconciliation
+m_- m_-
+m_incrementednumbers m_incrementednumbers
+m_createnewyearincrementednumbers m_createnewyearincrementednumbers
+m_createnewyearledgers m_createnewyearledgers
+m_-4 m_-4
+m_security m_security
+m_-6 m_-6
+m_company m_company
+end type
+
+on m_administration.create
+call super::create
+this.visible = false
+this.text = "&Administration"
+this.microhelp = "System Administration Menu"
+this.toolbaritemorder = 3
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_personnel=create m_personnel
+this.m_servingpersonnel=create m_servingpersonnel
+this.m_generalcodes=create m_generalcodes
+this.m_generalcodesreports=create m_generalcodesreports
+this.m_-8=create m_-8
+this.m_postdepositreceipts=create m_postdepositreceipts
+this.m_-11=create m_-11
+this.m_clearchecks=create m_clearchecks
+this.m_reconcilechecks=create m_reconcilechecks
+this.m_-10=create m_-10
+this.m_cashbookledgers=create m_cashbookledgers
+this.m_correctiveentries=create m_correctiveentries
+this.m_checkbookreconciliation=create m_checkbookreconciliation
+this.m_-=create m_-
+this.m_incrementednumbers=create m_incrementednumbers
+this.m_createnewyearincrementednumbers=create m_createnewyearincrementednumbers
+this.m_createnewyearledgers=create m_createnewyearledgers
+this.m_-4=create m_-4
+this.m_security=create m_security
+this.m_-6=create m_-6
+this.m_company=create m_company
+this.Item[UpperBound(this.Item)+1]=this.m_personnel
+this.Item[UpperBound(this.Item)+1]=this.m_servingpersonnel
+this.Item[UpperBound(this.Item)+1]=this.m_generalcodes
+this.Item[UpperBound(this.Item)+1]=this.m_generalcodesreports
+this.Item[UpperBound(this.Item)+1]=this.m_-8
+this.Item[UpperBound(this.Item)+1]=this.m_postdepositreceipts
+this.Item[UpperBound(this.Item)+1]=this.m_-11
+this.Item[UpperBound(this.Item)+1]=this.m_clearchecks
+this.Item[UpperBound(this.Item)+1]=this.m_reconcilechecks
+this.Item[UpperBound(this.Item)+1]=this.m_-10
+this.Item[UpperBound(this.Item)+1]=this.m_cashbookledgers
+this.Item[UpperBound(this.Item)+1]=this.m_correctiveentries
+this.Item[UpperBound(this.Item)+1]=this.m_checkbookreconciliation
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_incrementednumbers
+this.Item[UpperBound(this.Item)+1]=this.m_createnewyearincrementednumbers
+this.Item[UpperBound(this.Item)+1]=this.m_createnewyearledgers
+this.Item[UpperBound(this.Item)+1]=this.m_-4
+this.Item[UpperBound(this.Item)+1]=this.m_security
+this.Item[UpperBound(this.Item)+1]=this.m_-6
+this.Item[UpperBound(this.Item)+1]=this.m_company
+end on
+
+on m_administration.destroy
+call super::destroy
+destroy(this.m_personnel)
+destroy(this.m_servingpersonnel)
+destroy(this.m_generalcodes)
+destroy(this.m_generalcodesreports)
+destroy(this.m_-8)
+destroy(this.m_postdepositreceipts)
+destroy(this.m_-11)
+destroy(this.m_clearchecks)
+destroy(this.m_reconcilechecks)
+destroy(this.m_-10)
+destroy(this.m_cashbookledgers)
+destroy(this.m_correctiveentries)
+destroy(this.m_checkbookreconciliation)
+destroy(this.m_-)
+destroy(this.m_incrementednumbers)
+destroy(this.m_createnewyearincrementednumbers)
+destroy(this.m_createnewyearledgers)
+destroy(this.m_-4)
+destroy(this.m_security)
+destroy(this.m_-6)
+destroy(this.m_company)
+end on
+
+type m_personnel from menu within m_administration
+end type
+
+on m_personnel.create
+call super::create
+this.visible = false
+this.text = "&Personnel..."
+this.enabled = false
+this.microhelp = "Personnel Maintenance"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_personnel_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_personnel.destroy
+call super::destroy
+end on
+
+type m_servingpersonnel from menu within m_administration
+end type
+
+event clicked;
+OpenSheet(w_serve_personnel_sheet, w_main, 0, Layered!)
+end event
+
+on m_servingpersonnel.create
+call super::create
+this.visible = false
+this.text = "Ser&ving Personnel..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_servingpersonnel.destroy
+call super::destroy
+end on
+
+type m_generalcodes from menu within m_administration
+end type
+
+on m_generalcodes.create
+call super::create
+this.visible = false
+this.text = "&General Codes..."
+this.enabled = false
+this.microhelp = "General Codes Maintenance"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_ut_codes_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_generalcodes.destroy
+call super::destroy
+end on
+
+type m_generalcodesreports from menu within m_administration
+end type
+
+event clicked;//
+//OpenSheet(w_general_codes_rpt, w_main, 0, Layered!)
+end event
+
+on m_generalcodesreports.create
+call super::create
+this.visible = false
+this.text = "General &Codes Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_generalcodesreports.destroy
+call super::destroy
+end on
+
+type m_-8 from menu within m_administration
+end type
+
+on m_-8.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-8.destroy
+call super::destroy
+end on
+
+type m_postdepositreceipts from menu within m_administration
+end type
+
+event clicked;
+OpenSheet(w_post_receipts_sheet, w_main, 0, Layered!)
+end event
+
+on m_postdepositreceipts.create
+call super::create
+this.visible = false
+this.text = "P&ost Deposit Receipts..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_postdepositreceipts.destroy
+call super::destroy
+end on
+
+type m_-11 from menu within m_administration
+end type
+
+on m_-11.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-11.destroy
+call super::destroy
+end on
+
+type m_clearchecks from menu within m_administration
+end type
+
+event clicked;
+open(w_cancel_warrants)
+end event
+
+on m_clearchecks.create
+call super::create
+this.visible = false
+this.text = "&Clear Checks"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_clearchecks.destroy
+call super::destroy
+end on
+
+type m_reconcilechecks from menu within m_administration
+end type
+
+on m_reconcilechecks.create
+call super::create
+this.visible = false
+this.text = "&Reconcile Checks..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_reconcile_checks_sheet, w_main, 0, Layered!)
+end event
+
+on m_reconcilechecks.destroy
+call super::destroy
+end on
+
+type m_-10 from menu within m_administration
+end type
+
+on m_-10.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-10.destroy
+call super::destroy
+end on
+
+type m_cashbookledgers from menu within m_administration
+end type
+
+event clicked;
+OpenSheet(w_ledger_sheet, w_main, 0, Layered!)
+end event
+
+on m_cashbookledgers.create
+call super::create
+this.visible = false
+this.text = "Check Book &Ledgers..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cashbookledgers.destroy
+call super::destroy
+end on
+
+type m_correctiveentries from menu within m_administration
+end type
+
+on m_correctiveentries.create
+call super::create
+this.visible = false
+this.text = "Corrective &Entries..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_correctiveentries.destroy
+call super::destroy
+end on
+
+type m_checkbookreconciliation from menu within m_administration
+end type
+
+event clicked;
+OpenSheet(w_check_book_reconciliation_sheet, w_main, 0, Layered!)
+end event
+
+on m_checkbookreconciliation.create
+call super::create
+this.text = "Check &Book Reconciliation..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_checkbookreconciliation.destroy
+call super::destroy
+end on
+
+type m_- from menu within m_administration
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_incrementednumbers from menu within m_administration
+end type
+
+event clicked;
+OpenSheet(w_incremented_number_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_incrementednumbers.create
+call super::create
+this.visible = false
+this.text = "&Incremented Numbers..."
+this.enabled = false
+this.microhelp = "Incremented Number Maintenance"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_incrementednumbers.destroy
+call super::destroy
+end on
+
+type m_createnewyearincrementednumbers from menu within m_administration
+end type
+
+event clicked;
+Open(w_create_new_year_numbers)
+
+end event
+
+on m_createnewyearincrementednumbers.create
+call super::create
+this.visible = false
+this.text = "Create New &Year Incremented Numbers..."
+this.enabled = false
+this.microhelp = "Create New Year Incremented Numbers"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_createnewyearincrementednumbers.destroy
+call super::destroy
+end on
+
+type m_createnewyearledgers from menu within m_administration
+end type
+
+event clicked;
+open(w_create_new_year_ledgers)
+end event
+
+on m_createnewyearledgers.create
+call super::create
+this.visible = false
+this.text = "Create New Year L&edgers"
+this.enabled = false
+this.microhelp = "Create New Year Ledgers"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_createnewyearledgers.destroy
+call super::destroy
+end on
+
+type m_-4 from menu within m_administration
+end type
+
+on m_-4.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-4.destroy
+call super::destroy
+end on
+
+type m_security from menu within m_administration
+m_permissions m_permissions
+m_access m_access
+end type
+
+on m_security.create
+call super::create
+this.visible = false
+this.text = "&Security..."
+this.microhelp = "Security Submenu"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_permissions=create m_permissions
+this.m_access=create m_access
+this.Item[UpperBound(this.Item)+1]=this.m_permissions
+this.Item[UpperBound(this.Item)+1]=this.m_access
+end on
+
+on m_security.destroy
+call super::destroy
+destroy(this.m_permissions)
+destroy(this.m_access)
+end on
+
+type m_permissions from menu within m_security
+end type
+
+on m_permissions.create
+call super::create
+this.visible = false
+this.text = "P&ermissions..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_permissions_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_permissions.destroy
+call super::destroy
+end on
+
+type m_access from menu within m_security
+end type
+
+on m_access.create
+call super::create
+this.visible = false
+this.text = "&Access..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_access_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_access.destroy
+call super::destroy
+end on
+
+type m_-6 from menu within m_administration
+end type
+
+on m_-6.create
+call super::create
+this.visible = false
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-6.destroy
+call super::destroy
+end on
+
+type m_company from menu within m_administration
+end type
+
+event clicked;
+OpenSheet(w_company_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_company.create
+call super::create
+this.visible = false
+this.text = "C&ompany..."
+this.enabled = false
+this.microhelp = "Company Maintenance"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_company.destroy
+call super::destroy
+end on
+
+type m_civilprocesses from menu within m_main
+m_dockets m_dockets
+m_docketreceipts m_docketreceipts
+m_miscellaneouscashreceipts m_miscellaneouscashreceipts
+m_-7 m_-7
+m_docketdisbursements m_docketdisbursements
+m_miscellaneouscashdisbursements m_miscellaneouscashdisbursements
+m_-5 m_-5
+m_printdocketchecks m_printdocketchecks
+m_printmiscreceiptchecks m_printmiscreceiptchecks
+end type
+
+on m_civilprocesses.create
+call super::create
+this.visible = false
+this.text = "&Civil Processes"
+this.microhelp = "Civil Processes Menu"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_dockets=create m_dockets
+this.m_docketreceipts=create m_docketreceipts
+this.m_miscellaneouscashreceipts=create m_miscellaneouscashreceipts
+this.m_-7=create m_-7
+this.m_docketdisbursements=create m_docketdisbursements
+this.m_miscellaneouscashdisbursements=create m_miscellaneouscashdisbursements
+this.m_-5=create m_-5
+this.m_printdocketchecks=create m_printdocketchecks
+this.m_printmiscreceiptchecks=create m_printmiscreceiptchecks
+this.Item[UpperBound(this.Item)+1]=this.m_dockets
+this.Item[UpperBound(this.Item)+1]=this.m_docketreceipts
+this.Item[UpperBound(this.Item)+1]=this.m_miscellaneouscashreceipts
+this.Item[UpperBound(this.Item)+1]=this.m_-7
+this.Item[UpperBound(this.Item)+1]=this.m_docketdisbursements
+this.Item[UpperBound(this.Item)+1]=this.m_miscellaneouscashdisbursements
+this.Item[UpperBound(this.Item)+1]=this.m_-5
+this.Item[UpperBound(this.Item)+1]=this.m_printdocketchecks
+this.Item[UpperBound(this.Item)+1]=this.m_printmiscreceiptchecks
+end on
+
+on m_civilprocesses.destroy
+call super::destroy
+destroy(this.m_dockets)
+destroy(this.m_docketreceipts)
+destroy(this.m_miscellaneouscashreceipts)
+destroy(this.m_-7)
+destroy(this.m_docketdisbursements)
+destroy(this.m_miscellaneouscashdisbursements)
+destroy(this.m_-5)
+destroy(this.m_printdocketchecks)
+destroy(this.m_printmiscreceiptchecks)
+end on
+
+type m_dockets from menu within m_civilprocesses
+end type
+
+event clicked;
+OpenSheet(w_docket_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_dockets.create
+call super::create
+this.visible = false
+this.text = "&Dockets...~tF5"
+this.enabled = false
+this.shortcut = 116
+this.microhelp = "Docket Maintenance"
+this.toolbaritemname = "custom050!"
+this.toolbaritemtext = "Dockets"
+this.toolbaritemorder = 30
+this.toolbaritemspace = 1
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_dockets.destroy
+call super::destroy
+end on
+
+type m_docketreceipts from menu within m_civilprocesses
+end type
+
+event clicked;
+OpenSheet(w_docket_receipts_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_docketreceipts.create
+call super::create
+this.visible = false
+this.text = "Docket &Receipts..."
+this.enabled = false
+this.toolbaritemname = "dropdownlistbox1!"
+this.toolbaritemtext = "Docket Receipts"
+this.toolbaritemorder = 40
+this.toolbaritemspace = 1
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_docketreceipts.destroy
+call super::destroy
+end on
+
+type m_miscellaneouscashreceipts from menu within m_civilprocesses
+end type
+
+event clicked;
+OpenSheet(w_misc_cash_receipt_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_miscellaneouscashreceipts.create
+call super::create
+this.visible = false
+this.text = "&Miscellaneous Cash Receipts..."
+this.enabled = false
+this.toolbaritemname = "datawindow1!"
+this.toolbaritemtext = "Misc Receipts"
+this.toolbaritemorder = 50
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_miscellaneouscashreceipts.destroy
+call super::destroy
+end on
+
+type m_-7 from menu within m_civilprocesses
+end type
+
+on m_-7.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-7.destroy
+call super::destroy
+end on
+
+type m_docketdisbursements from menu within m_civilprocesses
+end type
+
+event clicked;
+OpenSheet(w_docket_disbursements_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_docketdisbursements.create
+call super::create
+this.visible = false
+this.text = "D&ocket Disbursements..."
+this.enabled = false
+this.toolbaritemname = "createruntime5!"
+this.toolbaritemtext = "Docket Disb"
+this.toolbaritemorder = 60
+this.toolbaritemspace = 1
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_docketdisbursements.destroy
+call super::destroy
+end on
+
+type m_miscellaneouscashdisbursements from menu within m_civilprocesses
+end type
+
+event clicked;
+OpenSheet(w_misc_cash_disbursements_sheet, w_main, 0, Layered!)
+
+end event
+
+on m_miscellaneouscashdisbursements.create
+call super::create
+this.visible = false
+this.text = "M&iscellaneous Cash Disbursements..."
+this.enabled = false
+this.toolbaritemname = "startpipeline!"
+this.toolbaritemtext = "Misc Disb"
+this.toolbaritemorder = 70
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_miscellaneouscashdisbursements.destroy
+call super::destroy
+end on
+
+type m_-5 from menu within m_civilprocesses
+end type
+
+on m_-5.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-5.destroy
+call super::destroy
+end on
+
+type m_printdocketchecks from menu within m_civilprocesses
+end type
+
+event clicked;
+OpenSheet(w_print_civil_checks_rpt, w_main, 0, Layered!)
+
+end event
+
+on m_printdocketchecks.create
+call super::create
+this.visible = false
+this.text = "&Print Docket Checks..."
+this.enabled = false
+this.microhelp = "Print Docket Checks"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_printdocketchecks.destroy
+call super::destroy
+end on
+
+type m_printmiscreceiptchecks from menu within m_civilprocesses
+end type
+
+on m_printmiscreceiptchecks.create
+call super::create
+this.visible = false
+this.text = "&Print Misc Receipt Chec&ks..."
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_print_misc_checks_rpt, w_main, 0, Layered!)
+end event
+
+on m_printmiscreceiptchecks.destroy
+call super::destroy
+end on
+
+type m_reports from menu within m_main
+m_generalreports m_generalreports
+m_feesreports m_feesreports
+m_servicereports m_servicereports
+m_-12 m_-12
+m_receiptreports m_receiptreports
+m_postingreports m_postingreports
+m_disbursementreports m_disbursementreports
+end type
+
+on m_reports.create
+call super::create
+this.text = "&Reports"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_generalreports=create m_generalreports
+this.m_feesreports=create m_feesreports
+this.m_servicereports=create m_servicereports
+this.m_-12=create m_-12
+this.m_receiptreports=create m_receiptreports
+this.m_postingreports=create m_postingreports
+this.m_disbursementreports=create m_disbursementreports
+this.Item[UpperBound(this.Item)+1]=this.m_generalreports
+this.Item[UpperBound(this.Item)+1]=this.m_feesreports
+this.Item[UpperBound(this.Item)+1]=this.m_servicereports
+this.Item[UpperBound(this.Item)+1]=this.m_-12
+this.Item[UpperBound(this.Item)+1]=this.m_receiptreports
+this.Item[UpperBound(this.Item)+1]=this.m_postingreports
+this.Item[UpperBound(this.Item)+1]=this.m_disbursementreports
+end on
+
+on m_reports.destroy
+call super::destroy
+destroy(this.m_generalreports)
+destroy(this.m_feesreports)
+destroy(this.m_servicereports)
+destroy(this.m_-12)
+destroy(this.m_receiptreports)
+destroy(this.m_postingreports)
+destroy(this.m_disbursementreports)
+end on
+
+type m_generalreports from menu within m_reports
+end type
+
+event clicked;OpenSheet(w_civil_general_rpt, w_main, 0, Layered!)
+end event
+
+on m_generalreports.create
+call super::create
+this.text = "&General Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_generalreports.destroy
+call super::destroy
+end on
+
+type m_feesreports from menu within m_reports
+end type
+
+event clicked;OpenSheet(w_civil_fees_rpt, w_main, 0, Layered!)
+end event
+
+on m_feesreports.create
+call super::create
+this.text = "&Fees Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_feesreports.destroy
+call super::destroy
+end on
+
+type m_servicereports from menu within m_reports
+end type
+
+event clicked;OpenSheet(w_civil_service_rpt, w_main, 0, Layered!)
+end event
+
+on m_servicereports.create
+call super::create
+this.text = "&Service Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_servicereports.destroy
+call super::destroy
+end on
+
+type m_-12 from menu within m_reports
+end type
+
+on m_-12.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-12.destroy
+call super::destroy
+end on
+
+type m_receiptreports from menu within m_reports
+end type
+
+event clicked;OpenSheet(w_civil_receipt_rpt, w_main, 0, Layered!)
+end event
+
+on m_receiptreports.create
+call super::create
+this.text = "&Receipt Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_receiptreports.destroy
+call super::destroy
+end on
+
+type m_postingreports from menu within m_reports
+end type
+
+event clicked;OpenSheet(w_civil_posting_rpt, w_main, 0, Layered!)
+end event
+
+on m_postingreports.create
+call super::create
+this.text = "&Posting Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_postingreports.destroy
+call super::destroy
+end on
+
+type m_disbursementreports from menu within m_reports
+end type
+
+event clicked;OpenSheet(w_civil_disbursement_rpt, w_main, 0, Layered!)
+end event
+
+on m_disbursementreports.create
+call super::create
+this.text = "&Disbursement Reports..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_disbursementreports.destroy
+call super::destroy
+end on
+
+type m_inquiry from menu within m_main
+m_inquiredockets m_inquiredockets
+end type
+
+on m_inquiry.create
+call super::create
+this.text = "Inquiry"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_inquiredockets=create m_inquiredockets
+this.Item[UpperBound(this.Item)+1]=this.m_inquiredockets
+end on
+
+on m_inquiry.destroy
+call super::destroy
+destroy(this.m_inquiredockets)
+end on
+
+type m_inquiredockets from menu within m_inquiry
+end type
+
+on m_inquiredockets.create
+call super::create
+this.text = "&Dockets...~tF9"
+this.shortcut = 120
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;
+OpenSheet(w_inquire_docket_sheet, w_main, 0, Layered!)
+end event
+
+on m_inquiredockets.destroy
+call super::destroy
+end on
+
+type m_general from menu within m_main
+m_search m_search
+m_clear m_clear
+m_-24 m_-24
+m_new m_new
+m_add m_add
+m_update m_update
+m_delete m_delete
+m_escape m_escape
+m_save m_save
+m_-25 m_-25
+m_printlist m_printlist
+m_printdetail m_printdetail
+m_-31 m_-31
+m_first m_first
+m_back m_back
+m_next m_next
+m_last m_last
+m_-26 m_-26
+m_exit1 m_exit1
+end type
+
+on m_general.create
+call super::create
+this.text = "&General"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_search=create m_search
+this.m_clear=create m_clear
+this.m_-24=create m_-24
+this.m_new=create m_new
+this.m_add=create m_add
+this.m_update=create m_update
+this.m_delete=create m_delete
+this.m_escape=create m_escape
+this.m_save=create m_save
+this.m_-25=create m_-25
+this.m_printlist=create m_printlist
+this.m_printdetail=create m_printdetail
+this.m_-31=create m_-31
+this.m_first=create m_first
+this.m_back=create m_back
+this.m_next=create m_next
+this.m_last=create m_last
+this.m_-26=create m_-26
+this.m_exit1=create m_exit1
+this.Item[UpperBound(this.Item)+1]=this.m_search
+this.Item[UpperBound(this.Item)+1]=this.m_clear
+this.Item[UpperBound(this.Item)+1]=this.m_-24
+this.Item[UpperBound(this.Item)+1]=this.m_new
+this.Item[UpperBound(this.Item)+1]=this.m_add
+this.Item[UpperBound(this.Item)+1]=this.m_update
+this.Item[UpperBound(this.Item)+1]=this.m_delete
+this.Item[UpperBound(this.Item)+1]=this.m_escape
+this.Item[UpperBound(this.Item)+1]=this.m_save
+this.Item[UpperBound(this.Item)+1]=this.m_-25
+this.Item[UpperBound(this.Item)+1]=this.m_printlist
+this.Item[UpperBound(this.Item)+1]=this.m_printdetail
+this.Item[UpperBound(this.Item)+1]=this.m_-31
+this.Item[UpperBound(this.Item)+1]=this.m_first
+this.Item[UpperBound(this.Item)+1]=this.m_back
+this.Item[UpperBound(this.Item)+1]=this.m_next
+this.Item[UpperBound(this.Item)+1]=this.m_last
+this.Item[UpperBound(this.Item)+1]=this.m_-26
+this.Item[UpperBound(this.Item)+1]=this.m_exit1
+end on
+
+on m_general.destroy
+call super::destroy
+destroy(this.m_search)
+destroy(this.m_clear)
+destroy(this.m_-24)
+destroy(this.m_new)
+destroy(this.m_add)
+destroy(this.m_update)
+destroy(this.m_delete)
+destroy(this.m_escape)
+destroy(this.m_save)
+destroy(this.m_-25)
+destroy(this.m_printlist)
+destroy(this.m_printdetail)
+destroy(this.m_-31)
+destroy(this.m_first)
+destroy(this.m_back)
+destroy(this.m_next)
+destroy(this.m_last)
+destroy(this.m_-26)
+destroy(this.m_exit1)
+end on
+
+type m_search from menu within m_general
+end type
+
+on m_search.create
+call super::create
+this.text = "Search"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_search")
+end event
+
+on m_search.destroy
+call super::destroy
+end on
+
+type m_clear from menu within m_general
+end type
+
+on m_clear.create
+call super::create
+this.text = "Clear"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_clear")
+end event
+
+on m_clear.destroy
+call super::destroy
+end on
+
+type m_-24 from menu within m_general
+end type
+
+on m_-24.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-24.destroy
+call super::destroy
+end on
+
+type m_new from menu within m_general
+end type
+
+on m_new.create
+call super::create
+this.text = "New"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_new")
+end event
+
+on m_new.destroy
+call super::destroy
+end on
+
+type m_add from menu within m_general
+end type
+
+on m_add.create
+call super::create
+this.text = "Add"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_add")
+
+end event
+
+on m_add.destroy
+call super::destroy
+end on
+
+type m_update from menu within m_general
+end type
+
+on m_update.create
+call super::create
+this.text = "Update"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_update")
+end event
+
+on m_update.destroy
+call super::destroy
+end on
+
+type m_delete from menu within m_general
+end type
+
+on m_delete.create
+call super::create
+this.text = "Delete"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_delete")
+end event
+
+on m_delete.destroy
+call super::destroy
+end on
+
+type m_escape from menu within m_general
+end type
+
+on m_escape.create
+call super::create
+this.text = "Escape"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_escape.destroy
+call super::destroy
+end on
+
+type m_save from menu within m_general
+end type
+
+on m_save.create
+call super::create
+this.text = "Save~tF2"
+this.enabled = false
+this.shortcut = 113
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_save")
+end event
+
+on m_save.destroy
+call super::destroy
+end on
+
+type m_-25 from menu within m_general
+end type
+
+on m_-25.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-25.destroy
+call super::destroy
+end on
+
+type m_printlist from menu within m_general
+end type
+
+on m_printlist.create
+call super::create
+this.text = "Print List"
+this.toolbaritembarindex = 0
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = ParentWindow.GetActiveSheet()
+
+If IsValid(lw_window) Then lw_window.PostEvent("ue_print_list")
+end event
+
+on m_printlist.destroy
+call super::destroy
+end on
+
+type m_printdetail from menu within m_general
+end type
+
+on m_printdetail.create
+call super::create
+this.text = "Print Detail"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = ParentWindow.GetActiveSheet()
+
+If IsValid(lw_window) Then lw_window.PostEvent("ue_print_detail")
+end event
+
+on m_printdetail.destroy
+call super::destroy
+end on
+
+type m_-31 from menu within m_general
+end type
+
+on m_-31.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-31.destroy
+call super::destroy
+end on
+
+type m_first from menu within m_general
+end type
+
+on m_first.create
+call super::create
+this.text = "First"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_first")
+end event
+
+on m_first.destroy
+call super::destroy
+end on
+
+type m_back from menu within m_general
+end type
+
+on m_back.create
+call super::create
+this.text = "Back"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_back")
+end event
+
+on m_back.destroy
+call super::destroy
+end on
+
+type m_next from menu within m_general
+end type
+
+on m_next.create
+call super::create
+this.text = "Next"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_next")
+end event
+
+on m_next.destroy
+call super::destroy
+end on
+
+type m_last from menu within m_general
+end type
+
+on m_last.create
+call super::create
+this.text = "Last"
+this.enabled = false
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_last")
+end event
+
+on m_last.destroy
+call super::destroy
+end on
+
+type m_-26 from menu within m_general
+end type
+
+on m_-26.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-26.destroy
+call super::destroy
+end on
+
+type m_exit1 from menu within m_general
+end type
+
+on m_exit1.create
+call super::create
+this.text = "Exit~tCtrl+X"
+this.shortcut = 344
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+event clicked;window lw_window
+
+lw_window = parentwindow.getactivesheet()
+
+if isvalid(lw_window) then lw_window.postevent("ue_exit")
+end event
+
+on m_exit1.destroy
+call super::destroy
+end on
+
+type m_window from menu within m_main
+m_vertical m_vertical
+m_horizontal m_horizontal
+m_layer m_layer
+m_cascade m_cascade
+m_-2 m_-2
+m_arrangeicons m_arrangeicons
+m_-3 m_-3
+m_toolbars m_toolbars
+end type
+
+on m_window.create
+call super::create
+this.text = "&Window"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_vertical=create m_vertical
+this.m_horizontal=create m_horizontal
+this.m_layer=create m_layer
+this.m_cascade=create m_cascade
+this.m_-2=create m_-2
+this.m_arrangeicons=create m_arrangeicons
+this.m_-3=create m_-3
+this.m_toolbars=create m_toolbars
+this.Item[UpperBound(this.Item)+1]=this.m_vertical
+this.Item[UpperBound(this.Item)+1]=this.m_horizontal
+this.Item[UpperBound(this.Item)+1]=this.m_layer
+this.Item[UpperBound(this.Item)+1]=this.m_cascade
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_arrangeicons
+this.Item[UpperBound(this.Item)+1]=this.m_-3
+this.Item[UpperBound(this.Item)+1]=this.m_toolbars
+end on
+
+on m_window.destroy
+call super::destroy
+destroy(this.m_vertical)
+destroy(this.m_horizontal)
+destroy(this.m_layer)
+destroy(this.m_cascade)
+destroy(this.m_-2)
+destroy(this.m_arrangeicons)
+destroy(this.m_-3)
+destroy(this.m_toolbars)
+end on
+
+type m_vertical from menu within m_window
+end type
+
+on m_vertical.create
+call super::create
+this.text = "&Vertical"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_vertical.destroy
+call super::destroy
+end on
+
+type m_horizontal from menu within m_window
+end type
+
+on m_horizontal.create
+call super::create
+this.text = "&Horizontal"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_horizontal.destroy
+call super::destroy
+end on
+
+type m_layer from menu within m_window
+end type
+
+on m_layer.create
+call super::create
+this.text = "&Layer"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_layer.destroy
+call super::destroy
+end on
+
+type m_cascade from menu within m_window
+end type
+
+on m_cascade.create
+call super::create
+this.text = "&Cascade"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cascade.destroy
+call super::destroy
+end on
+
+type m_-2 from menu within m_window
+end type
+
+on m_-2.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_arrangeicons from menu within m_window
+end type
+
+on m_arrangeicons.create
+call super::create
+this.text = "Arrange &Icons"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_arrangeicons.destroy
+call super::destroy
+end on
+
+type m_-3 from menu within m_window
+end type
+
+on m_-3.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-3.destroy
+call super::destroy
+end on
+
+type m_toolbars from menu within m_window
+end type
+
+on m_toolbars.create
+call super::create
+this.text = "Tool&bars..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_toolbars.destroy
+call super::destroy
+end on
+
+type m_help from menu within m_main
+m_about m_about
+end type
+
+on m_help.create
+call super::create
+this.text = "&Help"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_about=create m_about
+this.Item[UpperBound(this.Item)+1]=this.m_about
+end on
+
+on m_help.destroy
+call super::destroy
+destroy(this.m_about)
+end on
+
+type m_about from menu within m_help
+end type
+
+event clicked;open(w_new_about)
+end event
+
+on m_about.create
+call super::create
+this.text = "&About..."
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_about.destroy
+call super::destroy
+end on
+

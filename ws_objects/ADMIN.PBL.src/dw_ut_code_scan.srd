@@ -1,0 +1,30 @@
+﻿$PBExportHeader$dw_ut_code_scan.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes name=code dbname="ut_codes.code" )
+ column=(type=char(75) update=yes updatewhereclause=yes name=description dbname="ut_codes.description" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=code_type dbname="ut_codes.code_type" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=code_year dbname="ut_codes.code_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=code_no dbname="ut_codes.code_no" )
+ column=(type=char(1) updatewhereclause=yes name=disbursed_type dbname="ut_codes.disbursed_type" )
+ retrieve="  SELECT ut_codes.code,   
+         ut_codes.description,   
+         ut_codes.code_type,   
+         ut_codes.code_year,   
+         ut_codes.code_no,   
+         ut_codes.disbursed_type  
+    FROM ut_codes  
+   WHERE ut_codes.code_type = :achcodetype   
+ORDER BY ut_codes.code ASC   
+" update="ut_codes" updatewhere=1 updatekeyinplace=no arguments=(("achcodetype", string)) )
+text(band=header alignment="0" text="Description"border="0" color="0" x="508" y="10" height="58" width="413"  name=description_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="150" y="4" height="74" width="322" format="[general]"  name=code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Code"border="0" color="0" x="150" y="10" height="58" width="241"  name=code_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="508" y="4" height="74" width="1492" format="[general]"  name=description edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Disb Type"border="0" color="0" x="2052" y="10" height="58" width="329"  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=0 border="0" color="0" x="2052" y="4" height="74" width="329"  name=disbursed_type  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

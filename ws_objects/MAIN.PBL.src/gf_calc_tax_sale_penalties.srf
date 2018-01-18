@@ -1,0 +1,95 @@
+﻿$PBExportHeader$gf_calc_tax_sale_penalties.srf
+global type gf_calc_tax_sale_penalties from function_object
+end type
+
+forward prototypes
+global function decimal gf_calc_tax_sale_penalties (date dtoverridedate, decimal dprincipal, date dtdelinqdate, decimal dreceiptnum)
+end prototypes
+
+global function decimal gf_calc_tax_sale_penalties (date dtoverridedate, decimal dprincipal, date dtdelinqdate, decimal dreceiptnum);long s_iCount, s_iInterestMonth, s_lDaysBetween
+decimal {2} s_dPenalty
+date s_dtCalcDate
+date s_dtDelinqDate, s_dtCurrDelinqDate
+integer s_iDay, s_iReceiptCount, s_iCurrMonth, s_iCurrYear, s_iCurrDay
+datetime s_dtCurrDelinqDateTime
+
+s_iDay = Day(dtDelinqDate)
+
+s_iCurrMonth = Month(g_dtToday)
+s_iCurrYear = Year(g_dtToday)
+
+s_iCurrDay = 0
+SELECT interest_date INTO :s_dtCurrDelinqDateTime
+	FROM tre_constants_interest
+	WHERE MONTH(interest_date) = :s_iCurrMonth
+	AND YEAR(interest_date) = :s_iCurrYear;	
+s_dtCurrDelinqDate = Date(s_dtCurrDelinqDateTime)		
+s_iCurrDay = Day(s_dtCurrDelinqDate)	
+If IsNull(s_iCurrDay) Then s_iCurrDay = 1
+
+SELECT COUNT(*) INTO :s_iReceiptCount
+	FROM tre_batch_transaction_detail
+	WHERE tre_batch_transaction_detail.receipt_number = :dReceiptNum
+	AND tre_batch_transaction_detail.receipt_date = :dtDelinqDate;
+
+//messagebox("s_iDay",s_iDay)	
+//messagebox("s_iCurrDay",s_iCurrDay)	
+//messagebox("s_iReceiptCount",s_iReceiptCount)	
+
+If s_iDay = s_iCurrDay And s_iReceiptCount > 0 Then
+	s_dtDelinqDate = dtDelinqDate	
+Else
+	s_dtDelinqDate = RelativeDate(dtDelinqDate,-1)
+End If
+
+// Months of interest calculated from override day until today
+s_iInterestMonth = 0
+//messagebox("func over",String(dtDelinqdate))
+//messagebox("today",String(g_dttoday))
+s_lDaysBetween = DaysAfter(s_dtDelinqDate, dtOverrideDate)
+//messagebox("days", s_lDaysBetween)
+For s_iCount = 1 To s_lDaysBetween
+
+	s_dtCalcDate = RelativeDate(s_dtDelinqDate,s_iCount)
+/*	
+	s_iCurrMonth = Month(g_dtToday)
+	s_iCurrYear = Year(g_dtToday)
+
+	s_iCurrDay = 0
+	SELECT interest_date INTO :s_dtCurrDelinqDateTime
+		FROM tre_constants_interest
+		WHERE MONTH(interest_date) = :s_iCurrMonth
+		AND YEAR(interest_date) = :s_iCurrYear;	
+	s_dtCurrDelinqDate = Date(s_dtCurrDelinqDateTime)		
+	s_iCurrDay = Day(s_dtCurrDelinqDate)	
+	If IsNull(s_iCurrDay) Then s_iCurrDay = 1
+*/
+//	If Day(s_dtCalcDate) = 1 Then
+	If Day(s_dtCalcDate) = s_iCurrDay Then
+		s_iInterestMonth ++
+	End If
+Next
+/*
+// Added 9/23/06
+s_iCurrMonth = Month(g_dtToday)
+s_iCurrYear = Year(g_dtToday)
+
+SELECT interest_date INTO :s_dtCurrDelinqDateTime
+	FROM tre_constants_interest
+	WHERE MONTH(interest_date) = :s_iCurrMonth
+	AND YEAR(interest_date) = :s_iCurrYear;
+s_dtCurrDelinqDate = Date(s_dtCurrDelinqDateTime)
+If g_dtToday >= Date(s_iCurrYear, s_iCurrMonth,1) And g_dtToday < s_dtCurrDelinqDate Then 
+	s_iInterestMonth --
+End If
+// End Add
+*/
+//messagebox("dPrincipal",dPrincipal)
+//messagebox("m",s_iinterestmonth)
+s_dPenalty = 0
+s_dPenalty = Round(dPrincipal * s_iInterestMonth * .02,0)
+If (s_dPenalty = 0 And s_iInterestMonth >= 1 And dPrincipal > 0) Then s_dPenalty = 1
+//messagebox("s_dPenalty",s_dPenalty)
+Return(s_dPenalty)
+end function
+

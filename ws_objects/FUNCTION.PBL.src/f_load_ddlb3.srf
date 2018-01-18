@@ -1,0 +1,44 @@
+﻿$PBExportHeader$f_load_ddlb3.srf
+global type f_load_ddlb3 from function_object
+end type
+
+forward prototypes
+global function integer f_load_ddlb3 (ref dropdownlistbox ddlb_to_load, ref string achdatacol, ref string achdesc2col, ref string achdesccol, ref string achtable, ref transaction trtransaction)
+end prototypes
+
+global function integer f_load_ddlb3 (ref dropdownlistbox ddlb_to_load, ref string achdatacol, ref string achdesc2col, ref string achdesccol, ref string achtable, ref transaction trtransaction);// script variables
+string s_achSQL, s_achData, s_achDesc, s_achDesc2
+
+s_achSQL = "SELECT ~"" + achDataCol + "~", ~"" + achDescCol + "~", ~"" + achDesc2Col + "~"" + " FROM ~"" + achTable + "~""
+
+DECLARE load_csr DYNAMIC CURSOR FOR SQLSA;
+PREPARE SQLSA FROM :s_achSQL USING trTransaction;
+
+OPEN DYNAMIC load_csr;
+If trTransaction.SQLCode = -1 Then
+	MessageBox("System Error", trTransaction.SQLErrText)
+	Return(-1)
+End If
+
+FETCH load_csr INTO :s_achData, :s_achDesc, :s_achDesc2;
+
+Do While trTransaction.SQLCode = 0
+
+	// add item to list box and get next record
+	ddlb_to_load.AddItem(s_achData + Fill(" ", 10 - Len(s_achData)) + s_achDesc2 + " " + s_achDesc)
+	FETCH load_csr INTO :s_achData, :s_achDesc, :s_achDesc2;
+
+Loop
+
+// check why we fell out of loop
+If trTransaction.SQLCode = -1 Then
+	MessageBox("System Error", trTransaction.SQLErrText)
+	Return(-1)
+Else
+	CLOSE load_csr;
+	ddlb_to_load.InsertItem("", 1)
+	Return 0
+End If
+
+end function
+

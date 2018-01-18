@@ -1,0 +1,14 @@
+﻿$PBExportHeader$dw_serve_personnel_detail.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=12632256 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=224 color="536870912" )
+table(column=(type=char(80) update=yes updatewhereclause=yes key=yes name=officer_name dbname="sh_serve_personnel.officer_name" )
+ retrieve="  SELECT sh_serve_personnel.officer_name  
+    FROM sh_serve_personnel  
+   WHERE sh_serve_personnel.officer_name = :achName    
+" update="sh_serve_personnel" updatewhere=1 updatekeyinplace=no arguments=(("achName", string)) )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="464" y="74" height="67" width="1836" format="[general]"  name=officer_name edit.limit=80 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="12632256" )
+text(band=detail alignment="1" text="Server Name:"border="0" color="0" x="29" y="80" height="58" width="421"  name=last_name_t  font.face="Arial" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

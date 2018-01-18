@@ -1,0 +1,52 @@
+﻿$PBExportHeader$dw_create_check_book_ds.srd
+release 6;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=70 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long update=yes updatewhereclause=yes key=yes name=docket_year dbname="sh_docket_reconcile.docket_year" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=period dbname="sh_docket_reconcile.period" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=beg_bank_balance dbname="sh_docket_reconcile.beg_bank_balance" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=receipts dbname="sh_docket_reconcile.receipts" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=cleared_warrants dbname="sh_docket_reconcile.cleared_warrants" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=end_bank_balance dbname="sh_docket_reconcile.end_bank_balance" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=outstanding_warrants dbname="sh_docket_reconcile.outstanding_warrants" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=unwarranted dbname="sh_docket_reconcile.unwarranted" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sheriff_balance dbname="sh_docket_reconcile.sheriff_balance" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=closed dbname="sh_docket_reconcile.closed" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=current_warrants dbname="sh_docket_reconcile.current_warrants" )
+ retrieve="  SELECT sh_docket_reconcile.docket_year,   
+         sh_docket_reconcile.period,   
+         sh_docket_reconcile.beg_bank_balance,   
+         sh_docket_reconcile.receipts,   
+         sh_docket_reconcile.cleared_warrants,   
+         sh_docket_reconcile.end_bank_balance,   
+         sh_docket_reconcile.outstanding_warrants,   
+         sh_docket_reconcile.unwarranted,   
+         sh_docket_reconcile.sheriff_balance,   
+         sh_docket_reconcile.closed,   
+         sh_docket_reconcile.current_warrants  
+    FROM sh_docket_reconcile   
+" update="sh_docket_reconcile" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Docket Year"border="0" color="0" x="4" y="3" height="64" width="351"  name=docket_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Period"border="0" color="0" x="358" y="3" height="64" width="351"  name=period_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Beg Bank Balance"border="0" color="0" x="713" y="3" height="64" width="494"  name=beg_bank_balance_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Receipts"border="0" color="0" x="1211" y="3" height="64" width="351"  name=receipts_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cleared Warrants"border="0" color="0" x="1565" y="3" height="64" width="475"  name=cleared_warrants_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="End Bank Balance"border="0" color="0" x="2044" y="3" height="64" width="497"  name=end_bank_balance_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Outstanding Warrants"border="0" color="0" x="2545" y="3" height="64" width="578"  name=outstanding_warrants_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Unwarranted"border="0" color="0" x="3131" y="3" height="64" width="351"  name=unwarranted_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sheriff Balance"border="0" color="0" x="3485" y="3" height="64" width="413"  name=sheriff_balance_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="0" color="0" x="4" y="4" height="74" width="351" format="[general]"  name=docket_year edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="0" color="0" x="358" y="4" height="74" width="351" format="[general]"  name=period edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="0" color="0" x="713" y="4" height="74" width="351" format="[general]"  name=beg_bank_balance edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="1211" y="4" height="74" width="351" format="[general]"  name=receipts edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="0" color="0" x="1565" y="4" height="74" width="351" format="[general]"  name=cleared_warrants edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="0" color="0" x="2044" y="4" height="74" width="351" format="[general]"  name=end_bank_balance edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=70 border="0" color="0" x="2545" y="4" height="74" width="351" format="[general]"  name=outstanding_warrants edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=80 border="0" color="0" x="3131" y="4" height="74" width="351" format="[general]"  name=unwarranted edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=90 border="0" color="0" x="3485" y="4" height="74" width="351" format="[general]"  name=sheriff_balance edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="3899" y="0" height="64" width="29"  name=closed  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=0 border="0" color="0" x="3928" y="0" height="64" width="1247"  name=current_warrants  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" cellpadding="0" cellspacing="0" generatecss="no" nowrap="yes")

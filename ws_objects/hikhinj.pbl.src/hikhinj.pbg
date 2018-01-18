@@ -1,0 +1,7 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "hikhinj.pbl" "";
+@end;
+@begin Objects 
+ "hikhinj.sra" "hikhinj.pbl";
+@end;
